@@ -7,12 +7,11 @@ import Col from 'react-bootstrap/Col';
 const HotelCard = ({hotel}) => {
 
   return (
-    <div>
-    <Row className="justify-content-center">
-      <Col xs={4}>
-        <Card style={{ width: '18rem' }}>
-          <Card.Img variant="top" src="holder.js/100px180" />
-          <Card.Body>
+    <Row className="hotel-card justify-content-center" id={`card-${hotel.id}`}>
+      <Col>
+        <Card style={{ width: '300px' }}>
+          <Card.Img variant="top" src="https://via.placeholder.com/150" />
+          <Card.Body className="card-details">
             <Card.Title>{hotel.name}</Card.Title>
               <p>Bedrooms: {hotel.bedrooms}</p>
               <p>Bathrooms: {hotel.bathrooms}</p>
@@ -23,7 +22,6 @@ const HotelCard = ({hotel}) => {
       </Col>
     </Row>
       
-    </div>
   )
 }
 

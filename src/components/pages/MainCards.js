@@ -36,7 +36,7 @@ const MainCards = () => {
           <Card style={{ width: '100%', textAlign: "center" }}>
             <Card.Img variant="top" src={imgs[0]} style={imageStyle} />
             <Card.Body>
-              <Card.Title style={marginTop50}>Card Title</Card.Title>
+              <Card.Title style={marginTop50}>Trust</Card.Title>
               <Card.Text>
                 Some quick example text to build on the card title and make up the bulk of
                 the card's content.

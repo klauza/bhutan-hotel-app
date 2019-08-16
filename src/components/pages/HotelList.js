@@ -22,9 +22,20 @@ const HotelList = () => {
         <button onClick={prevImage} disabled={hotel.id === 0}>prev</button>
         <button onClick={nextImage} disabled={hotel.id === data.hotels.length-1}>next</button>
       </div>
-      <HotelCard hotel={hotel}/>  
+
+      <div className="gradient-opacity">
+        <div className={`cards-slider active-slide-${hotel.id}`}>
+          <div className="cards-slider-wrapper" style={{"transform": `translateX(-${hotel.id*(100/data.hotels.length)}%)`}}>
+            {
+            data.hotels.map(hotel =>  <HotelCard key={hotel.id} hotel={hotel}/> )
+            }
+          </div>
+        </div>
+      </div>
+      
     </Fragment>
   )
 }
+
 
 export default HotelList
