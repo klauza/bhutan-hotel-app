@@ -1,8 +1,8 @@
 import React, {Fragment} from 'react';
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
-import './App.css';
+import './App.scss';
 
-import Wrapper from './components/layout/Wrapper';
+// import Wrapper from './components/layout/Wrapper';
 import Navigation from './components/layout/Navigation';
 import Footer from './components/layout/Footer';
 import NotFound from './components/layout/NotFound';
@@ -14,7 +14,6 @@ import About from './components/pages/About';
 function App() {
   return (
     <Fragment>
-      <Wrapper>
         <Router>
           <div className="App">
             <Navigation />
@@ -29,7 +28,6 @@ function App() {
           </div>
         </Router>
         <Footer />
-      </Wrapper>
     </Fragment>
   );
 }

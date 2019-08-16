@@ -23,9 +23,9 @@ const Main = () => {
           </strong></p>
         </Container>
       </Jumbotron>
-      
-      <MainCards />
-
+      <Container>
+        <MainCards />
+      </Container>
     </Fragment>
   )
 }
