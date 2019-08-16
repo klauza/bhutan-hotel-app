@@ -4,6 +4,7 @@ import './App.css';
 
 import Wrapper from './components/layout/Wrapper';
 import Navigation from './components/layout/Navigation';
+import Footer from './components/layout/Footer';
 import NotFound from './components/layout/NotFound';
 
 import Main from './components/pages/Main';
@@ -27,6 +28,7 @@ function App() {
 
           </div>
         </Router>
+        <Footer />
       </Wrapper>
     </Fragment>
   );

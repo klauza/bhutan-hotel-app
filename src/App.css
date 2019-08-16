@@ -5,4 +5,12 @@ body{
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
   "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
   sans-serif;
+  overflow-y: scroll;
+
+}
+
+.App{
+  display: flex;
+  flex-direction: column;
+  min-height: calc(100vh - 50px);
 }
