@@ -10,7 +10,8 @@ import NotFound from './components/layout/NotFound';
 import Main from './components/pages/Main';
 import Hotels from './components/pages/Hotels';
 import HotelDetails from './components/pages/Hotels-children/HotelDetails';
-import About from './components/pages/About';
+import Contact from './components/pages/Contact';
+import Guides from './components/pages/Guides';
 
 function App() {
   return (
@@ -22,8 +23,10 @@ function App() {
             <Switch>
               <Route exact path="/" component={Main} />
               <Route path="/hotel-list" component={Hotels} />
-              <Route path="/about" component={About} />
+              <Route path="/contact" component={Contact} />
               <Route path='/hotel/:id' component={HotelDetails} />
+              <Route path='/guides' component={Guides} />
+
               <Route component={NotFound} />
             </Switch>
 

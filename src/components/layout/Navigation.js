@@ -33,7 +33,8 @@ const Navigation = () => {
               <Nav className="ml-auto">
                 <LinkContainer to="/"><Nav.Item>Home </Nav.Item></LinkContainer>
                 <LinkContainer to="/hotel-list"><Nav.Item>Hotels </Nav.Item></LinkContainer>
-                <LinkContainer to="/about"><Nav.Item>About</Nav.Item></LinkContainer> 
+                <LinkContainer to="/contact"><Nav.Item>Contact</Nav.Item></LinkContainer> 
+                <LinkContainer to="/guides"><Nav.Item>Guides</Nav.Item></LinkContainer> 
               </Nav>
             </Navbar.Collapse>
           </Container>
