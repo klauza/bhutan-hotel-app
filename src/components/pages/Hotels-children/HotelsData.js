@@ -16,7 +16,8 @@ const data = {
       "img": [
         "https://images.pexels.com/photos/2120010/pexels-photo-2120010.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260", 
         "https://images.pexels.com/photos/2395250/pexels-photo-2395250.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260", 
-        "https://images.pexels.com/photos/2773655/pexels-photo-2773655.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
+        "https://images.pexels.com/photos/2773655/pexels-photo-2773655.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
+        "https://images.pexels.com/photos/872520/pexels-photo-872520.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
       ],
       "price": "1200",
       "bedrooms": "2",

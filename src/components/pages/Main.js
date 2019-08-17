@@ -2,8 +2,8 @@ import React, {Fragment} from 'react';
 
 import Jumbotron from 'react-bootstrap/Jumbotron';
 import Container from 'react-bootstrap/Container';
-import MainCarrousel from './MainCarrousel';
-import MainCards from './MainCards';
+import MainCarrousel from './Main-children/MainCarrousel';
+import MainCards from './Main-children/MainCards';
 
 const Main = () => {
   return (

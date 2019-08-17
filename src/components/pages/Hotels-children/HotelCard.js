@@ -1,12 +1,10 @@
 import React, {Fragment, useState} from 'react';
+import {Link} from 'react-router-dom';
 import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-// import data from './HotelsData';
-// import Container from 'react-bootstrap/Container';
 import HotelImage from './HotelImage';
-// import uuid from 'uuid';
 
 
 const HotelCard = ({hotel}) => {
@@ -28,6 +26,7 @@ const HotelCard = ({hotel}) => {
   return (
 
     <Fragment>
+    <div className="gradient-opacity">
     <Row className="hotel-card justify-content-center" id={`card-${hotel.id}`} style={margins}>
       <Col className="d-flex justify-content-center">
         <Card style={{ width: '300px' }}>
@@ -47,7 +46,17 @@ const HotelCard = ({hotel}) => {
               <p>Bedrooms: {hotel.bedrooms}</p>
               <p>Bathrooms: {hotel.bathrooms}</p>
               <p>Price: {hotel.price}</p>
-            <Button variant="primary">Check hotel</Button>
+            
+              
+
+              <Link to={{
+                pathname: `/hotel/${hotel.id}`,
+                state: {hotel}
+                }} >
+                <Button variant="primary" >Check hotel</Button>
+              </Link>
+              
+           
             <div>
               <button onClick={prevImage} disabled={hotel.img.indexOf(image) === 0}>prev</button>
               <button onClick={nextImage} disabled={hotel.img.indexOf(image) === hotel.img.length-1}>next</button>
@@ -58,12 +67,13 @@ const HotelCard = ({hotel}) => {
         
       </Col>
     </Row>
+    </div> 
 
 
       </Fragment>
   )
 }
 const margins = {
-  "margin": "200px 0px"
+  "margin": "50px 0px"
 }
 export default HotelCard

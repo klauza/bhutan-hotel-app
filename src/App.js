@@ -8,7 +8,8 @@ import Footer from './components/layout/Footer';
 import NotFound from './components/layout/NotFound';
 
 import Main from './components/pages/Main';
-import HotelList from './components/pages/HotelList';
+import Hotels from './components/pages/Hotels';
+import HotelDetails from './components/pages/Hotels-children/HotelDetails';
 import About from './components/pages/About';
 
 function App() {
@@ -20,8 +21,9 @@ function App() {
 
             <Switch>
               <Route exact path="/" component={Main} />
-              <Route path="/hotel-list" component={HotelList} />
+              <Route path="/hotel-list" component={Hotels} />
               <Route path="/about" component={About} />
+              <Route path='/hotel/:id' component={HotelDetails} />
               <Route component={NotFound} />
             </Switch>
 

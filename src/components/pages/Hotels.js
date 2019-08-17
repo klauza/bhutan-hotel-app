@@ -1,8 +1,8 @@
 import React, {Fragment} from 'react'
-import data from './HotelsData';
-import HotelCard from './HotelCard';
+import data from './Hotels-children/HotelsData';
+import HotelCard from './Hotels-children/HotelCard';
 
-const HotelList = () => {
+const Hotels = () => {
 
   // const [hotel, setHotel] = useState(data.hotels[0]);
 
@@ -11,15 +11,15 @@ const HotelList = () => {
   return (
     <Fragment>
     
-      <div className="gradient-opacity">
+      
         {
           data.hotels.map(hotel =>  <HotelCard key={hotel.id} hotel={hotel}/> )
         }
-      </div> 
+     
       
     </Fragment>
   )
 }
 
 
-export default HotelList
+export default Hotels
