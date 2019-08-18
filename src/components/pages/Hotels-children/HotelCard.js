@@ -42,25 +42,39 @@ const HotelCard = ({hotel}) => {
             </div>
       
           <Card.Body className="card-details" style={{"zIndex": "3"}}>
-            <Card.Title>{hotel.name}</Card.Title>
-              <p>Bedrooms: {hotel.bedrooms}</p>
-              <p>Bathrooms: {hotel.bathrooms}</p>
-              <p>Price: {hotel.price}</p>
-            
-              
+            {/* <div className="card-details__container"> */}
 
-              <Link to={{
-                pathname: `/hotel/${hotel.id}`,
-                state: {hotel}
-                }} >
-                <Button variant="primary" >Check hotel</Button>
-              </Link>
+              <div className="card-details__left">
+                {hotel.extras.map(extra => <p> {extra}</p> )}
+                
+              </div>
+
+              <div className="card-details__middle">
+                <div>
+                  <button onClick={prevImage} disabled={hotel.img.indexOf(image) === 0}>prev</button>
+                  <button onClick={nextImage} disabled={hotel.img.indexOf(image) === hotel.img.length-1}>next</button>
+                </div>
+                
+                <Card.Title>{hotel.name}</Card.Title>
+                <Link to={{
+                  pathname: `/hotel/${hotel.id}`,
+                  state: {hotel}
+                  }} >
+                  <Button variant="primary" >Check hotel</Button>
+                </Link>
+              </div>
+
+              <div className="card-details__right">
+                <div>
+                  <p>Bedrooms: {hotel.bedrooms}</p>
+                  <p>Bathrooms: {hotel.bathrooms}</p>
+                  <p>Price: {hotel.price}</p>
+                </div>
+              </div>
+
+            {/* </div> */}
+
               
-           
-            <div>
-              <button onClick={prevImage} disabled={hotel.img.indexOf(image) === 0}>prev</button>
-              <button onClick={nextImage} disabled={hotel.img.indexOf(image) === hotel.img.length-1}>next</button>
-            </div>
           </Card.Body>
          
         </Card>
@@ -68,7 +82,7 @@ const HotelCard = ({hotel}) => {
       </Col>
     </Row>
     </div> 
-
+                  <hr/>
 
       </Fragment>
   )

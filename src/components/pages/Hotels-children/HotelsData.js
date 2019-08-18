@@ -8,7 +8,8 @@ const data = {
       "img": [hotel1_1, hotel1_2, hotel1_3],
       "price": "1000",
       "bedrooms": "1",
-      "bathrooms": "1"
+      "bathrooms": "1",
+      "extras": ["sauna", "balcony"]
     },
     {
       "id": 1,
@@ -21,7 +22,8 @@ const data = {
       ],
       "price": "1200",
       "bedrooms": "2",
-      "bathrooms": "1"
+      "bathrooms": "1",
+      "extras": ["double-bathroom"]
     },
     {
       "id": 2,
@@ -33,7 +35,8 @@ const data = {
       ],
       "price": "1300",
       "bedrooms": "3",
-      "bathrooms": "2"
+      "bathrooms": "2",
+      "extras": ["sauna"]
     },
     {
       "id": 3,
@@ -45,7 +48,8 @@ const data = {
       ],
       "price": "1700",
       "bedrooms": "4",
-      "bathrooms": "1"
+      "bathrooms": "1",
+      "extras": ["minimalistic interior", "a lot of flora"]
     },
     {
       "id": 4,
@@ -57,7 +61,8 @@ const data = {
       ],
       "price": "1700",
       "bedrooms": "4",
-      "bathrooms": "1"
+      "bathrooms": "1",
+      "extras": ["sauna", "balcony"]
     },
     {
       "id": 5,
@@ -69,7 +74,8 @@ const data = {
       ],
       "price": "2200",
       "bedrooms": "5",
-      "bathrooms": "2"
+      "bathrooms": "2",
+      "extras": ["sauna", "balcony"]
     },
     {
       "id": 6,
@@ -81,7 +87,8 @@ const data = {
       ],
       "price": "1200",
       "bedrooms": "2",
-      "bathrooms": "2"
+      "bathrooms": "2",
+      "extras": ["sauna", "balcony"]
     }
   ]
 }

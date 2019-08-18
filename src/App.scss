@@ -19,6 +19,15 @@ body{
   min-height: calc(100vh - 50px);
 }
 
+.line-beneath:after{
+  content:'';
+  background: rgb(0, 0, 0);
+  width: 50%;
+  height: 3px;
+  border: 0; border-radius: 35px;
+  margin: 20px auto 20px;
+  display: block;
+}
 
 .cards-slider-wrapper {
   display: flex;
@@ -48,21 +57,66 @@ $i: 0;
 .card-details{
   // margin-top: 160px;
   position: relative;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width:100%;
+
+ 
+  &__middle{
+    display: flex;
+    justify-items: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  
+  &__left{
+    text-align: right;
+    position: absolute;
+    top: 0; left: -5px;
+    transform: translateX(-160px);
+    // transform-origin: top right;
+    display: flex;
+    flex-direction: column;
+    p{ position: relative; width: 150px; }
+    p:after{
+      content: '';
+      width: 5px; height: 5px;
+      background: black;
+      position: absolute;
+      top: 50%; right: -10px;
+      transform: translateY(-50%);
+      border: 0; border-radius: 50%;
+    }
+  }
+
+  &__right{
+    position: absolute;
+    top: 0; 
+    right: -100px;
+    p{
+      position: relative;
+      left: 10px;
+      &:before{
+        content: '';
+        width: 5px; height: 5px;
+        background: black;
+        position: absolute;
+        top: 50%; left: -10px;
+        transform: translateY(-50%);
+        border: 0; border-radius: 50%;
+      }
+    }
+  }
 }
+
+
 .cards-slider{
   position: relative;
   max-width: 300px;
   margin: 0 auto;
 
-  // &:after{
-  //   content: '';
-  //   display: block;
-  //   width: 300px;
-  //   height: 100%;
-  //   outline: 5px solid black;
-  //   position: absolute;
-  //   top: 0; left: 0;
-  // }
 
   img{
     width: 100%;
@@ -70,10 +124,6 @@ $i: 0;
     object-fit: cover;
   }
 }
-
-
-
-
 
 .gradient-opacity{
   height: 100%;
@@ -86,6 +136,7 @@ $i: 0;
     position: absolute;
     top: 0; 
     z-index: 2;
+    @media(max-width:767px){ display: none; }
   }
   &:before{
     left: 0;
@@ -96,4 +147,5 @@ $i: 0;
     right: 0;
     background: linear-gradient(to left, rgba(255, 255, 255, 1) 35%, rgba(255, 255, 255, 0) 100%);
   }
+  
 }
