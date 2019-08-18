@@ -1,16 +1,25 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import Col from 'react-bootstrap/Col';
 import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
 
 
-const GuideList = ({guide}) => {
-  console.log(guide);
+const GuideList = ({guide, id}) => {
+  
+
+  useEffect(() => {
+    
+    let person = document.querySelector('.person-'+id);
+    let delay = id*65;
+    person.style.transition = `all 300ms ease ${delay}ms`;
+    person.style.opacity = `1`;
+    person.style.transform = `translateY(0px)`;
+  })
   
   return (
    
 
-    <Col xs={6} md={4} style={{"marginTop": "75px"}}>
+    <Col className={`person-guide person-${id}`} xs={6} md={4} style={{"marginTop": "75px"}}>
         <Card style={{ width: '100%', textAlign: "center" }}>
           <Card.Img variant="top" src={guide.img} style={imageStyle} />
           <Card.Body>

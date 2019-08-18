@@ -61,7 +61,7 @@ const Guides = () => {
       <p className="text-center">Rent a guide and let him lead your adventure to a higher level of exploration.</p>
       <p className="text-center">Our guides have huge knowledge of locale events and awesome views.</p>
       <Row style={{"margin": "50px 0px"}}>
-        {guides.map(guide => <GuideList guide={guide} /> )}
+        {guides.map((guide, id) => <GuideList id={id} key={id} guide={guide} /> )}
       </Row>
     </Container>
   )
