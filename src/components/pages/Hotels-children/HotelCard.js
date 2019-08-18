@@ -45,14 +45,14 @@ const HotelCard = ({hotel}) => {
             {/* <div className="card-details__container"> */}
 
               <div className="card-details__left">
-                {hotel.extras.map(extra => <p> {extra}</p> )}
+                {hotel.extras.map((extra, id) => <p key={id}> {extra}</p> )}
                 
               </div>
 
               <div className="card-details__middle">
-                <div>
-                  <button onClick={prevImage} disabled={hotel.img.indexOf(image) === 0}>prev</button>
-                  <button onClick={nextImage} disabled={hotel.img.indexOf(image) === hotel.img.length-1}>next</button>
+                <div className="indicator-container">
+                  <button className="indicator-btn indicator-left" onClick={prevImage} disabled={hotel.img.indexOf(image) === 0}><i className="fa fa-angle-left" style={Object.assign({},arrowFont, arrowFontLeft)}></i></button>
+                  <button className="indicator-btn indicator-right" onClick={nextImage} disabled={hotel.img.indexOf(image) === hotel.img.length-1}><i className="fa fa-angle-right" style={Object.assign({}, arrowFont, arrowFontRight)}></i></button>
                 </div>
                 
                 <Card.Title>{hotel.name}</Card.Title>
@@ -89,5 +89,16 @@ const HotelCard = ({hotel}) => {
 }
 const margins = {
   "margin": "50px 0px"
+}
+const arrowFont = {
+  "width": "100%",
+  "textAlign": "center",
+  "fontSize": "2.2em"
+}
+const arrowFontLeft = {
+  "textIndent":"-4px"
+}
+const arrowFontRight = {
+  "textIndent":"0.5px"
 }
 export default HotelCard

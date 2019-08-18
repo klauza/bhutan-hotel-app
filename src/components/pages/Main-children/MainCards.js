@@ -24,9 +24,9 @@ const MainCards = () => {
   const marginTop75={
     "marginTop": "75px"
   }
-  const marginTop150={
-    "marginTop": "150px"
-  }
+  // const marginTop150={
+  //   "marginTop": "150px"
+  // }
 
   return (
     <Fragment>

@@ -111,6 +111,35 @@ $i: 0;
   }
 }
 
+.indicator-container{
+  display: flex;
+  justify-content: space-between;
+  width: 150px;
+  margin-top:-43px;
+  margin-bottom: 35px;
+}
+.indicator-btn{
+  border-radius: 50%;
+  border: 2px solid blue;
+  width: 40px;
+  height: 40px;
+  &:active{
+   border: 2px solid black;
+   outline: 0;
+  }
+  &:focus{
+    outline: 0;
+  }
+}
+
+.indicator-left{
+
+}
+
+.indicator-right{
+  
+}
+
 
 .cards-slider{
   position: relative;
@@ -155,3 +184,4 @@ $i: 0;
   opacity: 0;
   transform: translateY(150px);
 }
+
