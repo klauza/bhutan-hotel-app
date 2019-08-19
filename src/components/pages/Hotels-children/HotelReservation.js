@@ -1,23 +1,39 @@
-import React from 'react'
+import React from 'react';
+
+import { createBrowserHistory } from 'history';
+const history = createBrowserHistory();
+
 
 const HotelReservation = (props) => {
  
   try{
-    var { hotel } = props.location.state;
+    var { thisHotel } = props.location.state;
   } catch(err){
     console.log(err);
   }
+
+  const goBackFunction = () => {
+    history.goBack();
+  }
+  const goHome = () => {
+    history.push('/hotel-list')
+    window.location.reload(true);
+  }
   
-  if(hotel){
+  if(thisHotel ){
     return (
       <div>
         MAP <br/>
         hotel reservation page <br/>
-        You are going to make a reservation on {hotel.name}
+        You are going to make a reservation on {thisHotel.name}
+        <button onClick={goBackFunction}>Back</button>
       </div>
     )
   } else {
-    return ( <div>No hotel chosen</div>)
+    return ( <div>
+      <p>No hotel chosen</p>
+      <button onClick={goHome}>Back to hotel list</button>
+      </div>)
   }
 }
 

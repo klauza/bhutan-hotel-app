@@ -1,7 +1,6 @@
 import React, {Fragment} from 'react'
 import data from './Hotels-children/HotelsData';
 import HotelCard from './Hotels-children/HotelCard';
-import DropdownButton from 'react-bootstrap/DropdownButton'
 
 const Hotels = () => {
 
