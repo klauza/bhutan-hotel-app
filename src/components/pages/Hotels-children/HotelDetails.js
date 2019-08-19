@@ -1,5 +1,6 @@
 import React from 'react';
 import Button from 'react-bootstrap/Button';
+import {Link} from 'react-router-dom';
 
 const HotelDetails = (props) => {
   const { hotel } = props.location.state
@@ -10,7 +11,15 @@ const HotelDetails = (props) => {
       HOTEL DETAILS HERE
       hotel nr: {hotel.id}
       
-      <Button variant="primary" >Make a reservation</Button>
+
+      <Link to={{
+        pathname: `/reservation`,
+        state: {hotel}
+        }} >
+        <Button variant="primary" >Make a reservation</Button>
+      </Link>
+
+      
     </div>
   )
 }
