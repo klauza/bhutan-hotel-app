@@ -55,12 +55,13 @@ const Hotels = ({sort: {hotels, sortType, sortOrder}, loadHotels, sortByType, so
     let sortKey = event;
     setSelectedOption(event);
     
-    const sortedCollection = orderBy(collection, [sortKey], [selectedOrder]);  // Sort collection  
-    
-    setCollection(sortedCollection);  //Update component state with new data
-    
-    // setSortParams({direction: sortDirection});  //Update component state with new data
-    
+    if(selectedOrder !== "default"){
+      const sortedCollection = orderBy(collection, [sortKey], [selectedOrder]);  // Sort collection  
+      
+      setCollection(sortedCollection);  //Update component state with new data
+      
+      // setSortParams({direction: sortDirection});  //Update component state with new data
+    }
   }
 
   const handleOrder = (event) => {
@@ -71,9 +72,10 @@ const Hotels = ({sort: {hotels, sortType, sortOrder}, loadHotels, sortByType, so
     
     const sortDirection = event;
 
-
-    const sortedCollection = orderBy(collection, [selectedOption], [sortDirection]);  // Sort collection 
-    setCollection(sortedCollection);  //Update component state with new data
+    if(selectedOption !== "default"){
+      const sortedCollection = orderBy(collection, [selectedOption], [sortDirection]);  // Sort collection 
+      setCollection(sortedCollection);  //Update component state with new data
+    }
   }
 
 
