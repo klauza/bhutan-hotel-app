@@ -6,7 +6,7 @@ import guidesData from './GuideData';
 
 const GuideDetails = (props) => {
   const [thisGuide, setThisGuide] = useState(null)
-  const [loader, setLoader] = useState(false);
+  // const [loader, setLoader] = useState(false);
 
   useEffect(() =>{
     try{
@@ -17,14 +17,13 @@ const GuideDetails = (props) => {
     }
     
     if(!guide){
+      // if page entered from outer source, get guide from url as text and find him in local array
       const guideId = props.match.params.name;
       let name = guideId.replace(/-/i, ' ');
       
-      guidesData.forEach(guide => {
-        guide.name.toLowerCase() === name ? setThisGuide(guide) : setLoader(true);
-      });
-    
+      guidesData.find(guide => guide.name.toLowerCase() === name && setThisGuide(guide));
     }
+
   });
   if(thisGuide){
   return (
