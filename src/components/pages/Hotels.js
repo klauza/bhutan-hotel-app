@@ -1,18 +1,56 @@
-import React, {Fragment, useState} from 'react'
-import data from './Hotels-children/HotelsData';
+import React, {Fragment, useState, useEffect} from 'react'
+// import data from './Hotels-children/HotelsData';
 import HotelCard from './Hotels-children/HotelCard';
 import { orderBy } from "lodash";
+import {loadHotels, sortByType, sortByOrder} from '../../actions/sortingActions';
 
-const Hotels = () => {
+import {connect} from 'react-redux';
+
+const Hotels = ({sort: {hotels, sortType, sortOrder}, loadHotels, sortByType, sortByOrder}) => {
 
   // const [hotel, setHotel] = useState(data.hotels[0]);
-  const [collection, setCollection] = useState(data.hotels);
+  const [collection, setCollection] = useState(null);
   const [sortParams, setSortParams] = useState({direction: undefined});
+
   const [selectedOption, setSelectedOption] = useState("default");
-  const [selectedOrder, setSelectedOrder] = useState("asc");
+  const [selectedOrder, setSelectedOrder] = useState("default");
+
   
+  useEffect(() => {
+    async function loadHotelSDOM(){
+      await loadHotels();
+      await setSelectedOrder(sortOrder);
+      await setSelectedOption(sortType);
+      await setCollection(hotels);
+      await sortOnPageInit();
+    }
+
+    loadHotelSDOM();
+
+    if(sortType){
+
+    }
+
+    
+
+    
+
+  }, [hotels])
+
+  const sortOnPageInit = () => {
+    if(sortType === "default" || sortOrder === "default"){
+      return
+    } 
+
+    const sortedCollection = orderBy(hotels, [sortType], [sortOrder]);  // Sort collection  
+    
+    setCollection(sortedCollection);  //Update component state with new data
+    console.log(sortedCollection);
+  }
 
   const handleColumnHeaderClick = (event) => {
+    sortByType(event);
+
     document.querySelector('.blockDefault').disabled = true;
     let sortKey = event;
     setSelectedOption(event);
@@ -26,47 +64,54 @@ const Hotels = () => {
   }
 
   const handleOrder = (event) => {
+    sortByOrder(event);
     
     setSelectedOrder(event);
-
-    // const sortDirection = sortParams.direction === "desc" ? "asc" : "desc";  // Check, what direction now should be
+    
+    
     const sortDirection = event;
 
 
     const sortedCollection = orderBy(collection, [selectedOption], [sortDirection]);  // Sort collection 
     setCollection(sortedCollection);  //Update component state with new data
-  
   }
 
-  return (
-    <Fragment>
-      <div style={searchBar}>
-        Search by: 
-        <select value={selectedOption} onChange={e => handleColumnHeaderClick(e.target.value)}>
-          <option className="blockDefault" value="default">Sort by</option>
-          <option value="price">Price</option>
-          <option value="bedrooms">Bedrooms</option>
-          <option value="bathrooms">Bathrooms</option>
-        </select>
 
-        Order
-        <select value={selectedOrder} onChange={e => handleOrder(e.target.value)}>
-          <option disabled>Order</option>
-          <option value="asc">Ascending</option>
-          <option value="desc">Descending</option>
-        </select>
-      </div>
+
+
+  if(collection){
+    return (
+      <Fragment>
+        <div style={searchBar}>
+          Search by: 
+          <select value={selectedOption} onChange={e => handleColumnHeaderClick(e.target.value)}>
+            <option disabled className="blockDefault" value="default">Sort by</option>
+            <option value="price">Price</option>
+            <option value="bedrooms">Bedrooms</option>
+            <option value="bathrooms">Bathrooms</option>
+          </select>
+
+          Order
+          <select value={selectedOrder} onChange={e => handleOrder(e.target.value)}>
+            <option disabled value="default">Order</option>
+            <option value="asc">Ascending</option>
+            <option value="desc">Descending</option>
+          </select>
+        </div>
+        
+        {
+          collection.map(hotel =>  <HotelCard key={hotel.id} hotel={hotel}/> )
+        }
       
-      {
-        collection.map(hotel =>  <HotelCard key={hotel.id} hotel={hotel}/> )
-      }
-     
-      
-    </Fragment>
-  )
+        
+      </Fragment>
+    )
+  } else{
+    return (<div>Loading</div>)
+  }
 }
 const searchBar = {
-  "position": "sticky",
+  "position": "relative",
   "top": "0",
   "width": "100%",
   "height": "56px",
@@ -74,4 +119,8 @@ const searchBar = {
   "zIndex": "33"
 }
 
-export default Hotels
+const mapStateToProps = state => ({
+  sort: state.sort
+})
+export default connect(mapStateToProps, {loadHotels, sortByType, sortByOrder})(Hotels)
+

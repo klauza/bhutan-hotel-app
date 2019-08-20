@@ -6,7 +6,7 @@ const data = {
       "id": 0,
       "name": "Luxurious hotel with sauna",
       "img": [hotel1_1, hotel1_2, hotel1_3],
-      "price": "1000",
+      "price": 1000,
       "bedrooms": "1",
       "bathrooms": "1",
       "extras": ["sauna", "balcony"]
@@ -20,7 +20,7 @@ const data = {
         "https://images.pexels.com/photos/2773655/pexels-photo-2773655.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
         "https://images.pexels.com/photos/872520/pexels-photo-872520.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
       ],
-      "price": "1200",
+      "price": 1200,
       "bedrooms": "2",
       "bathrooms": "1",
       "extras": ["double-bathroom"]
@@ -33,7 +33,7 @@ const data = {
         "https://images.pexels.com/photos/1093926/pexels-photo-1093926.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260", 
         "https://images.pexels.com/photos/2779677/pexels-photo-2779677.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
       ],
-      "price": "1300",
+      "price": 1300,
       "bedrooms": "3",
       "bathrooms": "2",
       "extras": ["sauna"]
@@ -46,7 +46,7 @@ const data = {
         "https://images.pexels.com/photos/2763188/pexels-photo-2763188.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260", 
         "https://images.pexels.com/photos/2750885/pexels-photo-2750885.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
       ],
-      "price": "1700",
+      "price": 1700,
       "bedrooms": "4",
       "bathrooms": "1",
       "extras": ["minimalistic interior", "a lot of flora"]
@@ -59,7 +59,7 @@ const data = {
          "https://images.pexels.com/photos/1998435/pexels-photo-1998435.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260", 
         "https://images.pexels.com/photos/2769657/pexels-photo-2769657.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
       ],
-      "price": "1700",
+      "price": 1700,
       "bedrooms": "4",
       "bathrooms": "1",
       "extras": ["sauna", "balcony"]
@@ -72,7 +72,7 @@ const data = {
         "https://images.pexels.com/photos/2781139/pexels-photo-2781139.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260", 
         "https://images.pexels.com/photos/938582/pexels-photo-938582.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
       ],
-      "price": "2200",
+      "price": 2200,
       "bedrooms": "5",
       "bathrooms": "2",
       "extras": ["sauna", "balcony"]
@@ -85,10 +85,22 @@ const data = {
         "https://images.pexels.com/photos/2787216/pexels-photo-2787216.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260", 
         "https://images.pexels.com/photos/2404444/pexels-photo-2404444.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
       ],
-      "price": "1200",
+      "price": 9200,
       "bedrooms": "2",
       "bathrooms": "2",
       "extras": ["sauna", "balcony"]
+    },
+    {
+      "id": 7,
+      "name": "Cave in center",
+      "img": [
+        "https://images.pexels.com/photos/279719/pexels-photo-279719.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
+        "https://images.pexels.com/photos/930004/pexels-photo-930004.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
+      ],
+      "price": 800,
+      "bedrooms": "1",
+      "bathrooms": "1",
+      "extras": ["nothing special"]
     }
   ]
 }
