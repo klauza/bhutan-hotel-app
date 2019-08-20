@@ -13,6 +13,7 @@ import HotelDetails from './components/pages/Hotels-children/HotelDetails';
 import HotelReservation from './components/pages/Hotels-children/HotelReservation';
 import Contact from './components/pages/Contact';
 import Guides from './components/pages/Guides';
+import GuideDetails from './components/pages/Guide-children/GuideDetails';
 
 function App() {
   return (
@@ -28,6 +29,7 @@ function App() {
               <Route path='/hotel/:id' component={HotelDetails} />
               <Route path='/reservation' component={HotelReservation} />
               <Route path='/guides' component={Guides} />
+              <Route path='/guide/:name' component={GuideDetails} />
 
               <Route component={NotFound} />
             </Switch>

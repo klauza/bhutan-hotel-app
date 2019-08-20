@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React, {useState, useEffect} from 'react';
 import Col from 'react-bootstrap/Col';
 import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
@@ -6,7 +6,7 @@ import {Link} from 'react-router-dom';
 
 
 const GuideList = ({guide, id}) => {
-  
+  const [guideName, setGuideName] = useState(null);
 
   useEffect(() => {
     
@@ -15,7 +15,13 @@ const GuideList = ({guide, id}) => {
     person.style.transition = `all 300ms ease ${delay}ms`;
     person.style.opacity = `1`;
     person.style.transform = `translateY(0px)`;
+
+    let name = guide.name;
+    let replaced = name.replace(/\s/g, '-');
+    replaced = replaced.toLowerCase();
+    setGuideName(replaced);
   })
+  
   
   return (
    
@@ -29,8 +35,9 @@ const GuideList = ({guide, id}) => {
               Experience: {guide.experience}
             </Card.Text>
             
-            <Link to={{
-              pathname: `/guide`,
+            <Link 
+            to={{
+              pathname: `/guide/${guideName}`,
               state: {guide}
               }} >
               <Button variant="primary">Details</Button>
@@ -41,7 +48,9 @@ const GuideList = ({guide, id}) => {
 
    
   )
-}
+ 
+  
+} 
 
 const imageStyle={
   "width": "100px",
