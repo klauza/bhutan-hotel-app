@@ -19,15 +19,7 @@ body{
   min-height: calc(100vh - 50px);
 }
 
-.line-beneath:after{
-  content:'';
-  background: rgb(0, 0, 0);
-  width: 50%;
-  height: 3px;
-  border: 0; border-radius: 35px;
-  margin: 20px auto 20px;
-  display: block;
-}
+
 
 .cards-slider-wrapper {
   display: flex;
