@@ -1,10 +1,98 @@
 import React, {Fragment, useState} from 'react';
 import {Link} from 'react-router-dom';
-import Card from 'react-bootstrap/Card';
-import Button from 'react-bootstrap/Button';
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
 import HotelImage from './HotelImage';
+import styled from 'styled-components';
+
+const Gradient = styled.div`
+  height: 100%;
+  position: relative;
+  &:before, &:after{
+    content: '';
+    display: block;
+    width: 50%; height: 100%;
+    position: absolute; top: 0; 
+    z-index: 2;
+    @media(max-width:767px){ display: none; }
+  }
+  &:before{
+    left: 0;
+    background: linear-gradient(to right, rgba(255, 255, 255, 1) 35%, rgba(255, 255, 255, 0) 100%);
+  }
+  &:after{
+    left: auto;
+    right: 0;
+    background: linear-gradient(to left, rgba(255, 255, 255, 1) 35%, rgba(255, 255, 255, 0) 100%);
+  }
+`;
+
+const Row = styled.div`
+  display: flex;
+  justify-content: center;
+  margin: 50px 0px;
+`;
+const Col = styled.div`
+  display: flex;
+  justify-content: center;
+`;
+const Card = styled.div`
+  width: 300px;
+`;
+const CardsSlider = styled.div`
+  position: relative;
+  max-width: 300px;
+  margin: 0 auto;
+  img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+`;
+
+const SliderWrapper = styled.div`
+  display: flex;
+  transition: transform 300ms cubic-bezier(0.455, 0.03, 0.515, 0.955);
+`;
+
+const CardsBody = styled.div`
+
+`;
+
+const Indicators = styled.div`
+  display: flex;
+  justify-content: space-between;
+  width: 150px;
+  margin-top:-23px;
+  margin-bottom: 35px;
+`;
+const Indicator = styled.button`
+  border-radius: 50%;
+  border: 2px solid blue;
+  width: 40px;
+  height: 40px;
+  box-shadow: 0px 0px 4px 1px rgba(0,0,0,0.75);
+  transition: box-shadow 200ms ease, border 200ms ease;
+  text-align: center;
+  font-size: 2.2em;
+  display: grid;
+  align-items: center;
+  &:active{
+   border: 2px solid black;
+   outline: 0;
+   box-shadow: 0px 0px 1px 0px rgba(0,0,0,0.75);
+   transition: box-shadow 200ms ease, border 200ms ease;
+  }
+  &:focus{
+    outline: 0;
+  }
+`;
+const IndicatorLeft = styled(Indicator)`
+  text-indent: -4px;
+`;
+const IndicatorRight = styled(Indicator)`
+  text-indent: 0.5px;
+`;
+
+// style-end
 
 
 const HotelCard = ({hotel}) => {
@@ -26,79 +114,69 @@ const HotelCard = ({hotel}) => {
   return (
 
     <Fragment>
-    <div className="gradient-opacity">
-    <Row className="hotel-card justify-content-center" id={`card-${hotel.id}`} style={margins}>
-      <Col className="d-flex justify-content-center">
-        <Card style={{ width: '300px' }}>
+      <Gradient>
+        
+      <Row id={`card-${hotel.id}`}>
+        <Col>
+          <Card>
 
-            <div className={`cards-slider active-slide-${hotel.img.indexOf(image)}`}>
-              <div className="cards-slider-wrapper" style={{"transform": `translateX(-${hotel.img.indexOf(image)*100}%)`}}>
+            <CardsSlider className={`active-slide-${hotel.img.indexOf(image)}`}>
+              <SliderWrapper className="" style={{"transform": `translateX(-${hotel.img.indexOf(image)*100}%)`}}>
               {
-                
                 hotel.img.map((img, index) => <HotelImage key={img.toString()} image={img} hotel={hotel} id={index}/>  )
               }
-
-              </div>
-            </div>
+              </SliderWrapper>
+            </CardsSlider>
       
-          <Card.Body className="card-details" style={{"zIndex": "3"}}>
-            {/* <div className="card-details__container"> */}
 
+            <CardsBody className="card-details" style={{"zIndex": "3"}}>
               <div className="card-details__left">
                 {hotel.extras.map((extra, id) => <p key={id}> {extra}</p> )}
-                
               </div>
 
-              <div className="card-details__middle">
-                <div className="indicator-container">
-                  <button className="indicator-btn indicator-left" onClick={prevImage} disabled={hotel.img.indexOf(image) === 0}><i className="fa fa-angle-left" style={Object.assign({},arrowFont, arrowFontLeft)}></i></button>
-                  <button className="indicator-btn indicator-right" onClick={nextImage} disabled={hotel.img.indexOf(image) === hotel.img.length-1}><i className="fa fa-angle-right" style={Object.assign({}, arrowFont, arrowFontRight)}></i></button>
+                <div className="card-details__middle">
+
+                  <Indicators>
+                    <IndicatorLeft onClick={prevImage} disabled={hotel.img.indexOf(image) === 0}><i className="fa fa-angle-left"></i></IndicatorLeft>
+                    <IndicatorRight onClick={nextImage} disabled={hotel.img.indexOf(image) === hotel.img.length-1}><i className="fa fa-angle-right"></i></IndicatorRight>
+                  </Indicators>
+                  
+                  <span>{hotel.name}</span>
+                  <Link to={{
+                    pathname: `/hotel/${hotel.id}`,
+                    state: {hotel}
+                    }} >
+                    <button>Check hotel</button>
+                  </Link>
                 </div>
-                
-                <Card.Title>{hotel.name}</Card.Title>
-                <Link to={{
-                  pathname: `/hotel/${hotel.id}`,
-                  state: {hotel}
-                  }} >
-                  <Button variant="primary" >Check hotel</Button>
-                </Link>
-              </div>
 
-              <div className="card-details__right">
-                <div>
-                  <p>Bedrooms: {hotel.bedrooms}</p>
-                  <p>Bathrooms: {hotel.bathrooms}</p>
-                  <p>Price: {hotel.price}</p>
+                <div className="card-details__right">
+                  <div>
+                    <p>Bedrooms: {hotel.bedrooms}</p>
+                    <p>Bathrooms: {hotel.bathrooms}</p>
+                    <p>Price: {hotel.price}</p>
+                  </div>
                 </div>
-              </div>
 
-            {/* </div> */}
+              {/* </div> */}
 
-              
-          </Card.Body>
-         
-        </Card>
-        
-      </Col>
-    </Row>
-    </div> 
-                  <hr/>
+                
+            </CardsBody>
+          
+          </Card>
+          
+        </Col>
+      </Row>
+      </Gradient> 
+      <hr/>
 
-      </Fragment>
+    </Fragment>
   )
 }
-const margins = {
-  "margin": "50px 0px"
-}
-const arrowFont = {
-  "width": "100%",
-  "textAlign": "center",
-  "fontSize": "2.2em"
-}
-const arrowFontLeft = {
-  "textIndent":"-4px"
-}
-const arrowFontRight = {
-  "textIndent":"0.5px"
-}
+
+
+
+
+
+
 export default HotelCard
