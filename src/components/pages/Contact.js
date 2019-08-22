@@ -1,6 +1,6 @@
 import React from 'react';
-import { Map, Marker, Popup, TileLayer } from 'react-leaflet';
 import styled from 'styled-components';
+import MapContact from './MapContact';
 
 // PAGE STYLES
 const Header = styled.h1`
@@ -15,14 +15,8 @@ const Paragraph = styled.p`
   margin: 15px auto;
 `;
 
-const Contact = () => {
 
-  const position = [51.505, -0.09];
-  const state = {
-    lat: 51.505,
-    lng: -0.09,
-    zoom: 13,
-  }
+const Contact = () => {
 
 
 
@@ -34,20 +28,10 @@ const Contact = () => {
       <div style={{display: "flex", minHeight: "500px"}}>
         <div style={{flex: "1", textAlign: "center"}}>
           <p style={{backgroundColor: "grey", margin: "0"}}>Trouble with finding our facility?</p>
-          <div className="map" style={{backgroundColor: "lightblue", height: "100%"}}>
+          <div className="map" style={{backgroundColor: "lightblue", height: "600px"}}>
 
-            <Map style={{height: "30vh"}} center={position} zoom={state.zoom}>
-            <TileLayer
-              attribution='&amp;copy <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-              url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-            />
-            <Marker position={position}>
-              <Popup>
-                A pretty CSS3 popup. <br /> Easily customizable.
-              </Popup>
-            </Marker>
-          </Map>
-
+            <MapContact/>
+          
           </div>
         </div>
         <div style={{flex: "1", textAlign: "center", alignSelf: "center"}}>
