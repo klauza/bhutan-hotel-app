@@ -3,7 +3,7 @@ import { LOAD_HOTELS, SET_SORT1, SET_SORT2 } from '../actions/types.js';
 const initialState = {
   hotels: null,
   sortType: "default",
-  sortOrder: "default"
+  sortOrder: "asc"
 }
 
 

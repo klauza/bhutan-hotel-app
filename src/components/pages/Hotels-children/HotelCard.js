@@ -35,6 +35,7 @@ const Col = styled.div`
   justify-content: center;
 `;
 const Card = styled.div`
+  border: 1px solid grey;
   width: 300px;
 `;
 const CardsSlider = styled.div`

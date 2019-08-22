@@ -93,3 +93,74 @@ $i: 0;
   transform: translateY(150px);
 }
 
+
+
+#order-asc,
+#order-desc{
+  &[type="radio"] {
+    opacity: 0;
+  }
+}
+
+
+
+.ascLabel,
+.descLabel{
+  position: relative;
+  top: 20px;
+  display: block;
+  // padding-left: 22px;/*16px width of fake checkbox + 6px distance between fake checkbox and text*/
+
+  &::before, &::after{
+    content:'';
+    position: absolute;
+    /*Needed for the line-height to take effect*/
+    display: block;
+  }
+}
+
+/*Outer box of the fake checkbox*/
+.descLabel::before,
+.ascLabel::before{
+  height: 32px;
+  width: 32px;
+  
+  border: 1px solid;
+  left: 50%; transform: translateX(-50%);
+  
+  /*(24px line-height - 16px height of fake checkbox) / 2 - 1px for the border
+   *to vertically center it.
+   */
+  top: -27px;
+}
+
+/*Checkmark of the fake checkbox*/
+.ascLabel::after,
+.descLabel:after {
+  content:"";
+  height: 10px;
+  width: 18px;
+  border-left: 2px solid;
+  border-bottom: 2px solid;
+  
+  transform: rotate(-45deg);
+  
+  left: 6px;
+  top: -18px;
+}
+
+/*Hide the checkmark by default*/
+#order-asc[type="radio"] + label::after,
+#order-desc[type="radio"] + label::after {
+  content: none;
+}
+/*Unhide on the checked state*/
+#order-asc[type="radio"]:checked + label::after,
+#order-desc[type="radio"]:checked + label::after {
+  content: "";
+}
+/*Adding focus styles on the outer-box of the fake checkbox*/
+#order-asc[type="radio"]:focus + label::before,
+#order-desc[type="radio"]:focus + label::before {
+  outline: rgb(59, 153, 252) auto 5px;
+}
