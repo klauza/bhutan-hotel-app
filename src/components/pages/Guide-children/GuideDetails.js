@@ -67,7 +67,7 @@ const GuideDetails = (props) => {
       guidesData.find(guide => guide.name.toLowerCase() === name && setThisGuide(guide));
     }
 
-  });
+  }, [props.location.state, props.match.params.name]);
   if(thisGuide){
   return (
 

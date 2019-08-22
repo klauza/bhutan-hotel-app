@@ -3,7 +3,7 @@ import React from 'react'
 const Footer = () => {
   return (
     <div style={footerContainer} >
-      <div className="d-flex justify-content-center h-100">
+      <div style={{textAlign: "center"}}>
         <p style={alignVertical}>footer</p>
       </div>
     </div>

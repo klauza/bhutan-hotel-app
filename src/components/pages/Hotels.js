@@ -13,7 +13,7 @@ const Hotels = ({sort: {hotels, sortType, sortOrder}, loadHotels, sortByType, so
 
   // const [hotel, setHotel] = useState(data.hotels[0]);
   const [collection, setCollection] = useState(null);
-  const [sortParams, setSortParams] = useState({direction: undefined});
+  // const [sortParams, setSortParams] = useState({direction: undefined});
 
   const [selectedOption, setSelectedOption] = useState("default");
   const [selectedOrder, setSelectedOrder] = useState("asc");
@@ -35,7 +35,7 @@ const Hotels = ({sort: {hotels, sortType, sortOrder}, loadHotels, sortByType, so
     // if(sortType){
 
     // }
-
+    //eslint-disable-next-line
   }, [hotels])
 
   const sortOnPageInit = () => {

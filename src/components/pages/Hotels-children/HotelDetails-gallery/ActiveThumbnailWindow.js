@@ -1,7 +1,7 @@
 import React from 'react'
 
 const ActiveThumbnailWindow = ({activeThumbnail}) => {
-  console.log(activeThumbnail);
+  
   return (
     <div style={styles}>
       <img src={activeThumbnail} alt="" style={{width: "100%", height: "100%", objectFit: "cover"}}/>

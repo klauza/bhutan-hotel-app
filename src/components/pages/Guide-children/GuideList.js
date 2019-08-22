@@ -60,7 +60,8 @@ const GuideList = ({guide, id}) => {
     let replaced = name.replace(/\s/g, '-');
     replaced = replaced.toLowerCase();
     setGuideName(replaced);
-  })
+    
+  }, [id, guide.name])
   
   const experienceStars =()=> {
     let output = [];

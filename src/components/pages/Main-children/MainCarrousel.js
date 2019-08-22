@@ -52,10 +52,5 @@ const MainCarrousel = () => {
   );
 }
 
-const imageAlign = {
-  "width:": "100%",
-  "height": "100%",
-  "objectFit": "cover"
-}
 
 export default MainCarrousel

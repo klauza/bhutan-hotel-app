@@ -58,7 +58,7 @@ const HotelDetails = (props) => {
       setThisHotel(hotelUrl);
       setReloadBtn(true)
     }
-  })
+  }, [thisHotel, props.match.params.id, props.location.state])
 
   // Buttons functions
   const goBackReload = () => {
