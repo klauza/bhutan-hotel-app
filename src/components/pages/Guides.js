@@ -1,6 +1,5 @@
 import React, {useState} from 'react'
 import GuideList from './Guide-children/GuideList';
-import Row from 'react-bootstrap/Row'
 import guidesData from './Guide-children/GuideData';
 import styled from 'styled-components';
 

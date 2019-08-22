@@ -1,20 +1,40 @@
 import React from 'react';
 import styled from 'styled-components';
-import { LinkContainer } from "react-router-bootstrap";
 import {Link} from 'react-router-dom';
-import {Nav, Navbar} from 'react-bootstrap';
-import {Container} from 'react-bootstrap';
 
-const Styles = styled.div`
-  .navbar{
-    width: 100%;
-    background-color: grey;
-  }
-  .nav-item{
-    color: #bbb;
-    margin: 0 10px;
+
+const Wrapper = styled.div`
+  width: 100%;
+  background-color: grey;
+`;
+const Container = styled.div`
+  width: 70%;
+  height: 56px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: auto 1fr auto auto auto auto;
+  align-items: center;
+`;
+const NavbarBrand = styled.div`
+  color: red;
+  height: 100%;
+    a{
+      display: inline-block;
+      line-height: 56px;
+      color: white;
+      text-decoration: none;
+    }
+`;
+const Nav = styled.div`
+  margin-left: auto;
+  height: 100%;
+  a{
+    display: inline-block;
+    line-height: 56px;
+    padding: 0px 10px;
+    color: black;
+    text-decoration: none;
     &:hover{
-      cursor: pointer;
       color: white;
     }
   }
@@ -23,24 +43,23 @@ const Styles = styled.div`
 const Navigation = () => {
   return (
     
-      <Styles>
-        <Navbar expand="lg">
-
+      <Wrapper>
+       
           <Container>
-            <Navbar.Brand><Link to="/">Home</Link></Navbar.Brand>
-            <Navbar.Toggle aria-controls="basic-navbar-bar" />
-            <Navbar.Collapse id="basic-navbar-nav">
-              <Nav className="ml-auto">
-                <LinkContainer to="/"><Nav.Item>Home </Nav.Item></LinkContainer>
-                <LinkContainer to="/hotel-list"><Nav.Item>Hotels </Nav.Item></LinkContainer>
-                <LinkContainer to="/contact"><Nav.Item>Contact</Nav.Item></LinkContainer> 
-                <LinkContainer to="/guides"><Nav.Item>Guides</Nav.Item></LinkContainer> 
+            <NavbarBrand><Link to="/">Home</Link></NavbarBrand>
+            {/* <NavbarToggle aria-controls="basic-navbar-bar" /> */}
+            {/* <NavbarHamburger id="basic-navbar-nav"> */}
+              <Nav>
+                <Link to="/">Home </Link>
+                <Link to="/hotel-list">Hotels </Link>
+                <Link to="/contact">Contact</Link> 
+                <Link to="/guides">Guides</Link> 
               </Nav>
-            </Navbar.Collapse>
+            {/* </NavbarHamburger> */}
           </Container>
 
-        </Navbar>
-      </Styles>
+     
+      </Wrapper>
     
   )
 }

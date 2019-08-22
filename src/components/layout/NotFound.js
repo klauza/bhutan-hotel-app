@@ -1,19 +1,43 @@
 import React from 'react';
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
-import Image from 'react-bootstrap/Image'
 import NotFoundImage from '../../media/not-found.png';
+import styled from 'styled-components';
 
+// STYLES
+const Wrapper = styled.div`
+  width: 70%;
+  margin: 0 auto;
+  @media(max-width: 768px){ width: 95%; }
+`;
+
+const Row = styled.div`
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  justify-content: center;
+  margin-top: 50px;
+`;
+const Col = styled.div`
+  width: 40%;
+  margin: 0 auto;
+`;
+const Image = styled.img`
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+`;
+// end-styles
 const NotFound = () => {
   return (
-    <div>
+
+    <Wrapper>
       <Row>
-        <Col xs={12} md={6} className="d-flex flex-column mx-auto justify-content-center mt-5">
-          <Image src={NotFoundImage} rounded className="col-5 d-block mx-auto"/>
-          <p className="text-center mt-3" style={{"fontSize":"2em", "fontWeight":"700"}}>Page not found</p>
+        <Col>
+          <Image src={NotFoundImage} />
+          <p style={{textAlign: "center", fontSize:"2em", fontWeight:"700"}}>Page not found</p>
         </Col>
       </Row>
-    </div>
+    </Wrapper>
+
   )
 }
 
