@@ -1,69 +1,99 @@
 import React, {useState, useEffect} from 'react';
-import Button from 'react-bootstrap/Button';
 import {Link} from 'react-router-dom';
 import { createBrowserHistory } from 'history';
 import data from './HotelsData';
+import ThumbnailGallery from './HotelDetails-gallery/ThumbnailGallery';
+import styled from 'styled-components';
 const history = createBrowserHistory();
+
+// STYLES
+const Wrapper = styled.div`
+  width: 70%; height: 100%;
+  margin: 0 auto;
+  border: 2px solid red;
+`;
+const Header = styled.h2`
+  width: 100%;
+  text-align: center;
+  &:after{
+    content:'';
+    display: block;
+    width: 100%; height: 5px;
+    background: purple;
+  }
+`;
+const Button = styled.button`
+  position: absolute;
+  right: 30px;
+  width: 60px; height: 60px;
+  border: 0; border-radius: 50%;
+  :active, :focus{outline: 0;}
+  :active{border: 1px solid red;}
+`;
+const ReservationButton = styled(Button)`
+  bottom: 140px; 
+  background: red;
+`;
+const BackButton = styled(Button)`
+  bottom: 80px;
+  background: darkcyan;
+`;
+// styles-end
 
 const HotelDetails = (props) => {
   const [thisHotel, setThisHotel] = useState(null)
   const [reloadBtn, setReloadBtn] = useState(false);
  
-
   useEffect(() =>{
     try{
       var { hotel } = props.location.state;
-      console.log(hotel);
       setThisHotel(hotel);
-    } catch(err){
-      console.log('error');
-     
+    } catch(err){ 
+      console.log('error'); 
     }
 
     if(!hotel){
       const hotelId = props.match.params.id;
       const hotelUrl = data.hotels[hotelId];
       setThisHotel(hotelUrl);
-      console.log('hotel from !hotel:', hotelUrl);
       setReloadBtn(true)
     }
-   
-
   })
+
+  // Buttons functions
   const goBackReload = () => {
     history.push('/hotel-list')
     window.location.reload(true);
   }
-
   const goBackFunction = () => {
     history.goBack();
-    // history.push('/hotel-list', { some: 'state' });
-    // history.go('/hotel-list')
   }
+
+
   if(thisHotel){
     return(
-      <div>
+      <Wrapper>
+        <Header>{thisHotel.name.toUpperCase()}</Header>
+
+        <ThumbnailGallery images={thisHotel.img} />
+
+
         <Link to={{
           pathname: `/reservation`,
           state: {thisHotel}
           }} >
-          <Button variant="primary" >Make a reservation</Button>
+          <ReservationButton>Make a reservation</ReservationButton>
         </Link>
-          
-        HOTEL DETAILS HERE
-        hotel nr: {thisHotel.name}
-        
         {reloadBtn 
           ? 
-          <span><strong><button onClick={goBackReload}>Back and reload</button></strong></span> 
-
+          <BackButton onClick={goBackReload}>Back</BackButton>
           : 
-          <button onClick={goBackFunction}>Back normal</button>
+          <BackButton onClick={goBackFunction}>Back</BackButton>
         }
-
         
-      </div>
+      </Wrapper>
     )
+
   } else {
     return(<div>Loading..... .</div>)
   }
