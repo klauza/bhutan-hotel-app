@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import MapContact from './MapContact';
-import Wrapper from '../layout/Wrapper';
+import { Wrapper } from '../layout/Elements';
 
 // PAGE STYLES
 const Header = styled.h1`
@@ -64,7 +64,7 @@ const Contact = () => {
         </Left>
 
         <Right>
-          <p>Need help immediately?</p>
+          <p>Need immediate help?</p>
           <p>Got a question?</p>
           <div><i className="fa fa-phone" style={{fontSize: "1.6rem"}}></i> <strong>02422515431</strong> - 24h open line</div>
         </Right>

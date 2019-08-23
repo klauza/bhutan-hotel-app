@@ -2,8 +2,8 @@ import React, {Fragment} from 'react';
 import MainCarrousel from './Main-children/MainCarrousel';
 import MainCards from './Main-children/MainCards';
 import styled from 'styled-components';
-import Wrapper from '../layout/Wrapper';
-import { logo1 } from '../../media/index';
+import { Wrapper } from '../layout/Elements';
+import { logo1, logo2 } from '../../media/index';
 
 const Sponsors = styled.div`
   width: 100%;
@@ -96,7 +96,7 @@ const Main = () => {
         <p>Sponsors</p>
         <SponsorsLogos>
           <img src={logo1} alt=""/>
-          <img src={logo1} alt=""/>
+          <img src={logo2} alt=""/>
         </SponsorsLogos>
       </Sponsors>
       

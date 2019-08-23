@@ -1,15 +1,18 @@
 import React, {useState, useEffect} from 'react';
 import {Link} from 'react-router-dom';
 import styled from 'styled-components';
+import { Button } from '../../layout/Elements';
 
 // STYLES
 const Col = styled.div`
   width: 100%;
   margin-top: 75px;
-  border: 0.5px solid #e6e6e6;
+  border: 1px solid lightgrey; border-radius: 3px;
   opacity: 0;
   transform: translateY(150px);
+  box-shadow: 0px 5px 6px -2px rgba(117,117,117,0.65);
 `;
+
 const Card = styled.div`
   width: 100%;
   text-align: center;
@@ -19,7 +22,9 @@ const CardImg = styled.img`
   width: 100px;
   height: 100px;
   object-fit: cover;
-  border: 0;
+  border-top: 1px solid lightgrey;
+  border-left: 1px solid lightgrey;
+  border-right: 1px solid lightgrey;
   border-radius: 50%;
   position: absolute;
   top: -50px; left: 50%; transform:translateX(-50%);
@@ -37,13 +42,13 @@ const CardText = styled.p`
    margin-bottom: -10px;
  }
 `;
-const Button = styled.button`
-  margin: 15px 0;
-  background: lightblue;
-  border: 1px solid black;
-  border-radius: 3px;
-  padding: 5px 10px;
-`;
+// const Button = styled.button`
+//   margin: 15px 0;
+//   background: lightblue;
+//   border: 1px solid black;
+//   border-radius: 3px;
+//   padding: 5px 10px;
+// `;
 // styles-end
 
 const GuideList = ({guide, id}) => {
