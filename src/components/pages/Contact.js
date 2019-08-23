@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import MapContact from './MapContact';
+import Wrapper from '../layout/Wrapper';
 
 // PAGE STYLES
 const Header = styled.h1`
@@ -10,38 +11,66 @@ const Header = styled.h1`
   font-weight: bold;
 `;
 const Paragraph = styled.p`
-  text-align: justify;
+  text-align: center;
   width: 50%;
-  margin: 15px auto;
+  margin: 50px auto;
+  font-style: italic; font-weight: 500;
 `;
-
+const FlexLayout = styled.div`
+  display: flex;
+  min-height: 500px;
+  @media(max-width: 768px){flex-direction: column; }
+`;
+const MapHeader = styled.p`
+  background: black;
+  color: white;
+  margin: 0;
+  padding: 5px 0;
+`;
+const Left = styled.div`
+  flex: 4;
+  text-align: center;
+  @media(max-width: 768px){order: 2;}
+`;
+const Right = styled.div`
+  flex: 2;
+  text-align: left;
+  align-self: center;
+  padding: 15px;
+  p{margin: 5px 0;}
+  @media(max-width: 768px){order: 1; text-align: center;}
+  
+`;
 
 const Contact = () => {
 
 
 
   return (
-    <div style={{width: "70%", margin: "50px auto"}}>
+    <Wrapper>
       <Header>CONTACT</Header>
-      <Paragraph>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Debitis dicta fuga architecto suscipit similique enim.. Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis aliquid mollitia numquam tempore facilis accusamus, necessitatibus nihil accusantium est. Praesentium.</Paragraph>
+      <Paragraph>We always help.</Paragraph>
       
-      <div style={{display: "flex", minHeight: "500px"}}>
-        <div style={{flex: "1", textAlign: "center"}}>
-          <p style={{backgroundColor: "grey", margin: "0"}}>Trouble with finding our facility?</p>
+      <FlexLayout>
+
+        <Left>
+          <MapHeader>Trouble with finding our facility?</MapHeader>
           <div className="map" style={{backgroundColor: "lightblue", height: "600px"}}>
 
             <MapContact/>
           
           </div>
-        </div>
-        <div style={{flex: "1", textAlign: "center", alignSelf: "center"}}>
+        </Left>
+
+        <Right>
           <p>Need help immediately?</p>
           <p>Got a question?</p>
-          <div>[tel icon] - 02422515431 - 24h green status</div>
-        </div>
-      </div>
+          <div><i className="fa fa-phone" style={{fontSize: "1.6rem"}}></i> <strong>02422515431</strong> - 24h monday-friday</div>
+        </Right>
 
-    </div>
+      </FlexLayout>
+
+    </Wrapper>
   )
 
 

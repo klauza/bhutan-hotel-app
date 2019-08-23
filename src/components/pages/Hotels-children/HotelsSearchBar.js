@@ -21,8 +21,49 @@ const Wrapper = styled.div`
 `;
 const Select = styled.select`
   height: 100%;
- 
 `;
+
+const Input = styled.input`
+  &[type="radio"] {
+    opacity: 0;
+  }
+  &[type="radio"] + label::after{
+    content: none;
+  }
+  &[type="radio"]:checked + label::after {
+    content: "";
+  }
+  &[type="radio"]:focus + label::before {
+    outline: rgb(59, 153, 252) auto 5px;
+  }
+`;
+
+const Label = styled.label`
+  position: relative;
+  top: 20px;
+  display: block;
+
+  &::before, &::after{
+    content:'';
+    position: absolute;
+    display: block;
+  }
+  &::before{
+    height: 32px; width: 32px;
+    border: 1px solid;
+    left: 50%; top: -27px;
+    transform: translateX(-50%);
+  }
+  &::after {
+    content:"";
+    height: 10px; width: 18px;
+    border-left: 2px solid; border-bottom: 2px solid;
+    top: -18px; left: 6px;
+    transform: rotate(-45deg);
+  }
+
+`;
+
 // end-styles
 
 const HotelsSearchBar = ({selectedOption, selectedOrder, handleColumnHeaderClick, handleOrder}) => {
@@ -37,20 +78,12 @@ const HotelsSearchBar = ({selectedOption, selectedOrder, handleColumnHeaderClick
           <option value="bathrooms">Bathrooms</option>
         </Select>
 
-       
-        
-          <input checked={selectedOrder==="asc" && "checked"} value="asc" type="radio" name="order" id="order-asc" onChange={e => handleOrder(e.target.value)}/>
-          <label className="ascLabel"  htmlFor="order-asc">ASC</label>
+          <Input checked={selectedOrder==="asc" && "checked"} value="asc" type="radio" name="order" id="order-asc" onChange={e => handleOrder(e.target.value)}/>
+          <Label htmlFor="order-asc">ASC</Label>
 
-        
-          <input checked={selectedOrder==="desc" && "checked"} value="desc" type="radio" name="order" id="order-desc" onChange={e => handleOrder(e.target.value)}/>
-          <label className="descLabel" htmlFor="order-desc">DSC</label>
+          <Input checked={selectedOrder==="desc" && "checked"} value="desc" type="radio" name="order" id="order-desc" onChange={e => handleOrder(e.target.value)}/>
+          <Label htmlFor="order-desc">DSC</Label>
 
-        {/* <select value={selectedOrder} onChange={e => handleOrder(e.target.value)}>
-          <option disabled value="default">Order</option>
-          <option value="asc">Ascending</option>
-          <option value="desc">Descending</option>
-        </select> */}
       </Wrapper>
     </SearchBar>
   )

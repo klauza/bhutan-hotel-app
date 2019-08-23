@@ -43,7 +43,7 @@ const guidesData = [
   },
   {
     "id": 8,
-    "name": "Sarah Casana",
+    "name": "Marie Gondor",
     "img": "https://images.pexels.com/photos/1382731/pexels-photo-1382731.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
     "experience": 5
   }

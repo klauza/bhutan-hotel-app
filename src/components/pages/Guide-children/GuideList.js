@@ -7,6 +7,8 @@ const Col = styled.div`
   width: 100%;
   margin-top: 75px;
   border: 0.5px solid #e6e6e6;
+  opacity: 0;
+  transform: translateY(150px);
 `;
 const Card = styled.div`
   width: 100%;

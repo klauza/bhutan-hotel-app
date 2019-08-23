@@ -10,9 +10,9 @@ const Footer = () => {
     } else {
       setUnblock(true);
     }
-
-    //eslint-disable-next-line
-  },[])
+  
+    
+  },[unblock])
   
   return (
     <div className="show-footer" style={footerContainer} >
