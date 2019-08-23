@@ -6,6 +6,7 @@ import {background1, background2, background3} from '../../../media/index';
 const Grid = styled.div`
   display: grid;
   grid-template-columns: repeat(3, 1fr);
+  grid-auto-rows: 1fr;
   @media(max-width: 998px){
     grid-template-columns: 1fr; 
   }
@@ -14,8 +15,8 @@ const Column = styled.div`
   margin: 35px 5px;
 `;
 const Card = styled.div`
-  border: 1px solid grey;
-  width: 100%; min-height: 200px;
+  border: 1px solid grey; border-radius: 3px;
+  width: 100%; height: 100%; min-height: 200px;
   display: flex; flex-direction: row;
   box-shadow: 0px 5px 6px -2px rgba(117,117,117,0.65);
 
@@ -31,6 +32,7 @@ const CardImg = styled.div`
     width: 125px;
     height: 125px;
     object-fit: cover;
+    display: block; margin: 0 auto;
     @media(max-width: 1471px){ display: block; margin: 0 auto; }
     @media(max-width: 998px){ display: unset; margin: 0; }
     @media(max-width: 768px){ width: 100px; height: 100px; }
@@ -40,10 +42,12 @@ const CardImg = styled.div`
   
 `;
 const CardBody = styled.div`
+background: rgba(255,255,255,0.5);
   flex: 3;
   text-align: center;
-  p:nth-child(1){ margin-top: 25px; }
-  p{ color: white; font-weight: 500; padding: 10px 15px; }
+  p:nth-child(1){ margin-top: 30px; font-size: 1.3em; font-weight: 700;}
+  p:nth-child(2){ padding: 10px 10px;}
+  p{ color: black; font-weight: 500; }
 `;
 
 // end-styles

@@ -3,7 +3,29 @@ import MainCarrousel from './Main-children/MainCarrousel';
 import MainCards from './Main-children/MainCards';
 import styled from 'styled-components';
 import Wrapper from '../layout/Wrapper';
+import { logo1 } from '../../media/index';
 
+const Sponsors = styled.div`
+  width: 100%;
+  height: auto;
+  background: lightgrey;
+  display: flex;
+  flex-direction: column;
+  p{
+    text-align: center;
+    letter-spacing: 3px;
+    font-weight: 700;
+    font-size: 1.5rem;
+    text-transform: uppercase;
+  }
+`;
+const SponsorsLogos = styled.div`
+width: auto;
+margin: 0 auto;
+  img{
+    width: 75px; height: 75px; object-fit: cover; 
+  }
+`;
 const Description = styled.div`
   margin: 100px 0;
   text-align: center;
@@ -11,6 +33,16 @@ const Description = styled.div`
   padding: 4rem 2rem;
   background-color: #e9ecef;
   display: block;
+  h1{
+    letter-spacing: 3px;
+    font-weight: 900;
+  }
+  p{
+    font-size: 1.1rem;
+  }
+  p:nth-child(2){
+    margin: 20px 0;
+  }
 `;
 const CarDiv = styled.div`
   display: flex;
@@ -60,18 +92,22 @@ const Main = () => {
     <Fragment>
       <MainCarrousel/>
 
+      <Sponsors>
+        <p>Sponsors</p>
+        <SponsorsLogos>
+          <img src={logo1} alt=""/>
+          <img src={logo1} alt=""/>
+        </SponsorsLogos>
+      </Sponsors>
+      
       <Description>
-        <div>
           <h1>By travellers for travellers</h1>
-          <p>
-          Once we were travellers too, just like you. Discovering new horizons, <br/>
-          broadening knowledge, meeting new interesting people. <br/>
-          </p>
-          <p><strong>
-          Now, we help you achieve even something bigger <br/>
-          We help you with finding answers and provide a needed comfort. 
-          </strong></p>
-        </div>
+
+          <p> Once we were travellers too, just like you. Discovering new horizons, <br/>
+          broadening knowledge, meeting new interesting people.</p>
+
+          <p><strong> Now, we help you achieve even something bigger <br/>
+          We help you with finding answers and provide a needed comfort.</strong></p>
       </Description>
 
       <Wrapper>

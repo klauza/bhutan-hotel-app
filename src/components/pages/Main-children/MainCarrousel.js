@@ -10,7 +10,7 @@ const Wrapper = styled.div`
   height: 50vh;
   border: 1px solid black;
   border-radius: 3px;
-  margin-bottom: 50px;
+  margin-bottom: 0px;
   li{
     div{
       height: 100%;
@@ -23,7 +23,21 @@ const Wrapper = styled.div`
     }
   }
 `;
-
+const CarrouselText = styled.p`
+  width: 60%; height: auto;
+  position: absolute;
+  bottom: 10%;
+  left: 50%; transform: translateX(-50%);
+  color: white;
+  font-size: 2em;
+  text-transform: uppercase;
+  background: linear-gradient(to right,
+    rgba(0,0,0,0) 0%,
+    rgba(0,0,0,0.5) 25%,
+    rgba(0,0,0,0.5) 75%,
+    rgba(0,0,0,0) 100%
+    );
+`;
 const MainCarrousel = () => {
 
   
@@ -32,8 +46,11 @@ const MainCarrousel = () => {
     "https://images.pexels.com/photos/1518500/pexels-photo-1518500.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260",
     "https://images.pexels.com/photos/678634/pexels-photo-678634.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
   ]
-
-
+  const text = [
+    "Beautiful cities",
+    "Amazing views",
+    "Legendary mythic places"
+  ]
 
 
   return (
@@ -44,6 +61,7 @@ const MainCarrousel = () => {
           return(
           <div key={i}>
             <img src={img} alt="" />
+            <CarrouselText>{text[i]}</CarrouselText>
           </div>)
         })}
       </Carousel>
