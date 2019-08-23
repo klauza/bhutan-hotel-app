@@ -2,6 +2,7 @@ import React, {Fragment} from 'react';
 import MainCarrousel from './Main-children/MainCarrousel';
 import MainCards from './Main-children/MainCards';
 import styled from 'styled-components';
+import Wrapper from '../layout/Wrapper';
 
 const Description = styled.div`
   margin: 100px 0;
@@ -10,18 +11,8 @@ const Description = styled.div`
   padding: 4rem 2rem;
   background-color: #e9ecef;
   display: block;
-  div{
-    
-  }
-`;
-
-const Wrapper = styled.div`
-  width: 70%;
-  margin: 0 auto;
 `;
 const CarDiv = styled.div`
-  width: 70%;
-  margin: 0 auto;
   display: flex;
   flex-direction: row;
   margin: 150px auto;
@@ -61,8 +52,9 @@ const CarButton = styled.button`
   padding: 10px;
   background: green;
   color: white;
-
 `;
+
+
 const Main = () => {
   return (
     <Fragment>
@@ -84,22 +76,20 @@ const Main = () => {
 
       <Wrapper>
         <MainCards />
+      
+        <CarDiv>
+            <CarDesc>
+              <CarTopDesc>Would you like to speed up your exploration?</CarTopDesc>
+              <CarTitle>Rent a car!</CarTitle>
+              <CarButton>Check deals</CarButton>
+            </CarDesc>
+
+            <CarImage>
+              <img className="img-fluid" src="https://images.pexels.com/photos/164634/pexels-photo-164634.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" alt=""/>
+            </CarImage>
+        </CarDiv>
+
       </Wrapper>
-
-      <CarDiv>
-        
-          <CarDesc>
-            <CarTopDesc>Would you like to speed up your exploration?</CarTopDesc>
-            <CarTitle>Rent a car!</CarTitle>
-            <CarButton>Check deals</CarButton>
-          </CarDesc>
-
-          <CarImage>
-            <img className="img-fluid" src="https://images.pexels.com/photos/164634/pexels-photo-164634.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" alt=""/>
-          </CarImage>
-       
-      </CarDiv>
-
     </Fragment>
   )
 }
