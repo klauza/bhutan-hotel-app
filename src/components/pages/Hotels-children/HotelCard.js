@@ -13,7 +13,7 @@ const Gradient = styled.div`
     width: 50%; height: 100%;
     position: absolute; top: 0; 
     z-index: 2;
-    @media(max-width:767px){ display: none; }
+    @media(max-width:768px){ display: none; }
   }
   &:before{
     left: 0;
@@ -36,12 +36,14 @@ const Col = styled.div`
 const Card = styled.div`
   width: 300px;
   border: 1px solid grey;
+  @media(max-width: 768px){ transform: scale(1); margin-bottom: 100px; }
 `;
 const CardsSlider = styled.div`
   position: relative;
-  max-width: 300px;
+  max-width: 100%;
   margin: 0 auto;
   img{ width: 100%; height: 100%; object-fit: cover; }
+  @media(max-width: 768px){ overflow: hidden; }
 `;
 
 const SliderWrapper = styled.div`
@@ -55,7 +57,7 @@ const CardsBody = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: center;
-  width:100%;
+  width: 100%;
   z-index: 3;
 `;
 const CardBodyLeft = styled.div`
@@ -68,6 +70,9 @@ const CardBodyLeft = styled.div`
   p{ position: relative; width: 50px; }
   p:hover{
     cursor: default;
+  }
+  @media(max-width: 768px){
+    top: 150%; left: 0;
   }
 `;
 const CardBodyMid = styled.div`
@@ -89,13 +94,16 @@ width: 100%;
 `;
 const CardBodyRight = styled.div`
   position: absolute;
-  top: 40%; right: -80px; transform: translateY(-50%);
+  top: 40%; right: -85px; transform: translateY(-50%);
   font-size: 1.5em;
   p{
     position: relative; left: 10px;
   }
   p:hover{
     cursor: default;
+  }
+  @media(max-width: 768px){
+    top: 150%; right: 15px;
   }
 `;
 
@@ -129,7 +137,6 @@ const IndicatorRight = styled(Indicator)`
   text-indent: 0.5px;
 `;
 // style-end
-
 
 
 const HotelCard = ({hotel}) => {
@@ -198,7 +205,7 @@ const HotelCard = ({hotel}) => {
                   <div>
                     <p><i className="fa fa-smile-o"></i> {hotel.rating}</p>
                     <br/>
-                    <p><i className="fa fa-money"></i>{hotel.price}</p>
+                    <p><i className="fa fa-money"></i><span style={{textIndent: "3px"}}> {hotel.price}</span></p>
                   </div>
                 </CardBodyRight>
 
