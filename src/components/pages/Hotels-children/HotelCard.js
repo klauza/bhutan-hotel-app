@@ -2,6 +2,7 @@ import React, {Fragment, useState, useEffect} from 'react';
 import {Link} from 'react-router-dom';
 import HotelImage from './HotelImage';
 import styled from 'styled-components';
+import { Button } from '../../layout/Elements';
 
 const Gradient = styled.div`
   height: 100%;
@@ -19,35 +20,28 @@ const Gradient = styled.div`
     background: linear-gradient(to right, rgba(255, 255, 255, 1) 35%, rgba(255, 255, 255, 0) 100%);
   }
   &:after{
-    left: auto;
-    right: 0;
+    left: auto; right: 0;
     background: linear-gradient(to left, rgba(255, 255, 255, 1) 35%, rgba(255, 255, 255, 0) 100%);
   }
 `;
 
 const Row = styled.div`
-  display: flex;
-  justify-content: center;
+  display: flex; justify-content: center;
   margin: 50px 0px;
   opacity: 0;
 `;
 const Col = styled.div`
-  display: flex;
-  justify-content: center;
+  display: flex; justify-content: center;
 `;
 const Card = styled.div`
-  border: 1px solid grey;
   width: 300px;
+  border: 1px solid grey;
 `;
 const CardsSlider = styled.div`
   position: relative;
   max-width: 300px;
   margin: 0 auto;
-  img{
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
+  img{ width: 100%; height: 100%; object-fit: cover; }
 `;
 
 const SliderWrapper = styled.div`
@@ -56,36 +50,77 @@ const SliderWrapper = styled.div`
 `;
 
 const CardsBody = styled.div`
+  position: relative;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width:100%;
+  z-index: 3;
+`;
+const CardBodyLeft = styled.div`
+  display: flex; flex-direction: column;
+  position: absolute;
+  top: 40%; left: -60px; transform: translateY(-50%);
+  text-align: right;
+  font-size: 1.5em;
 
+  p{ position: relative; width: 50px; }
+  p:hover{
+    cursor: default;
+  }
+`;
+const CardBodyMid = styled.div`
+width: 100%;
+  position: relative;
+  display: flex; flex-direction: column;
+  justify-items: center;
+  align-items: center;
+  span{
+    background: rgba(0,0,0,0.65); color: white;
+    position: absolute; top: 40%; transform: translateY(-50%);
+    width: 100%;
+    text-align: center;
+    text-transform: uppercase;
+  }
+  button{
+    margin-bottom: 15px;
+  }
+`;
+const CardBodyRight = styled.div`
+  position: absolute;
+  top: 40%; right: -80px; transform: translateY(-50%);
+  font-size: 1.5em;
+  p{
+    position: relative; left: 10px;
+  }
+  p:hover{
+    cursor: default;
+  }
 `;
 
 const Indicators = styled.div`
-  display: flex;
-  justify-content: space-between;
+  display: flex; justify-content: space-between;
   width: 150px;
-  margin-top:-23px;
+  margin-top: -23px;
   margin-bottom: 35px;
 `;
 const Indicator = styled.button`
-  border-radius: 50%;
-  border: 2px solid blue;
-  width: 40px;
-  height: 40px;
-  box-shadow: 0px 0px 4px 1px rgba(0,0,0,0.75);
-  transition: box-shadow 200ms ease, border 200ms ease;
+  border: 2px solid blue; border-radius: 50%;
+  width: 40px; height: 40px;
+  display: grid; align-items: center;
   text-align: center;
   font-size: 2.2em;
-  display: grid;
-  align-items: center;
+  transition: box-shadow 200ms ease, border 200ms ease;
+  box-shadow: 0px 0px 4px 1px rgba(0,0,0,0.75);
   &:active{
-   border: 2px solid black;
-   outline: 0;
-   box-shadow: 0px 0px 1px 0px rgba(0,0,0,0.75);
-   transition: box-shadow 200ms ease, border 200ms ease;
-  }
-  &:focus{
+    border: 2px solid black;
     outline: 0;
+    box-shadow: 0px 0px 1px 0px rgba(0,0,0,0.75);
+    transition: box-shadow 200ms ease, border 200ms ease;
   }
+  &:focus{ outline: 0; }
+  &:hover{ cursor: pointer; }
 `;
 const IndicatorLeft = styled(Indicator)`
   text-indent: -4px;
@@ -93,8 +128,8 @@ const IndicatorLeft = styled(Indicator)`
 const IndicatorRight = styled(Indicator)`
   text-indent: 0.5px;
 `;
-
 // style-end
+
 
 
 const HotelCard = ({hotel}) => {
@@ -129,50 +164,47 @@ const HotelCard = ({hotel}) => {
           <Card>
 
             <CardsSlider className={`active-slide-${hotel.img.indexOf(image)}`}>
-              <SliderWrapper className="" style={{"transform": `translateX(-${hotel.img.indexOf(image)*100}%)`}}>
+              <SliderWrapper style={{transform: `translateX(-${hotel.img.indexOf(image)*100}%)`}}>
               {
                 hotel.img.map((img, index) => <HotelImage key={img.toString()} image={img} hotel={hotel} id={index}/>  )
               }
               </SliderWrapper>
             </CardsSlider>
       
+            <CardsBody>
 
-            <CardsBody className="card-details" style={{"zIndex": "3"}}>
-              <div className="card-details__left">
-                {hotel.extras.map((extra, id) => <p key={id}> {extra}</p> )}
-              </div>
+              <CardBodyLeft>
+                <p>{hotel.bedrooms} <i className="fa fa-bed"></i></p>
+                <br/>
+                <p>{hotel.bathrooms} <i className="fa fa-bath"></i></p>
+              </CardBodyLeft>
 
-                <div className="card-details__middle">
-
-                  <Indicators>
-                    <IndicatorLeft onClick={prevImage} disabled={hotel.img.indexOf(image) === 0}><i className="fa fa-angle-left"></i></IndicatorLeft>
-                    <IndicatorRight onClick={nextImage} disabled={hotel.img.indexOf(image) === hotel.img.length-1}><i className="fa fa-angle-right"></i></IndicatorRight>
-                  </Indicators>
-                  
-                  <span>{hotel.name}</span>
-                  <Link to={{
-                    pathname: `/hotel/${hotel.id}`,
-                    state: {hotel}
-                    }} >
-                    <button>Check hotel</button>
-                  </Link>
-                </div>
-
-                <div className="card-details__right">
-                  <div>
-                    <p>Bedrooms: {hotel.bedrooms}</p>
-                    <p>Bathrooms: {hotel.bathrooms}</p>
-                    <p>Price: {hotel.price}</p>
-                  </div>
-                </div>
-
-              {/* </div> */}
-
+              <CardBodyMid>
+                <Indicators>
+                  <IndicatorLeft onClick={prevImage} disabled={hotel.img.indexOf(image) === 0}><i className="fa fa-angle-left"></i></IndicatorLeft>
+                  <IndicatorRight onClick={nextImage} disabled={hotel.img.indexOf(image) === hotel.img.length-1}><i className="fa fa-angle-right"></i></IndicatorRight>
+                </Indicators>
                 
+                <span>{hotel.name}</span>
+                <Link to={{
+                  pathname: `/hotel/${hotel.id}`,
+                  state: {hotel}
+                  }} >
+                  <Button>Check hotel</Button>
+                </Link>
+              </CardBodyMid>
+
+                <CardBodyRight>
+                  <div>
+                    <p><i className="fa fa-smile-o"></i> {hotel.rating}</p>
+                    <br/>
+                    <p><i className="fa fa-money"></i>{hotel.price}</p>
+                  </div>
+                </CardBodyRight>
+
             </CardsBody>
           
           </Card>
-          
         </Col>
       </Row>
       </Gradient> 

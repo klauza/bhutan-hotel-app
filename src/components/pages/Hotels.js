@@ -1,13 +1,27 @@
 import React, {Fragment, useState, useEffect} from 'react';
 import HotelCard from './Hotels-children/HotelCard';
 import HotelsSearchBar from './Hotels-children/HotelsSearchBar';
+import styled from 'styled-components';
 
 import { orderBy } from "lodash";
 
 import {connect} from 'react-redux';
 import {loadHotels, sortByType, sortByOrder} from '../../actions/sortingActions';
 
-
+// STYLES
+const HotelTopText = styled.div`
+  width: 100%; height: 200px;
+  border: 2px solid red;
+  display: flex; flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  p:nth-child(1){
+    margin: 10px 0;
+    font-size: 1.4em;
+    font-weight: 700;
+  }
+`;
+// styles-end
 
 
 const Hotels = ({sort: {hotels, sortType, sortOrder}, loadHotels, sortByType, sortByOrder}) => {
@@ -89,7 +103,11 @@ const Hotels = ({sort: {hotels, sortType, sortOrder}, loadHotels, sortByType, so
     return (
       <Fragment>
         <HotelsSearchBar selectedOption={selectedOption} selectedOrder={selectedOrder} handleColumnHeaderClick={handleColumnHeaderClick} handleOrder={handleOrder} />
-    
+        <HotelTopText>
+          <p>Each hotel flat has it's own history. </p>
+          <p>Keep in mind that you will be sleeping in progenitors' rooms. Feel and absorb their energy, fill your mind with it, obtain their clear relaxing flow.</p> 
+        </HotelTopText>
+
         {
           collection.map(hotel =>  <HotelCard key={hotel.id} hotel={hotel}/> )
         }

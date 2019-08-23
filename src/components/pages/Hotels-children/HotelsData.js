@@ -9,7 +9,8 @@ const data = {
       "price": 1000,
       "bedrooms": "1",
       "bathrooms": "1",
-      "extras": ["sauna", "balcony"]
+      "extras": ["sauna", "balcony"],
+      "rating": "89%"
     },
     {
       "id": 1,
@@ -23,7 +24,8 @@ const data = {
       "price": 1200,
       "bedrooms": "2",
       "bathrooms": "1",
-      "extras": ["double-bathroom"]
+      "extras": ["double-bathroom"],
+      "rating": "93%"
     },
     {
       "id": 2,
@@ -36,7 +38,8 @@ const data = {
       "price": 1300,
       "bedrooms": "3",
       "bathrooms": "2",
-      "extras": ["sauna"]
+      "extras": ["sauna"],
+      "rating": "91%"
     },
     {
       "id": 3,
@@ -49,7 +52,8 @@ const data = {
       "price": 1700,
       "bedrooms": "4",
       "bathrooms": "1",
-      "extras": ["minimalistic interior", "a lot of flora"]
+      "extras": ["minimalistic interior", "a lot of flora"],
+      "rating": "99%"
     },
     {
       "id": 4,
@@ -62,7 +66,8 @@ const data = {
       "price": 1700,
       "bedrooms": "4",
       "bathrooms": "1",
-      "extras": ["sauna", "balcony"]
+      "extras": ["sauna", "balcony"],
+      "rating": "95%"
     },
     {
       "id": 5,
@@ -75,7 +80,8 @@ const data = {
       "price": 2200,
       "bedrooms": "5",
       "bathrooms": "2",
-      "extras": ["sauna", "balcony"]
+      "extras": ["sauna", "balcony"],
+      "rating": "88%"
     },
     {
       "id": 6,
@@ -88,7 +94,8 @@ const data = {
       "price": 9200,
       "bedrooms": "2",
       "bathrooms": "2",
-      "extras": ["sauna", "balcony"]
+      "extras": ["sauna", "balcony"],
+      "rating": "99%"
     },
     {
       "id": 7,
@@ -100,7 +107,8 @@ const data = {
       "price": 800,
       "bedrooms": "1",
       "bathrooms": "1",
-      "extras": ["nothing special"]
+      "extras": ["nothing special"],
+      "rating": "93%"
     }
   ]
 }

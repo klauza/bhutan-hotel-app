@@ -3,7 +3,8 @@
   margin: 0; padding: 0;
 } 
 html, body{
-  font-smoothing: antialiased;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
   font-family: "Segoe UI", "Roboto", "Oxygen",
   "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
   sans-serif;
@@ -12,7 +13,6 @@ body{
   overflow-y: scroll;
   overflow-x: hidden;
 }
-
 
 .App{
   display: flex;
@@ -28,63 +28,6 @@ $i: 0;
     transform: scale(1);
     .card-details{
       opacity: 1;
-    }
-  }
-}
-
-.card-details{
-  // margin-top: 160px;
-  position: relative;
-  margin: 0 auto;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  width:100%;
-
- 
-  &__middle{
-    display: flex;
-    justify-items: center;
-    align-items: center;
-    flex-direction: column;
-  }
-  
-  &__left{
-    text-align: right;
-    position: absolute;
-    top: 0; left: -5px;
-    transform: translateX(-160px);
-    // transform-origin: top right;
-    display: flex;
-    flex-direction: column;
-    p{ position: relative; width: 150px; }
-    p:after{
-      content: '';
-      width: 5px; height: 5px;
-      background: black;
-      position: absolute;
-      top: 50%; right: -10px;
-      transform: translateY(-50%);
-      border: 0; border-radius: 50%;
-    }
-  }
-
-  &__right{
-    position: absolute;
-    top: 0; 
-    right: -100px;
-    p{
-      position: relative;
-      left: 10px;
-      &:before{
-        content: '';
-        width: 5px; height: 5px;
-        background: black;
-        position: absolute;
-        top: 50%; left: -10px;
-        transform: translateY(-50%);
-        border: 0; border-radius: 50%;
-      }
     }
   }
 }
