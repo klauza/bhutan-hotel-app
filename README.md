@@ -21,3 +21,13 @@ It's also possible to hire a guide or rent a car in this place. <br/>
 Page preview in dev mode: [HERE](https://eloquent-neumann-01ab31.netlify.com/) <br/>
 
 <hr/>
+<br/>
+
+## Images
+
+| Image  | Attribution |
+| ------------- | ------------- |
+| **main-page-logos** | [iconfinder.com](https://www.iconfinder.com/)  |
+| **favicon/logo** | [flaticon.com](https://www.flaticon.com/)  |
+| **Not-found-img** | [kisspng.com](https://kisspng.com)  |
+| **other-images** | [pexels.com](https://www.pexels.com/)  |
