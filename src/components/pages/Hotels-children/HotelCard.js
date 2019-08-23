@@ -1,4 +1,4 @@
-import React, {Fragment, useState} from 'react';
+import React, {Fragment, useState, useEffect} from 'react';
 import {Link} from 'react-router-dom';
 import HotelImage from './HotelImage';
 import styled from 'styled-components';
@@ -29,6 +29,7 @@ const Row = styled.div`
   display: flex;
   justify-content: center;
   margin: 50px 0px;
+  opacity: 0;
 `;
 const Col = styled.div`
   display: flex;
@@ -97,7 +98,13 @@ const IndicatorRight = styled(Indicator)`
 
 
 const HotelCard = ({hotel}) => {
-  
+  useEffect(()=>{
+    document.querySelectorAll(".hide-show").forEach(each => {
+      each.style.transition = "all 300ms ease"
+      each.style.opacity = "1";
+    });
+
+  })
   const [image, setImage] = useState(hotel.img[0]);
 
   const nextImage = () => {
@@ -117,7 +124,7 @@ const HotelCard = ({hotel}) => {
     <Fragment>
       <Gradient>
         
-      <Row id={`card-${hotel.id}`}>
+      <Row id={`card-${hotel.id}`} style={{opacity: "0"}} className="hide-show">
         <Col>
           <Card>
 

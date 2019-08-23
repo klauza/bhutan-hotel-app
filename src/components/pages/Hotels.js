@@ -9,6 +9,7 @@ import {loadHotels, sortByType, sortByOrder} from '../../actions/sortingActions'
 
 
 
+
 const Hotels = ({sort: {hotels, sortType, sortOrder}, loadHotels, sortByType, sortByOrder}) => {
 
   // const [hotel, setHotel] = useState(data.hotels[0]);
@@ -26,11 +27,13 @@ const Hotels = ({sort: {hotels, sortType, sortOrder}, loadHotels, sortByType, so
       await setSelectedOption(sortType);
       await setCollection(hotels);
       await sortOnPageInit();
-      // await window.scrollTo(0, 2000);
+       
+      
+      await window.scrollTo(0, 0);
     }
 
     loadHotelSDOM();
-      
+  
 
     // if(sortType){
 
@@ -94,7 +97,7 @@ const Hotels = ({sort: {hotels, sortType, sortOrder}, loadHotels, sortByType, so
       </Fragment>
     )
   } else{
-    return (<div>Loading</div>)
+    return (<div style={{minHeight: "150vh"}}></div>)
   }
 }
 

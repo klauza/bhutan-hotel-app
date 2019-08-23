@@ -1,8 +1,21 @@
-import React from 'react'
+import React, {useEffect, useState} from 'react'
 
 const Footer = () => {
+  const [unblock, setUnblock] = useState(false);
+  useEffect(()=>{
+    if(unblock){
+      document.querySelector(".show-footer").style.transitionDelay = "300ms";
+      document.querySelector(".show-footer").style.transition = "all 500ms ease";
+      document.querySelector(".show-footer").style.opacity = "1";
+    } else {
+      setUnblock(true);
+    }
+
+    //eslint-disable-next-line
+  },[])
+  
   return (
-    <div style={footerContainer} >
+    <div className="show-footer" style={footerContainer} >
       <div style={{textAlign: "center"}}>
         <p style={alignVertical}>footer</p>
       </div>
@@ -15,7 +28,8 @@ const footerContainer = {
   "height": "50px",
   "backgroundColor": "black",
   "color": "white",
-  "marginTop": "auto"
+  "marginTop": "auto",
+  "opacity": "0"
 }
 const alignVertical = {
   "lineHeight": "50px"
