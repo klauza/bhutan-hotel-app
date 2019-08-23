@@ -7,6 +7,7 @@ import store from './store';
 
 // styles
 import './App.scss';
+import 'leaflet/dist/leaflet.css';
 
 // layout
 // import Wrapper from './components/layout/Wrapper';

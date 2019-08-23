@@ -28,8 +28,9 @@ const MapHeader = styled.p`
   padding: 5px 0;
 `;
 const Left = styled.div`
-  flex: 4;
+  flex: 6;
   text-align: center;
+  box-shadow: 0px 5px 6px -2px rgba(117,117,117,0.65);
   @media(max-width: 768px){order: 2;}
 `;
 const Right = styled.div`
@@ -54,7 +55,7 @@ const Contact = () => {
       <FlexLayout>
 
         <Left>
-          <MapHeader>Trouble with finding our facility?</MapHeader>
+          <MapHeader>Trouble with finding our facility? Use our map.</MapHeader>
           <div className="map" style={{backgroundColor: "lightblue", height: "600px"}}>
 
             <MapContact/>
@@ -65,7 +66,7 @@ const Contact = () => {
         <Right>
           <p>Need help immediately?</p>
           <p>Got a question?</p>
-          <div><i className="fa fa-phone" style={{fontSize: "1.6rem"}}></i> <strong>02422515431</strong> - 24h monday-friday</div>
+          <div><i className="fa fa-phone" style={{fontSize: "1.6rem"}}></i> <strong>02422515431</strong> - 24h open line</div>
         </Right>
 
       </FlexLayout>

@@ -1,36 +1,45 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
-import L from 'leaflet';
-import 'leaflet/dist/leaflet.css';
+import { Map, CircleMarker, TileLayer, Marker, Popup } from "react-leaflet";
+import data from './MapMarkersData';
+import {iconPerson} from './Icon';
 
 const Wrapper = styled.div`
   width: ${props => props.width};
-  height: ${props => props.width};
+  height: ${props => props.height};
 `;
+
 
 export default class MapContact extends Component {
 
-  componentDidMount(){
-    this.map = L.map('map', {
-      center: [58, 16],
-      zoom: 6,
-      zoomControl: true
-    });
 
-    L.tileLayer('https://{s}.tile.openstreetmap.fr/osmfr/{z}/{x}/{y}.png', {
-      detectRetina: true,
-      maxZoom: 20,
-      maxNativeZoom: 17
-    }).addTo(this.map);
-  }
-
- 
   render() {
 
     return (
+      <Wrapper width="100%" height="100%">
+        <Map
+          style={{ height: "100%", width: "100%" }}
+          zoom={9}
+          center={[27.50, 89.63]}>
+          <TileLayer url="https://{s}.tile.openstreetmap.de/tiles/osmde/{z}/{x}/{y}.png" />
+          <CircleMarker
+            center={[27.50, 89.63]}
+            radius={20}>
+            <Popup><strong style={{fontSize: "1.6em"}}>Hotel location</strong></Popup>
+            </CircleMarker>
 
-      <Wrapper width="100%" height="100%" id="map" />
-      
+          {data.marker.map((marker, i) => {
+          
+            return (
+              
+              <Marker key={i} position={[marker.coordinates[0], marker.coordinates[1]]} icon={iconPerson}>
+              <Popup>{marker.name}</Popup>
+            </Marker>
+              )
+          })}
+
+        </Map>
+      </Wrapper>
     )
   }
 }
