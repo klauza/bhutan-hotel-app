@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import MapContact from './MapContact';
+import MapContact from './Contact-children/MapContact';
 import { Wrapper } from '../layout/Elements';
 
 // PAGE STYLES
@@ -50,7 +50,7 @@ const Contact = () => {
   return (
     <Wrapper>
       <Header>CONTACT</Header>
-      <Paragraph>We always help.</Paragraph>
+      <Paragraph>We always help. We love to help.</Paragraph>
       
       <FlexLayout>
 

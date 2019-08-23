@@ -1,6 +1,6 @@
 import L from 'leaflet';
-import marker from '../../media/leaf-green.png'
-import markerShadow from '../../media/leaf-shadow.png';
+import marker from '../../../media/leaf-green.png'
+import markerShadow from '../../../media/leaf-shadow.png';
 
 const iconPerson = new L.Icon({
     iconUrl: marker,
