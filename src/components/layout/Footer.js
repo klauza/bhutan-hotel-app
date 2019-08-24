@@ -1,4 +1,36 @@
-import React, {useEffect, useState} from 'react'
+import React, {useEffect, useState} from 'react';
+import styled from 'styled-components';
+
+// STYLES
+const FooterWrap = styled.div`
+  font-family: Verdana;
+  height: 50px;
+  background-color: black;
+  color: white;
+  margin-top: auto;
+  opacity: 0;
+`;
+const FooterContent = styled.div`
+  display: flex; flex-direction: row;
+
+  justify-content: space-between;
+  margin: 0 auto;
+  width: 100%;
+  span, i {
+    line-height: 50px;
+  }
+  span{ display: flex; flex-direction: row; font-size: 0.95em;}
+
+  i{
+    margin: 0 10px;
+    font-size: 1.55em;
+    &:hover{
+      color: grey;
+      cursor: pointer;
+    }
+  }
+`;
+// styles-end
 
 const Footer = () => {
   const [unblock, setUnblock] = useState(false);
@@ -15,25 +47,25 @@ const Footer = () => {
   },[unblock])
   
   return (
-    <div className="show-footer" style={footerContainer} >
-      <div style={{textAlign: "center"}}>
-        <p style={alignVertical}>footer</p>
-      </div>
-    </div>
+    <FooterWrap className="show-footer" >
+      <FooterContent>
+
+        <div>
+          <span>© Klauza</span>
+        </div>
+
+        <div>
+          <a href="https://www.google.com/"><i className="fa fa-linkedin-square"></i></a>
+          <i className="fa fa-facebook-official"></i>
+          
+          <i className="fa fa-twitter-square"></i>
+          <i className="fa fa-map-marker"></i>
+        </div>
+
+      </FooterContent>
+    </FooterWrap>
   )
 }
 
-const footerContainer = {
-  "fontFamily": "Verdana",
-  "height": "50px",
-  "backgroundColor": "black",
-  "color": "white",
-  "marginTop": "auto",
-  "opacity": "0"
-}
-const alignVertical = {
-  "lineHeight": "50px"
-  // "letterSpacing": "15px"
-}
 
 export default Footer
