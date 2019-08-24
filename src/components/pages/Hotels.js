@@ -39,6 +39,7 @@ const Hotels = ({sort: {hotels, sortType, sortOrder}, loadHotels, sortByType, so
 
   const [selectedOption, setSelectedOption] = useState("default");
   const [selectedOrder, setSelectedOrder] = useState("asc");
+  const [unblock, setUnblock] = useState(true);
 
   
   useEffect(() => {
@@ -48,13 +49,14 @@ const Hotels = ({sort: {hotels, sortType, sortOrder}, loadHotels, sortByType, so
       await setSelectedOption(sortType);
       await setCollection(hotels);
       await sortOnPageInit();
+      await setUnblock(false);
        
       
       await window.scrollTo(0, 0);
     }
 
+
     loadHotelSDOM();
-  
     //eslint-disable-next-line
   }, [hotels])
 
@@ -101,8 +103,7 @@ const Hotels = ({sort: {hotels, sortType, sortOrder}, loadHotels, sortByType, so
 
 
 
-
-  if(collection){
+  if(!unblock){
     return (
       <Fragment>
         <HotelsSearchBar selectedOption={selectedOption} selectedOrder={selectedOrder} handleColumnHeaderClick={handleColumnHeaderClick} handleOrder={handleOrder} />
@@ -110,9 +111,9 @@ const Hotels = ({sort: {hotels, sortType, sortOrder}, loadHotels, sortByType, so
           <p>Each flat has it's own history</p>
           <p>So keep in mind that you will be sleeping in progenitors' rooms. Feel and absorb their energy, fill your mind with it, obtain their clear relaxing flow</p> 
         </HotelTopText>
-
+     
         {
-          collection.map(hotel =>  <HotelCard key={hotel.id} hotel={hotel}/> )
+          collection && collection.map(hotel =>  <HotelCard key={hotel.id} hotel={hotel}/> )
         }
       
       </Fragment>
