@@ -9,16 +9,19 @@ const Header = styled.h1`
   font-family: Verdana;
   color: green;
   font-weight: bold;
+  margin-top: 50px;
 `;
 const Paragraph = styled.p`
   text-align: center;
   width: 50%;
-  margin: 50px auto;
+  margin: 0px auto 50px auto; 
   font-style: italic; font-weight: 500;
+  color: green;
 `;
 const FlexLayout = styled.div`
   display: flex;
   min-height: 500px;
+  margin-bottom: 150px;
   @media(max-width: 768px){flex-direction: column; }
 `;
 const MapHeader = styled.p`

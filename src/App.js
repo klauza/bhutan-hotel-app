@@ -10,7 +10,6 @@ import './App.scss';
 import 'leaflet/dist/leaflet.css';
 
 // layout
-// import Wrapper from './components/layout/Wrapper';
 import Navigation from './components/layout/Navigation';
 import Footer from './components/layout/Footer';
 import NotFound from './components/layout/NotFound';
@@ -45,8 +44,8 @@ function App() {
               </Switch>
 
             </div>
+            <Footer />
           </Router>
-          <Footer />
       </Fragment>
     </Provider>
   );

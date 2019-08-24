@@ -30,26 +30,21 @@ const CardImg = styled.img`
   top: -50px; left: 50%; transform:translateX(-50%);
 `;
 const CardBody = styled.div`
-  
+  button{
+    margin: 10px 0;
+  }
 `;
 const CardTitle = styled.h4`
   margin-top: 50px;
 `;
 const CardText = styled.p`
   text-align: center;
-  margin: 0;
+  margin: 5px 0;
  &:nth-child(2){
    margin-bottom: -10px;
  }
 `;
-// const Button = styled.button`
-//   margin: 15px 0;
-//   background: lightblue;
-//   border: 1px solid black;
-//   border-radius: 3px;
-//   padding: 5px 10px;
-// `;
-// styles-end
+
 
 const GuideList = ({guide, id}) => {
   const [guideName, setGuideName] = useState(null);
