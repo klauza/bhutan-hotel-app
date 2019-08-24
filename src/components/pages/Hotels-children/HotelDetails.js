@@ -1,21 +1,26 @@
 import React, {useState, useEffect} from 'react';
-import {Link} from 'react-router-dom';
 import { createBrowserHistory } from 'history';
 import data from './HotelsData';
 import ThumbnailGallery from './HotelDetails-gallery/ThumbnailGallery';
 import styled from 'styled-components';
 import {Wrapper} from '../../layout/Elements';
+import {Link} from 'react-router-dom';
 const history = createBrowserHistory();
 
 // STYLES
 const Header = styled.h2`
   width: 100%;
   text-align: center;
-  &:after{
+  margin-top: 50px;
+  display: flex; flex-direction: row; justify-content: center;
+  letter-spacing: 4px;
+  &::before, &::after{
     content:'';
-    display: block;
-    width: 100%; height: 5px;
-    background: purple;
+    display: inline-block;
+    width: 50px; height: 1px;
+    margin: 0 20px;
+    background: rgba(0,0,0,0.35);
+    align-self: center;
   }
 `;
 const Button = styled.button`
@@ -26,9 +31,25 @@ const Button = styled.button`
   :active, :focus{outline: 0;}
   :active{border: 1px solid red;}
 `;
-const ReservationButton = styled(Button)`
-  bottom: 140px; 
-  background: red;
+
+const ReservationButton = styled.button`
+  border: 0; border-radius: 3px;
+  box-shadow: 0px 5px 6px -2px rgba(117,117,117,0.65);
+  margin: 50px auto 0 auto; 
+  display: block;
+  background: blue;
+  a{
+    display: block; width: 100%; height: 100%; padding: 15px 20px; text-decoration: none; color: white; font-size: 1.05rem;
+  }
+  &:hover{
+    cursor: pointer;
+    transition: box-shadow 150ms ease;
+    box-shadow: 0px 7px 5px -1px rgba(117,117,117,0.65);
+  }
+`;
+const Questions = styled.div`
+  text-align: center;
+  margin: 15px 0;
 `;
 const BackButton = styled(Button)`
   bottom: 80px;
@@ -73,13 +94,16 @@ const HotelDetails = (props) => {
 
         <ThumbnailGallery features={thisHotel.features} images={thisHotel.img} />
 
-
+        <ReservationButton>
         <Link to={{
           pathname: `/reservation`,
           state: {thisHotel}
           }} >
-          <ReservationButton>Make a reservation</ReservationButton>
+          Make a reservation
         </Link>
+        </ReservationButton>
+        <Questions><p>In case you would have any questions <br/> call: 02329322394</p></Questions>
+        
         {reloadBtn 
           ? 
           <BackButton onClick={goBackReload}>Back</BackButton>

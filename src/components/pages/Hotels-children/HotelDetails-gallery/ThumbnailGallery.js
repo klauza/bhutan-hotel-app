@@ -34,10 +34,6 @@ const GoldenText = styled.p`
 const FlatStory = styled.p`
   margin-bottom: 25px;
 `;
-const Questions = styled.div`
-  text-align: center;
-  margin: 15px 0;
-`;
 
 // styles-end
 
@@ -69,10 +65,9 @@ const ThumbnailGallery = ({features, images}) => {
 
         <GoldenText>Flat Exclusive Features</GoldenText>
 
-        {features.map(feature => <li>{feature}</li>)}
+        {features.map((feature,id) => <li key={id}>{feature}</li>)}
    
 
-        <Questions><p>In case you would have any questions <br/> call: 02329322394</p></Questions>
       </Fragment>
     )
   } else {
