@@ -10,15 +10,22 @@ import {loadHotels, sortByType, sortByOrder} from '../../actions/sortingActions'
 
 // STYLES
 const HotelTopText = styled.div`
-  width: 100%; height: 200px;
-  border: 2px solid red;
+  width: 60%; height: auto;
+  margin: 50px auto 0 auto;
   display: flex; flex-direction: column;
-  justify-content: center;
+  justify-content: start;
   text-align: center;
+  border: 2px solid black; border-radius: 3px;
+  box-shadow: 0px 7px 6px -2px rgba(117,117,117,0.65);
   p:nth-child(1){
-    margin: 10px 0;
-    font-size: 1.4em;
+    background: black;
+    color: white;
+    margin: 0 0 10px 0;
+    font-size: 1.75em;
     font-weight: 700;
+  }
+  p:nth-child(2){
+    padding: 15px;
   }
 `;
 // styles-end
@@ -48,10 +55,6 @@ const Hotels = ({sort: {hotels, sortType, sortOrder}, loadHotels, sortByType, so
 
     loadHotelSDOM();
   
-
-    // if(sortType){
-
-    // }
     //eslint-disable-next-line
   }, [hotels])
 
@@ -104,8 +107,8 @@ const Hotels = ({sort: {hotels, sortType, sortOrder}, loadHotels, sortByType, so
       <Fragment>
         <HotelsSearchBar selectedOption={selectedOption} selectedOrder={selectedOrder} handleColumnHeaderClick={handleColumnHeaderClick} handleOrder={handleOrder} />
         <HotelTopText>
-          <p>Each hotel flat has it's own history. </p>
-          <p>Keep in mind that you will be sleeping in progenitors' rooms. Feel and absorb their energy, fill your mind with it, obtain their clear relaxing flow.</p> 
+          <p>Each flat has it's own history</p>
+          <p>So keep in mind that you will be sleeping in progenitors' rooms. Feel and absorb their energy, fill your mind with it, obtain their clear relaxing flow</p> 
         </HotelTopText>
 
         {
