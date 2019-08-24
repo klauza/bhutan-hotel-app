@@ -61,7 +61,7 @@ const Navigation = () => {
       <Wrapper>
        
           <Container>
-            <NavbarBrand><Link to="/"><img src={Logo} alt="" />Water-hotel</Link></NavbarBrand>
+            <NavbarBrand><Link to="/"><img src={Logo} alt="" />Bhutanotel</Link></NavbarBrand>
             {/* <NavbarToggle aria-controls="basic-navbar-bar" /> */}
             {/* <NavbarHamburger id="basic-navbar-nav"> */}
               <Nav>

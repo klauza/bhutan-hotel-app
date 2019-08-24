@@ -1,6 +1,4 @@
 import React, {useEffect, useState} from 'react';
-// import { createBrowserHistory } from 'history';
-// const history = createBrowserHistory();
 import styled from 'styled-components';
 
 import guidesData from './GuideData';
