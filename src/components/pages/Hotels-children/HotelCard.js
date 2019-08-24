@@ -77,7 +77,7 @@ const CardBodyLeft = styled.div`
   }
 `;
 const CardBodyMid = styled.div`
-width: 100%;
+  width: 100%;
   position: relative;
   display: flex; flex-direction: column;
   justify-items: center;
@@ -91,6 +91,15 @@ width: 100%;
   }
   button{
     margin-bottom: 15px;
+  }
+  a > button{
+    background: green;
+    color: white;
+    width: 120px;
+    &:hover{
+      background: rgb(0, 112, 0);
+      box-shadow: 0px 0px 3px 0px rgba(0,0,0,0.75);
+    }
   }
 `;
 const CardBodyRight = styled.div`

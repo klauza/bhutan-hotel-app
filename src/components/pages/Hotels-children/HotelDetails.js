@@ -11,7 +11,6 @@ const history = createBrowserHistory();
 const Header = styled.h2`
   width: 100%;
   text-align: center;
-  margin-top: 50px;
   display: flex; flex-direction: row; justify-content: center;
   letter-spacing: 4px;
   &::before, &::after{
@@ -22,14 +21,6 @@ const Header = styled.h2`
     background: rgba(0,0,0,0.35);
     align-self: center;
   }
-`;
-const Button = styled.button`
-  position: absolute;
-  right: 30px;
-  width: 60px; height: 60px;
-  border: 0; border-radius: 50%;
-  :active, :focus{outline: 0;}
-  :active{border: 1px solid red;}
 `;
 
 const ReservationButton = styled.button`
@@ -51,9 +42,15 @@ const Questions = styled.div`
   text-align: center;
   margin: 15px 0;
 `;
-const BackButton = styled(Button)`
-  bottom: 80px;
-  background: darkcyan;
+const BackButton = styled.button`
+  margin: 60px 10px 10px 10px;
+  background: lightseagreen;
+  border: 0; border-radius: 3px;
+  padding: 10px;
+  &:hover{
+    cursor: pointer;
+    background-color: rgb(36, 207, 199);
+  }
 `;
 // styles-end
 
@@ -90,6 +87,13 @@ const HotelDetails = (props) => {
   if(thisHotel){
     return(
       <Wrapper>
+        {reloadBtn 
+          ? 
+          <BackButton onClick={goBackReload}>Back</BackButton>
+          : 
+          <BackButton onClick={goBackFunction}>Back</BackButton>
+        }
+
         <Header>{thisHotel.name.toUpperCase()}</Header>
 
         <ThumbnailGallery features={thisHotel.features} images={thisHotel.img} />
@@ -103,13 +107,6 @@ const HotelDetails = (props) => {
         </Link>
         </ReservationButton>
         <Questions><p>In case you would have any questions <br/> call: 02329322394</p></Questions>
-        
-        {reloadBtn 
-          ? 
-          <BackButton onClick={goBackReload}>Back</BackButton>
-          : 
-          <BackButton onClick={goBackFunction}>Back</BackButton>
-        }
         
       </Wrapper>
     )
