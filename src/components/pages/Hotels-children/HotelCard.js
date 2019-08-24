@@ -36,6 +36,7 @@ const Col = styled.div`
 const Card = styled.div`
   width: 300px;
   border: 1px solid grey;
+  box-sizing: content-box;
   @media(max-width: 768px){ transform: scale(1); margin-bottom: 100px; }
 `;
 const CardsSlider = styled.div`

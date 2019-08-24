@@ -9,7 +9,7 @@ const data = {
       "price": 1000,
       "bedrooms": "1",
       "bathrooms": "1",
-      "extras": ["sauna", "balcony"],
+      "features": [`49" smart TV`, "In-room Nespresso coffee machine", "Sauna", "Telephone", "24‐hour butler service", "Wi-Fi", "Private balcony"],
       "rating": "89%"
     },
     {
@@ -24,7 +24,7 @@ const data = {
       "price": 1200,
       "bedrooms": "2",
       "bathrooms": "1",
-      "extras": ["double-bathroom"],
+      "features": ["double-bathroom"],
       "rating": "93%"
     },
     {
@@ -38,7 +38,7 @@ const data = {
       "price": 1300,
       "bedrooms": "3",
       "bathrooms": "2",
-      "extras": ["sauna"],
+      "features": ["sauna"],
       "rating": "91%"
     },
     {
@@ -52,7 +52,7 @@ const data = {
       "price": 1700,
       "bedrooms": "4",
       "bathrooms": "1",
-      "extras": ["minimalistic interior", "a lot of flora"],
+      "features": ["minimalistic interior", "a lot of flora"],
       "rating": "99%"
     },
     {
@@ -66,7 +66,7 @@ const data = {
       "price": 1700,
       "bedrooms": "4",
       "bathrooms": "1",
-      "extras": ["sauna", "balcony"],
+      "features": ["sauna", "balcony"],
       "rating": "95%"
     },
     {
@@ -80,7 +80,7 @@ const data = {
       "price": 2200,
       "bedrooms": "5",
       "bathrooms": "2",
-      "extras": ["sauna", "balcony"],
+      "features": ["sauna", "balcony"],
       "rating": "88%"
     },
     {
@@ -89,12 +89,18 @@ const data = {
       "img": [
         "https://images.pexels.com/photos/2773242/pexels-photo-2773242.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
         "https://images.pexels.com/photos/2787216/pexels-photo-2787216.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260", 
-        "https://images.pexels.com/photos/2404444/pexels-photo-2404444.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
+        "https://images.pexels.com/photos/2404444/pexels-photo-2404444.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
+        "https://images.pexels.com/photos/2474014/pexels-photo-2474014.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
+        "https://images.pexels.com/photos/2820134/pexels-photo-2820134.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
+        "https://images.pexels.com/photos/2123060/pexels-photo-2123060.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
+        "https://images.pexels.com/photos/1750566/pexels-photo-1750566.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
+        "https://images.pexels.com/photos/730981/pexels-photo-730981.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
+        "https://images.pexels.com/photos/1267244/pexels-photo-1267244.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
       ],
       "price": 9200,
       "bedrooms": "2",
       "bathrooms": "2",
-      "extras": ["sauna", "balcony"],
+      "features": ["sauna", "balcony"],
       "rating": "99%"
     },
     {
@@ -107,7 +113,7 @@ const data = {
       "price": 800,
       "bedrooms": "1",
       "bathrooms": "1",
-      "extras": ["nothing special"],
+      "features": ["nothing special"],
       "rating": "93%"
     }
   ]

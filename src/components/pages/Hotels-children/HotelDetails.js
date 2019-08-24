@@ -4,14 +4,10 @@ import { createBrowserHistory } from 'history';
 import data from './HotelsData';
 import ThumbnailGallery from './HotelDetails-gallery/ThumbnailGallery';
 import styled from 'styled-components';
+import {Wrapper} from '../../layout/Elements';
 const history = createBrowserHistory();
 
 // STYLES
-const Wrapper = styled.div`
-  width: 70%; height: 100%;
-  margin: 0 auto;
-  border: 2px solid red;
-`;
 const Header = styled.h2`
   width: 100%;
   text-align: center;
@@ -43,7 +39,7 @@ const BackButton = styled(Button)`
 const HotelDetails = (props) => {
   const [thisHotel, setThisHotel] = useState(null)
   const [reloadBtn, setReloadBtn] = useState(false);
- 
+  
   useEffect(() =>{
     try{
       var { hotel } = props.location.state;
@@ -75,7 +71,7 @@ const HotelDetails = (props) => {
       <Wrapper>
         <Header>{thisHotel.name.toUpperCase()}</Header>
 
-        <ThumbnailGallery images={thisHotel.img} />
+        <ThumbnailGallery features={thisHotel.features} images={thisHotel.img} />
 
 
         <Link to={{
@@ -95,7 +91,7 @@ const HotelDetails = (props) => {
     )
 
   } else {
-    return(<div>Loading..... .</div>)
+    return(<div></div>)
   }
 }
 
