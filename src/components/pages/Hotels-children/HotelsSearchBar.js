@@ -17,7 +17,7 @@ const HotelTopText = styled.div`
   box-shadow: 0px 7px 6px -2px rgba(117,117,117,0.65);
   z-index: 99;
   position: relative;
-  background: lightgrey;
+  background: whitesmoke;
   p:nth-child(1){
     background: black;
     color: white;
@@ -117,7 +117,7 @@ const HotelsSearchBar = ({selectedOption, selectedOrder, handleType, handleOrder
       </SearchBar>
       <HotelTopText>
         <p>We offer a vast amount of comfortable rooms</p>
-        <p>Also, these rooms used to be inhabited by progenitors'. Feel their presence and absorb the energy, acquire relax from subtle healthy flow of scent.</p> 
+        <p>Also, these rooms used to be inhabited by progenitors. Feel their presence and absorb the energy, acquire relax from subtle healthy flow of scent.</p> 
       </HotelTopText>
     </HotelsHeaderBar>
   )

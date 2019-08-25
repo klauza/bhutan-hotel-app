@@ -31,8 +31,10 @@ const Hotels = ({sort: {hotels, sortType, sortOrder, pageLocY, loading}, loadHot
       await window.scrollTo(0, pageLocY);
     }
 
-
     loadHotelSDOM();
+
+
+
     //eslint-disable-next-line
   }, [hotels])
 

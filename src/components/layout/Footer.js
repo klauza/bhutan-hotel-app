@@ -60,18 +60,20 @@ const FooterContent = styled.div`
 // styles-end
 
 const Footer = () => {
-  const [unblock, setUnblock] = useState(false);
+  const [unlock, setUnlock] = useState(false);
   useEffect(()=>{
-    if(unblock){
+    if(unlock){
       document.querySelector(".show-footer").style.transitionDelay = "300ms";
       document.querySelector(".show-footer").style.transition = "all 500ms ease";
       document.querySelector(".show-footer").style.opacity = "1";
     } else {
-      setUnblock(true);
+      setUnlock(true);
     }
   
-    
-  },[unblock])
+    return () => {
+      setUnlock(false);
+    }
+  },[unlock])
   
   return (
     <FooterWrap className="show-footer" >

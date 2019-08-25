@@ -35,7 +35,7 @@ const Col = styled.div`
 `;
 const Card = styled.div`
   width: 300px;
-  border: 1px solid grey;
+  border: 0px solid grey;
   box-sizing: content-box;
   @media(max-width: 768px){ transform: scale(1); margin-bottom: 100px; }
 `;
@@ -54,6 +54,8 @@ const SliderWrapper = styled.div`
 
 const CardsBody = styled.div`
   position: relative;
+  
+  box-shadow: 0px 2px 3px 1px rgba(97,97,97,0.55);
   margin: 0 auto;
   display: flex;
   flex-direction: row;
@@ -158,7 +160,8 @@ const HotelCard = ({hotel, saveRoomLoc}) => {
       each.style.opacity = "1";
     });
 
-  })
+  }, [])
+  
   const [image, setImage] = useState(hotel.img[0]);
 
   const nextImage = () => {

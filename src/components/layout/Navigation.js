@@ -61,20 +61,20 @@ const Navigation = ({sort: {pageLocY}, pageLocation}) => {
 
   const setLocationToZero = () => {
     if(pageLocY === 0) return
-    if(pageLocation(0));
+    pageLocation(0);
   }
   return (
       <Wrapper>
        
           <Container>
-            <NavbarBrand><Link onClick={setLocationToZero} to="/"><img src={Logo} alt="" />Bhutanotel</Link></NavbarBrand>
+            <NavbarBrand><Link to="/"><img src={Logo} alt="" />Bhutanotel</Link></NavbarBrand>
             {/* <NavbarToggle aria-controls="basic-navbar-bar" /> */}
             {/* <NavbarHamburger id="basic-navbar-nav"> */}
               <Nav>
-                <Link onClick={setLocationToZero} to="/">Home </Link>
+                <Link to="/">Home </Link>
                 <Link onClick={setLocationToZero} to="/hotel-list">Hotels </Link>
-                <Link onClick={setLocationToZero} to="/contact">Contact</Link> 
-                <Link onClick={setLocationToZero} to="/guides">Guides</Link> 
+                <Link to="/contact">Contact</Link> 
+                <Link to="/guides">Guides</Link> 
               </Nav>
             {/* </NavbarHamburger> */}
           </Container>

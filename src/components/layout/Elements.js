@@ -6,7 +6,7 @@ const history = createBrowserHistory();
 const Container = styled.div`
   width: 70%;
   margin: 50px auto 50px;
-  overflow: ${props => props.padding};
+  overflow: ${props => props.overflow};
   @media(max-width: 998px){ width: 85%; }
   @media(max-width: 768px){ width: 95%; }
 `;

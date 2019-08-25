@@ -9,7 +9,7 @@ const Col = styled.div`
   margin-top: 75px;
   border: 1px solid lightgrey; border-radius: 3px;
   opacity: 0;
-  transform: translateY(150px);
+  transform: scale(0.75) translateY(150px);
   box-shadow: 0px 5px 6px -2px rgba(117,117,117,0.65);
 `;
 
@@ -56,14 +56,15 @@ const GuideList = ({guide, id}) => {
     let delay = id*65;
     person.style.transition = `all 300ms ease ${delay}ms`;
     person.style.opacity = `1`;
-    person.style.transform = `translateY(0px)`;
+    person.style.transform = `translateY(0px) scale(1)`;
 
     let name = guide.name;
     let replaced = name.replace(/\s/g, '-');
     replaced = replaced.toLowerCase();
     setGuideName(replaced);
     
-  }, [id, guide.name])
+  //eslint-disable-next-line
+  }, [])
   
   const experienceStars =()=> {
     let output = [];
