@@ -1,5 +1,6 @@
 import React, {Fragment} from 'react';
-import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
+import {Router, Route, Switch} from 'react-router-dom';
+import history from './history';
 
 // redux
 import { Provider } from 'react-redux';
@@ -27,7 +28,7 @@ function App() {
   return (
     <Provider store={store}>
       <Fragment>
-          <Router>
+          <Router history={history}>
             <div className="App">
               <Navigation />
 
