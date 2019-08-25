@@ -2,15 +2,14 @@ import React, {useEffect, useState} from 'react';
 import styled from 'styled-components';
 
 import guidesData from './GuideData';
+import {Wrapper} from '../../layout/Elements';
 
 // STYLES
-const Wrapper = styled.div`
-  width: 70%;
-  margin: 100px auto 0;
-`;
 const Grid = styled.div`
+  margin-top: 50px;
   display: grid;
   grid-template-columns: 1fr 1fr;
+  @media(max-width:768px){ grid-template-columns: 1fr; }
 
 `;
 const GridLeft = styled.div`
@@ -26,23 +25,50 @@ const GridGuideName = styled.p`
   font-size: 1.6rem;
 `;
 const GridRight = styled.div`
+  @media(max-width:768px){ margin-top: 35px; height: auto; max-width: unset;}
   border: 2px solid black;
   position: relative;
-  background: lightblue;
+  background: grey;
+  height: 250px;
+  max-width: 450px;
+  display: flex; align-items: center;
   &::before{
     content: '';
     display: block;
     position: absolute; top: 50%; left: -21.5px; transform: translateY(-50%) rotateZ(45deg);
     width: 40px; height: 40px;
-    background: lightblue;
+    background: grey;
     border-left: 2px solid black;
     border-bottom: 2px solid black;
+    @media(max-width:768px){
+      top: -21.5px; left: 50%; transform: translateX(-50%) rotateZ(45deg);
+      border: 0; border-left: 2px solid black; border-top: 2px solid black;
+    }
   }
 `;
-const TextContainer = styled.p`
-  color: red;
+const GridRightTextContainer = styled.p`
+  color: white;
   text-align: center;
   padding: 20px;
+`;
+const Separator = styled.hr`
+  margin: 25px auto;
+  width: 60%;
+`;
+const ExpertiseGrid = styled.div`
+  width: 60%;
+  margin:0 auto;
+  @media(max-width: 768px){ width: 100%; }
+`;
+const ExpertiseTitle = styled.h2`
+  text-align: center;
+`;
+const ExpertisePerks = styled.div`
+  background: lightgreen;
+  margin-top: 15px;
+  text-align: center;
+  li{ list-style: none; line-height: 30px; font-weight: 700;}
+  li:not(:first-child){ border-top: 1px solid black; }
 `;
 // styles-end
 const GuideDetails = (props) => {
@@ -68,7 +94,6 @@ const GuideDetails = (props) => {
   }, [props.location.state, props.match.params.name]);
   if(thisGuide){
   return (
-
     <Wrapper>
       <Grid>
         <GridLeft>
@@ -78,13 +103,20 @@ const GuideDetails = (props) => {
         </GridLeft>
 
         <GridRight>
-          <TextContainer>
+          <GridRightTextContainer>
             Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum, ex! Lorem ipsum dolor sit, amet consectetur adipisicing elit. Adipisci vero quisquam blanditiis voluptas ut deserunt impedit libero ipsa perspiciatis, minus quis dicta, harum reprehenderit illum. Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis, deleniti quas quia beatae totam ipsum?
-          </TextContainer>
+          </GridRightTextContainer>
         </GridRight>
       </Grid>
-    </Wrapper>
 
+      <Separator/>
+
+      <ExpertiseGrid>
+        <ExpertiseTitle>Expertise</ExpertiseTitle>
+        <ExpertisePerks>{thisGuide.expertise.map(perk => <li>{perk}</li>)}</ExpertisePerks>
+      </ExpertiseGrid>
+    
+    </Wrapper>
   )
 
   } else {
