@@ -1,10 +1,10 @@
-import { LOAD_HOTELS, SET_SORT1, SET_SORT2, CARD_ID, SET_LOADING } from '../actions/types.js';
+import { LOAD_HOTELS, SET_SORT1, SET_SORT2, PAGE_LOC, SET_LOADING } from '../actions/types.js';
 
 const initialState = {
   hotels: null,
   sortType: "default",
   sortOrder: "asc",
-  cardId: null,
+  pageLocY: 0,
   loading: true
 }
 
@@ -33,11 +33,11 @@ export default(state = initialState, action) => {
         sortOrder: action.payload
       }
     
-    case CARD_ID:
+    case PAGE_LOC:
       return{
         ...state,
         loading: false,
-        cardId: action.payload
+        pageLocY: action.payload
       }
     case SET_LOADING:
       return{

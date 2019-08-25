@@ -1,16 +1,14 @@
-import React, {useRef, Fragment, useState, useEffect} from 'react';
+import React, { Fragment, useState, useEffect} from 'react';
 import HotelCard from './Hotels-children/HotelCard';
 import HotelsSearchBar from './Hotels-children/HotelsSearchBar';
 
 import { orderBy } from "lodash";
 
 import {connect} from 'react-redux';
-import {loadHotels, sortByType, sortByOrder, saveCardId} from '../../actions/sortingActions';
-
-import history from '../../history';
+import {loadHotels, sortByType, sortByOrder, pageLocation} from '../../actions/sortingActions';
 
 
-const Hotels = ({sort: {hotels, sortType, sortOrder, cardId, loading}, loadHotels, sortByType, sortByOrder, saveCardId}) => {
+const Hotels = ({sort: {hotels, sortType, sortOrder, pageLocY, loading}, loadHotels, sortByType, sortByOrder, pageLocation}) => {
 
   // const [hotel, setHotel] = useState(data.hotels[0]);
   const [collection, setCollection] = useState(null);
@@ -29,16 +27,9 @@ const Hotels = ({sort: {hotels, sortType, sortOrder, cardId, loading}, loadHotel
       await setCollection(hotels);
       await sortOnPageInit();
       await setUnblock(false);
-      // await goToCardId();
-       
-      
-      // await window.scrollTo(0, 1200);
-    }
 
-    // function goToCardId(){
-    //     if(cardId === null) return
-    //     history.push(`/hotel-list/#${cardId}`)
-    // }
+      await window.scrollTo(0, pageLocY);
+    }
 
 
     loadHotelSDOM();
@@ -86,8 +77,9 @@ const Hotels = ({sort: {hotels, sortType, sortOrder, cardId, loading}, loadHotel
   }
 
 
-  const saveRoomId = (e) => {
-    saveCardId(e);
+  const saveRoomLoc = () => {
+    pageLocation(window.pageYOffset);
+
   }
 
 
@@ -97,7 +89,7 @@ const Hotels = ({sort: {hotels, sortType, sortOrder, cardId, loading}, loadHotel
           <HotelsSearchBar selectedOption={selectedOption} selectedOrder={selectedOrder} handleType={handleType} handleOrder={handleOrder} />
           
         {
-          collection && collection.map(hotel =>  <HotelCard saveRoomId={saveRoomId} key={hotel.id} hotel={hotel}/> )
+          collection && collection.map(hotel =>  <HotelCard saveRoomLoc={saveRoomLoc} key={hotel.id} hotel={hotel}/> )
         }
       
       </Fragment>
@@ -112,5 +104,5 @@ const Hotels = ({sort: {hotels, sortType, sortOrder, cardId, loading}, loadHotel
 const mapStateToProps = state => ({
   sort: state.sort
 })
-export default connect(mapStateToProps, {loadHotels, sortByType, sortByOrder, saveCardId})(Hotels)
+export default connect(mapStateToProps, {loadHotels, sortByType, sortByOrder, pageLocation})(Hotels)
 

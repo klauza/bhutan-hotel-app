@@ -1,4 +1,4 @@
-import React, {Fragment, useState, useEffect} from 'react';
+import React, { Fragment, useState, useEffect } from 'react';
 import {Link} from 'react-router-dom';
 import HotelImage from './HotelImage';
 import styled from 'styled-components';
@@ -149,10 +149,12 @@ const IndicatorRight = styled(Indicator)`
 // style-end
 
 
-const HotelCard = ({hotel, saveRoomId}) => {
+const HotelCard = ({hotel, saveRoomLoc}) => {
+  
+
   useEffect(()=>{
     document.querySelectorAll(".hide-show").forEach(each => {
-      each.style.transition = "all 300ms ease"
+      each.style.transition = "all 500ms ease"
       each.style.opacity = "1";
     });
 
@@ -203,7 +205,7 @@ const HotelCard = ({hotel, saveRoomId}) => {
                 </Indicators>
                 
                 <span>{hotel.name}</span>
-                <Link onClick={() => saveRoomId(`card-${hotel.id}`)} to={{
+                <Link onClick={() => saveRoomLoc()} to={{
                   pathname: `/hotel/${hotel.id}`,
                   state: {hotel}
                   }} >

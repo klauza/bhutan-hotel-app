@@ -1,4 +1,4 @@
-import { LOAD_HOTELS, SET_SORT1, SET_SORT2, CARD_ID, SET_LOADING } from './types.js';
+import { LOAD_HOTELS, SET_SORT1, SET_SORT2, PAGE_LOC, SET_LOADING } from './types.js';
 import data from '../components/pages/Hotels-children/HotelsData.js';
 
 export const loadHotels = () => async dispatch => {
@@ -24,10 +24,10 @@ export const sortByOrder = (order) => async dispatch => {
   })
 }
 
-export const saveCardId = (id) => async dispatch => {
+export const pageLocation = (id) => async dispatch => {
   setLoading();
   dispatch({
-    type: CARD_ID,
+    type: PAGE_LOC,
     payload: id
   })
 }
