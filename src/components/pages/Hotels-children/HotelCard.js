@@ -149,7 +149,7 @@ const IndicatorRight = styled(Indicator)`
 // style-end
 
 
-const HotelCard = ({hotel}) => {
+const HotelCard = ({hotel, saveRoomId}) => {
   useEffect(()=>{
     document.querySelectorAll(".hide-show").forEach(each => {
       each.style.transition = "all 300ms ease"
@@ -203,7 +203,7 @@ const HotelCard = ({hotel}) => {
                 </Indicators>
                 
                 <span>{hotel.name}</span>
-                <Link to={{
+                <Link onClick={() => saveRoomId(`card-${hotel.id}`)} to={{
                   pathname: `/hotel/${hotel.id}`,
                   state: {hotel}
                   }} >

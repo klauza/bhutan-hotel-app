@@ -94,13 +94,13 @@ const Label = styled.label`
 
 // end-styles
 
-const HotelsSearchBar = ({selectedOption, selectedOrder, handleColumnHeaderClick, handleOrder}) => {
+const HotelsSearchBar = ({selectedOption, selectedOrder, handleType, handleOrder}) => {
   return (
     <HotelsHeaderBar>
       <SearchBar>
         <Wrapper>
           
-          <Select value={selectedOption} onChange={e => handleColumnHeaderClick(e.target.value)}>
+          <Select value={selectedOption} onChange={e => handleType(e.target.value)}>
             <option disabled className="blockDefault" value="default">Sort by</option>
             <option value="price">Price</option>
             <option value="bedrooms">Bedrooms</option>

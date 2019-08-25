@@ -1,16 +1,16 @@
-import React, {Fragment, useState, useEffect} from 'react';
+import React, {useRef, Fragment, useState, useEffect} from 'react';
 import HotelCard from './Hotels-children/HotelCard';
 import HotelsSearchBar from './Hotels-children/HotelsSearchBar';
 
 import { orderBy } from "lodash";
 
 import {connect} from 'react-redux';
-import {loadHotels, sortByType, sortByOrder} from '../../actions/sortingActions';
+import {loadHotels, sortByType, sortByOrder, saveCardId} from '../../actions/sortingActions';
+
+import history from '../../history';
 
 
-
-
-const Hotels = ({sort: {hotels, sortType, sortOrder}, loadHotels, sortByType, sortByOrder}) => {
+const Hotels = ({sort: {hotels, sortType, sortOrder, cardId, loading}, loadHotels, sortByType, sortByOrder, saveCardId}) => {
 
   // const [hotel, setHotel] = useState(data.hotels[0]);
   const [collection, setCollection] = useState(null);
@@ -29,10 +29,16 @@ const Hotels = ({sort: {hotels, sortType, sortOrder}, loadHotels, sortByType, so
       await setCollection(hotels);
       await sortOnPageInit();
       await setUnblock(false);
+      // await goToCardId();
        
       
-      await window.scrollTo(0, 0);
+      // await window.scrollTo(0, 1200);
     }
+
+    // function goToCardId(){
+    //     if(cardId === null) return
+    //     history.push(`/hotel-list/#${cardId}`)
+    // }
 
 
     loadHotelSDOM();
@@ -50,7 +56,7 @@ const Hotels = ({sort: {hotels, sortType, sortOrder}, loadHotels, sortByType, so
     
   }
 
-  const handleColumnHeaderClick = (event) => {
+  const handleType = (event) => {
     sortByType(event);
 
     document.querySelector('.blockDefault').disabled = true;
@@ -71,7 +77,6 @@ const Hotels = ({sort: {hotels, sortType, sortOrder}, loadHotels, sortByType, so
     
     setSelectedOrder(event);
     
-    
     const sortDirection = event;
 
     if(selectedOption !== "default"){
@@ -81,20 +86,24 @@ const Hotels = ({sort: {hotels, sortType, sortOrder}, loadHotels, sortByType, so
   }
 
 
+  const saveRoomId = (e) => {
+    saveCardId(e);
+  }
+
 
   if(!unblock){
     return (
       <Fragment>
-          <HotelsSearchBar selectedOption={selectedOption} selectedOrder={selectedOrder} handleColumnHeaderClick={handleColumnHeaderClick} handleOrder={handleOrder} />
+          <HotelsSearchBar selectedOption={selectedOption} selectedOrder={selectedOrder} handleType={handleType} handleOrder={handleOrder} />
           
         {
-          collection && collection.map(hotel =>  <HotelCard key={hotel.id} hotel={hotel}/> )
+          collection && collection.map(hotel =>  <HotelCard saveRoomId={saveRoomId} key={hotel.id} hotel={hotel}/> )
         }
       
       </Fragment>
     )
   } else{
-    return (<div style={{minHeight: "150vh"}}></div>)
+    return (<div></div>)
   }
 }
 
@@ -103,5 +112,5 @@ const Hotels = ({sort: {hotels, sortType, sortOrder}, loadHotels, sortByType, so
 const mapStateToProps = state => ({
   sort: state.sort
 })
-export default connect(mapStateToProps, {loadHotels, sortByType, sortByOrder})(Hotels)
+export default connect(mapStateToProps, {loadHotels, sortByType, sortByOrder, saveCardId})(Hotels)
 
