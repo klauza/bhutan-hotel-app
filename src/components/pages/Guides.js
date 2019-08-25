@@ -2,16 +2,9 @@ import React, {useState} from 'react'
 import GuideList from './Guide-children/GuideList';
 import guidesData from './Guide-children/GuideData';
 import styled from 'styled-components';
+import { Wrapper } from '../layout/Elements';
 
 // STYLES
-const Container = styled.div`
-  width: 70%;
-  margin: 0 auto;
-  overflow: hidden;
-  @media(max-width: 768px){
-    width: 95%;
-  }
-`;
 const Grid = styled.div`
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -53,16 +46,16 @@ const Guides = () => {
   const [guides] = useState(guidesData);
 
   return (
-    <Container>
+    <Wrapper overflow="hidden">
       <GuidesTopText>
         <p>Rent a guide and let him lead your adventure to a higher level of exploration.</p>
-        <p>Our guides have huge knowledge of locale events and awesome views.</p>
+        <p>Our guides have huge knowledge of locale events and places with awesome views.</p>
       </GuidesTopText>
 
       <Grid>
         {guides.map((guide, id) => <GuideList id={id} key={id} guide={guide} /> )}
       </Grid>
-    </Container>
+    </Wrapper>
   )
 }
 

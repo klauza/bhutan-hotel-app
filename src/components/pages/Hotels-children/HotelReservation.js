@@ -1,8 +1,8 @@
 import React from 'react';
 import { createBrowserHistory } from 'history';
 import styled from 'styled-components';
-import {Wrapper} from '../../layout/Elements';
-
+import {Wrapper, BackButton} from '../../layout/Elements';
+const history = createBrowserHistory();
 
 
 // STYLES
@@ -21,9 +21,12 @@ const Button = styled.button`
       background-color: rgb(36, 207, 199);
     }
 `;
+const NoHotel = styled.div`
+  text-align: center;
+`;
 // end-styles
 
-const history = createBrowserHistory();
+
 const HotelReservation = (props) => {
  
   try{
@@ -32,9 +35,7 @@ const HotelReservation = (props) => {
     console.log(err);
   }
 
-  const goBackFunction = () => {
-    history.goBack();
-  }
+
   const goHome = () => {
     history.push('/hotel-list')
     window.location.reload(true);
@@ -43,17 +44,19 @@ const HotelReservation = (props) => {
   if(thisHotel ){
     return (
       <Wrapper>
-        <Button onClick={goBackFunction}>Back</Button>
+        <BackButton>Back</BackButton>
         <Title>
           You are going to make a reservation on {thisHotel.name}
         </Title>
       </Wrapper>
     )
   } else {
-    return ( <div>
+    return ( 
+    <NoHotel>
       <p>No hotel chosen</p>
-      <button onClick={goHome}>Back to hotel list</button>
-      </div>)
+      <Button onClick={goHome}>Back to hotel list</Button>
+    </NoHotel>
+      )
   }
 }
 

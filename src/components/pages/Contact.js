@@ -9,7 +9,6 @@ const Header = styled.h1`
   font-family: Verdana;
   color: green;
   font-weight: bold;
-  margin-top: 50px;
 `;
 const Paragraph = styled.p`
   text-align: center;

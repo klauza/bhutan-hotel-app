@@ -2,7 +2,7 @@ import React, {useEffect, useState} from 'react';
 import styled from 'styled-components';
 
 import guidesData from './GuideData';
-import {Wrapper} from '../../layout/Elements';
+import {Wrapper, BackButton} from '../../layout/Elements';
 
 // STYLES
 const Grid = styled.div`
@@ -91,10 +91,13 @@ const GuideDetails = (props) => {
       guidesData.find(guide => guide.name.toLowerCase() === name && setThisGuide(guide));
     }
 
-  }, [props.location.state, props.match.params.name]);
+  //eslint-disable-next-line
+  }, []);
+
   if(thisGuide){
   return (
     <Wrapper>
+      <BackButton>Back</BackButton>
       <Grid>
         <GridLeft>
           <GridImage src={thisGuide.img} />
@@ -113,14 +116,14 @@ const GuideDetails = (props) => {
 
       <ExpertiseGrid>
         <ExpertiseTitle>Expertise</ExpertiseTitle>
-        <ExpertisePerks>{thisGuide.expertise.map(perk => <li>{perk}</li>)}</ExpertisePerks>
+        <ExpertisePerks>{thisGuide.expertise.map((perk,id) => <li key={id}>{perk}</li>)}</ExpertisePerks>
       </ExpertiseGrid>
     
     </Wrapper>
   )
 
   } else {
-    return (<div>Loading...</div>)
+    return (<div></div>)
   }
 }
 

@@ -1,10 +1,10 @@
 import React, {useState, useEffect} from 'react';
-import { createBrowserHistory } from 'history';
 import data from './HotelsData';
 import ThumbnailGallery from './HotelDetails-gallery/ThumbnailGallery';
 import styled from 'styled-components';
-import {Wrapper} from '../../layout/Elements';
+import {Wrapper, BackButton} from '../../layout/Elements';
 import {Link} from 'react-router-dom';
+import { createBrowserHistory } from 'history';
 const history = createBrowserHistory();
 
 // STYLES
@@ -42,16 +42,6 @@ const Questions = styled.div`
   text-align: center;
   margin: 15px 0;
 `;
-const BackButton = styled.button`
-  margin: 60px 10px 10px 10px;
-  background: lightseagreen;
-  border: 0; border-radius: 3px;
-  padding: 10px;
-  &:hover{
-    cursor: pointer;
-    background-color: rgb(36, 207, 199);
-  }
-`;
 // styles-end
 
 const HotelDetails = (props) => {
@@ -79,9 +69,6 @@ const HotelDetails = (props) => {
     history.push('/hotel-list')
     window.location.reload(true);
   }
-  const goBackFunction = () => {
-    history.goBack();
-  }
 
 
   if(thisHotel){
@@ -91,7 +78,7 @@ const HotelDetails = (props) => {
           ? 
           <BackButton onClick={goBackReload}>Back</BackButton>
           : 
-          <BackButton onClick={goBackFunction}>Back</BackButton>
+          <BackButton>Back</BackButton>
         }
 
         <Header>{thisHotel.name.toUpperCase()}</Header>
