@@ -2,7 +2,7 @@
 
 "Bhutanotel" is an abstract hotel facility located in the capitol of Bhutan - Thimphu. <br/>
 The hotel offers a set of high standard rooms and many attractions around the place. <br/>
-The enterprise was founded for travellers and world-explorers to provide them a cosy but luxury place to stay between their adventures. <br/>
+The enterprise was founded for travellers and world-explorers to provide them a cosy, luxury and pleasant place to stay between their demanding adventures. <br/>
 A newcomer can hire a guide or rent a car in this place to speed up the exploration of this beautiful country. <br/>
 
 <br/>
