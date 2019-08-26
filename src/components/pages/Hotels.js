@@ -76,6 +76,7 @@ const Hotels = ({sort: {hotels, sortType, sortOrder, pageLocY, loading}, loadHot
       const sortedCollection = orderBy(collection, [selectedOption], [sortDirection]);  // Sort collection 
       setCollection(sortedCollection);  //Update component state with new data
     }
+    
   }
 
 
@@ -97,7 +98,7 @@ const Hotels = ({sort: {hotels, sortType, sortOrder, pageLocY, loading}, loadHot
       </Fragment>
     )
   } else{
-    return (<div></div>)
+    return (<div style={{minHeight: `${pageLocY+1000}px`}}></div>)
   }
 }
 
