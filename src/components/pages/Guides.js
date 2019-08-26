@@ -25,16 +25,17 @@ const GuidesTopText = styled.div`
   border: 2px solid black; border-radius: 3px;
   box-shadow: 0px 5px 6px -2px rgba(117,117,117,0.65);
   p:nth-child(1){
-    background: black;
+    background: grey;
     color: white;
     font-size: 1.15em;
     font-weight: 700;
     padding: 15px;
   }
   p:nth-child(2){
-    background: grey;
-    color: white;
+    background: lightblue;
+    color: black;
     font-size: 1.15em;
+    font-weight: 500;
     padding: 15px;
   }
 `;
@@ -48,8 +49,8 @@ const Guides = () => {
   return (
     <Wrapper overflow="hidden">
       <GuidesTopText>
-        <p>Rent a guide and let him lead your adventure to a higher level of exploration.</p>
-        <p>Our guides have huge knowledge of locale events and places with awesome views.</p>
+        <p>Hire a guide and let him lead your adventure to a higher level of exploration.</p>
+        <p>Our guides have huge knowledge about local events and places with spectacular views.</p>
       </GuidesTopText>
 
       <Grid>

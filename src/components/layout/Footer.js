@@ -70,9 +70,7 @@ const Footer = () => {
       setUnlock(true);
     }
   
-    return () => {
-      setUnlock(false);
-    }
+
   },[unlock])
   
   return (

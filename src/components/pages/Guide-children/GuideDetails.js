@@ -64,7 +64,7 @@ const ExpertiseTitle = styled.h2`
   text-align: center;
 `;
 const ExpertisePerks = styled.div`
-  background: lightgreen;
+  background: lightblue;
   margin-top: 15px;
   text-align: center;
   li{ list-style: none; line-height: 30px; font-weight: 700;}
