@@ -42,6 +42,16 @@ const Questions = styled.div`
   text-align: center;
   margin: 15px 0;
 `;
+const ExternalBackButton = styled.button`
+  margin: 60px 10px 10px 10px;
+  background: lightseagreen;
+  border: 0; border-radius: 3px;
+  padding: 10px;
+  &:hover{
+    cursor: pointer;
+    background-color: rgb(36, 207, 199);
+  }
+`;
 // styles-end
 
 const HotelDetails = (props) => {
@@ -62,6 +72,7 @@ const HotelDetails = (props) => {
       setThisHotel(hotelUrl);
       setReloadBtn(true)
     }
+    window.scrollTo(0, 0);
   }, [thisHotel, props.match.params.id, props.location.state])
 
   // Buttons functions
@@ -76,7 +87,7 @@ const HotelDetails = (props) => {
       <Wrapper>
         {reloadBtn 
           ? 
-          <BackButton onClick={goBackReload}>Back</BackButton>
+          <ExternalBackButton onClick={goBackReload}>Back</ExternalBackButton>
           : 
           <BackButton>Back</BackButton>
         }

@@ -44,8 +44,33 @@ const Wrapper = styled.div`
   align-items: center;
 `;
 const Select = styled.select`
-  height: 50px;
-  option{line-height: 45px; font-size: 16px;}
+  background-color: white;
+  border: 1px solid grey; border-radius: 3px;
+  height: 60%;
+  width: 160px;
+  display: inline-block;
+  padding-left: 10px;
+  font-weight: 700;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+
+  background-image:
+    linear-gradient(45deg, transparent 50%, gray 50%),
+    linear-gradient(135deg, gray 50%, transparent 50%),
+    linear-gradient(to right, #ccc, #ccc);
+  background-position:
+    calc(100% - 20px) calc(1em + 2px),
+    calc(100% - 15px) calc(1em + 2px),
+    calc(100% - 2.5em) 0.5em;
+  background-size:
+    5px 5px,
+    5px 5px,
+    1px 1.5em;
+  background-repeat: no-repeat;
+
+
+
+
 `;
 
 const Input = styled.input`
@@ -76,6 +101,7 @@ const Label = styled.label`
     display: block;
     margin-top: -5px;
   }
+  
   &::before{
     height: 32px; width: 32px;
     border: 1px solid; background: white;
@@ -100,24 +126,24 @@ const HotelsSearchBar = ({selectedOption, selectedOrder, handleType, handleOrder
       <SearchBar>
         <Wrapper>
           
-          <Select value={selectedOption} onChange={e => handleType(e.target.value)}>
+          <Select className="select-type" value={selectedOption} onChange={e => handleType(e.target.value)}>
             <option disabled className="blockDefault" value="default">Sort by</option>
             <option value="price">Price</option>
             <option value="bedrooms">Bedrooms</option>
             <option value="bathrooms">Bathrooms</option>
           </Select>
 
-            <Input checked={selectedOrder==="asc" && "checked"} value="asc" type="radio" name="order" id="order-asc" onChange={e => handleOrder(e.target.value)}/>
-            <Label htmlFor="order-asc">ASC</Label>
+          <Input checked={selectedOrder==="asc" && "checked"} value="asc" type="radio" name="order" id="order-asc" onChange={e => handleOrder(e.target.value)}/>
+          <Label htmlFor="order-asc">ASC</Label>
 
-            <Input checked={selectedOrder==="desc" && "checked"} value="desc" type="radio" name="order" id="order-desc" onChange={e => handleOrder(e.target.value)}/>
-            <Label htmlFor="order-desc">DSC</Label>
+          <Input checked={selectedOrder==="desc" && "checked"} value="desc" type="radio" name="order" id="order-desc" onChange={e => handleOrder(e.target.value)}/>
+          <Label htmlFor="order-desc">DSC</Label>
 
         </Wrapper>
       </SearchBar>
       <HotelTopText>
-        <p>We offer a vast amount of comfortable rooms</p>
-        <p>Also, these rooms used to be inhabited by progenitors. Feel their presence and absorb the energy, acquire relax from subtle healthy flow of scent.</p> 
+        <p>We offer a vast amount of comfortable rooms.</p>
+        <p>Price refers to daily stay. Also, these rooms used to be inhabited by progenitors. Feel their presence and absorb the energy, acquire relax from subtle healthy flow of scent.</p> 
       </HotelTopText>
     </HotelsHeaderBar>
   )
