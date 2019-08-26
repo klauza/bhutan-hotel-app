@@ -1,120 +1,76 @@
-import { hotel1_1, hotel1_2, hotel1_3} from './imgs/index';
+import { room1_1, room1_2, room1_3, room2_1, room2_2, room2_3, room2_4, room3_1, room3_2, room3_3, room3_4, room4_1, room4_2, room5_1, room5_2, room5_3, room5_4, room6_1, room7_1, room7_2, room7_3, room7_4 } from '../../../media/index';
 
 const data = {
   "hotels": [
     {
       "id": 0,
-      "name": "Luxurious hotel with sauna",
-      "img": [hotel1_1, hotel1_2, hotel1_3],
-      "price": 1000,
+      "name": "Flat with prestigious spaces",
+      "img": [room1_1, room1_2, room1_3],
+      "price": 325,
       "bedrooms": "1",
       "bathrooms": "1",
-      "features": [`49" smart TV`, "In-room Nespresso coffee machine", "Sauna", "Telephone", "24‐hour butler service", "Wi-Fi", "Private balcony"],
-      "rating": "89%"
+      "features": [`49" smart TV`, "In-room Nespresso coffee machine", "Telephone", "24‐hour butler service", "Wi-Fi"],
+      "rating": "96%"
     },
     {
       "id": 1,
-      "name": "Modest place for travellers",
-      "img": [
-        "https://images.pexels.com/photos/2120010/pexels-photo-2120010.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260", 
-        "https://images.pexels.com/photos/2395250/pexels-photo-2395250.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260", 
-        "https://images.pexels.com/photos/2773655/pexels-photo-2773655.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
-        "https://images.pexels.com/photos/872520/pexels-photo-872520.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
-      ],
-      "price": 1200,
+      "name": "The mountain with amazing views",
+      "img": [room2_1, room2_2, room2_3, room2_4],
+      "price": 790,
       "bedrooms": "2",
-      "bathrooms": "1",
-      "features": ["double-bathroom"],
+      "bathrooms": "2",
+      "features": ["Spacious bathrooms", "Wi-Fi", "Telephone", "settled on 1st floor"],
       "rating": "93%"
     },
     {
       "id": 2,
-      "name": "Subtle designed interiors",
-      "img": [
-        "https://images.pexels.com/photos/2784760/pexels-photo-2784760.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260", 
-        "https://images.pexels.com/photos/1093926/pexels-photo-1093926.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260", 
-        "https://images.pexels.com/photos/2779677/pexels-photo-2779677.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
-      ],
-      "price": 1300,
+      "name": "Halls of mild energy",
+      "img": [room3_1, room3_2, room3_3, room3_4],
+      "price": 1050,
       "bedrooms": "3",
-      "bathrooms": "2",
-      "features": ["sauna"],
-      "rating": "91%"
+      "bathrooms": "1",
+      "features": ["Sauna", "Private balcony", "Wi-Fi", `50" smart TV`],
+      "rating": "97%"
     },
     {
       "id": 3,
-      "name": "For lonely travellers",
-      "img": [
-        "https://images.pexels.com/photos/909620/pexels-photo-909620.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260", 
-        "https://images.pexels.com/photos/2763188/pexels-photo-2763188.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260", 
-        "https://images.pexels.com/photos/2750885/pexels-photo-2750885.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
-      ],
-      "price": 1700,
+      "name": "Pool-flat",
+      "img": [room4_1, room4_2],
+      "price": 1600,
       "bedrooms": "4",
-      "bathrooms": "1",
-      "features": ["minimalistic interior", "a lot of flora"],
+      "bathrooms": "2",
+      "features": ["indoor pool", "Wi-Fi", "Telephone", "few dressing-gowns"],
       "rating": "99%"
     },
     {
       "id": 4,
-      "name": "Big family house",
-      "img": [
-        "https://images.pexels.com/photos/2440080/pexels-photo-2440080.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
-         "https://images.pexels.com/photos/1998435/pexels-photo-1998435.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260", 
-        "https://images.pexels.com/photos/2769657/pexels-photo-2769657.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
-      ],
-      "price": 1700,
-      "bedrooms": "4",
-      "bathrooms": "1",
-      "features": ["sauna", "balcony"],
+      "name": "Spacious family flat",
+      "img": [room5_1, room5_2, room5_3, room5_4],
+      "price": 800,
+      "bedrooms": "2",
+      "bathrooms": "2",
+      "features": ["Spactious rooms", "Huge dorm", "double bathroom", "Wi-Fi"],
       "rating": "95%"
     },
     {
       "id": 5,
-      "name": "Everything what you need is here",
-      "img": [
-        "https://images.pexels.com/photos/2325505/pexels-photo-2325505.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
-        "https://images.pexels.com/photos/2781139/pexels-photo-2781139.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260", 
-        "https://images.pexels.com/photos/938582/pexels-photo-938582.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
-      ],
-      "price": 2200,
-      "bedrooms": "5",
-      "bathrooms": "2",
-      "features": ["sauna", "balcony"],
-      "rating": "88%"
+      "name": "Studio with verything under hand",
+      "img": [room6_1],
+      "price": 235,
+      "bedrooms": "1",
+      "bathrooms": "1",
+      "features": ["Minimalistic interiors", "Cosy"],
+      "rating": "86%"
     },
     {
       "id": 6,
       "name": "Simple but modern",
-      "img": [
-        "https://images.pexels.com/photos/2773242/pexels-photo-2773242.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
-        "https://images.pexels.com/photos/2787216/pexels-photo-2787216.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260", 
-        "https://images.pexels.com/photos/2404444/pexels-photo-2404444.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
-        "https://images.pexels.com/photos/2474014/pexels-photo-2474014.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
-        "https://images.pexels.com/photos/2820134/pexels-photo-2820134.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
-        "https://images.pexels.com/photos/2123060/pexels-photo-2123060.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
-        "https://images.pexels.com/photos/1750566/pexels-photo-1750566.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
-        "https://images.pexels.com/photos/730981/pexels-photo-730981.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
-        "https://images.pexels.com/photos/1267244/pexels-photo-1267244.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
-      ],
-      "price": 9200,
+      "img": [room7_1, room7_2, room7_3, room7_4],
+      "price": 1250,
       "bedrooms": "2",
-      "bathrooms": "2",
-      "features": ["sauna", "balcony"],
-      "rating": "99%"
-    },
-    {
-      "id": 7,
-      "name": "Cave in center",
-      "img": [
-        "https://images.pexels.com/photos/279719/pexels-photo-279719.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
-        "https://images.pexels.com/photos/930004/pexels-photo-930004.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
-      ],
-      "price": 800,
-      "bedrooms": "1",
       "bathrooms": "1",
-      "features": ["nothing special"],
-      "rating": "93%"
+      "features": ["Sauna", "Balcony", `2x 39" TV`],
+      "rating": "99%"
     }
   ]
 }

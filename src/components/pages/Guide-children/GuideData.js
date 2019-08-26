@@ -1,59 +1,60 @@
+import {guide_1, guide_2, guide_3, guide_4, guide_5, guide_6, guide_7, guide_8} from '../../../media/index';
 const guidesData = [
   {
     "id": 1,
     "name": "Elizabeth Smith",
-    "img": "https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
+    "img": guide_1,
     "experience": 3,
-    "expertise": ["very talkative", "big knowledge of cities"]
+    "expertise": ["very talkative", "big knowledge about Bhutan towns", "knows secret forest paths"]
   },
   {
     "id": 2,
     "name": "Mike Dande",
-    "img": "https://images.pexels.com/photos/736716/pexels-photo-736716.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
+    "img": guide_2,
     "experience": 1,
-    "expertise": ["fast walk", "knowledge of nearby events"]
+    "expertise": ["fast walk", "knowledge of nearby events", "honest and agreeable"]
   },
   {
     "id": 3,
     "name": "Merlin Noe",
-    "img": "https://images.pexels.com/photos/1222271/pexels-photo-1222271.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
+    "img": guide_3,
     "experience": 4,
-    "expertise": ["fast walk"]
+    "expertise": ["daily traveller", "public speaker", "has many local friends", "open-minded"]
   },
   {
     "id": 4,
     "name": "Sarah Casana",
-    "img": "https://images.pexels.com/photos/712521/pexels-photo-712521.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
+    "img": guide_4,
     "experience": 5,
-    "expertise": ["fast walk", "she knows awesome view locations"]
+    "expertise": ["fast walk", "knows spectacular view locations"]
   },
   {
     "id": 5,
     "name": "George Bmw",
-    "img": "https://images.pexels.com/photos/1300402/pexels-photo-1300402.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
+    "img": guide_5,
     "experience": 3,
-    "expertise": ["fast walk", "ruins exploration", "vast knowledge about gods"]
+    "expertise": ["survival skills", "ruins explorator", "vast knowledge about myths and legends"]
   },
   {
     "id": 6,
     "name": "Joe Berlin",
-    "img": "https://images.pexels.com/photos/1250426/pexels-photo-1250426.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
+    "img": guide_6,
     "experience": 5,
-    "expertise": ["fast walk", "knowledge of nearby events"]
+    "expertise": ["fast walk"]
   },
   {
     "id": 7,
     "name": "Martha Sosenko",
-    "img": "https://images.pexels.com/photos/1239291/pexels-photo-1239291.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
+    "img": guide_7,
     "experience": 4,
-    "expertise": ["fast walk", "local music"]
+    "expertise": ["good city exploration", "interested in local music", "has map in her head"]
   },
   {
     "id": 8,
     "name": "Marie Gondor",
-    "img": "https://images.pexels.com/photos/1382731/pexels-photo-1382731.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
+    "img": guide_8,
     "experience": 5,
-    "expertise": ["fast walk"]
+    "expertise": ["interested in local music", "very talkative", "storyteller"]
   }
 
 ]

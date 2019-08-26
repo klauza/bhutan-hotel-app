@@ -1,9 +1,9 @@
 import React, {Fragment} from 'react';
-import MainCarrousel from './Main-children/MainCarrousel';
+import MainCarrousel from './Main-children/MainCarousel';
 import MainCards from './Main-children/MainCards';
 import styled from 'styled-components';
 import { Wrapper } from '../layout/Elements';
-import { logo1, logo2 } from '../../media/index';
+import { logo1, logo2, carImg } from '../../media/index';
 
 const Sponsors = styled.div`
   width: 100%;
@@ -121,7 +121,7 @@ const Main = () => {
             </CarDesc>
 
             <CarImage>
-              <img className="img-fluid" src="https://images.pexels.com/photos/164634/pexels-photo-164634.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" alt=""/>
+              <img src={carImg} alt=""/>
             </CarImage>
         </CarDiv>
 

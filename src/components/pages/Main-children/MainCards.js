@@ -1,6 +1,6 @@
 import React, {Fragment} from 'react';
 import styled from 'styled-components';
-import {background1, background2, background3} from '../../../media/index';
+import {background1, background2, background3, cardImg1, cardImg2, cardImg3} from '../../../media/index';
 
 // STYLES
 const Grid = styled.div`
@@ -54,11 +54,7 @@ background: rgba(255,255,255,0.5);
 
 const MainCards = () => {
   
-  const imgs = [
-    "https://images.pexels.com/photos/814544/pexels-photo-814544.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
-    "https://images.pexels.com/photos/1268558/pexels-photo-1268558.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
-    "https://images.pexels.com/photos/37735/trick-dog-trick-malinois-dog-show-trick-37735.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
-  ];
+  const imgs = [cardImg1, cardImg2, cardImg3];
 
 
 

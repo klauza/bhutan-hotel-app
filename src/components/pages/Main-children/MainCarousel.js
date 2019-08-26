@@ -3,6 +3,7 @@ import styled from 'styled-components';
 
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from 'react-responsive-carousel';
+import { carousel_1, carousel_2, carousel_3, carousel_4 } from '../../../media/index';
 
 const Wrapper = styled.div`
   overflow: hidden;
@@ -41,15 +42,12 @@ const CarrouselText = styled.p`
 const MainCarrousel = () => {
 
   
-  const images = [
-    "https://images.pexels.com/photos/1422391/pexels-photo-1422391.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
-    "https://images.pexels.com/photos/1518500/pexels-photo-1518500.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260",
-    "https://images.pexels.com/photos/678634/pexels-photo-678634.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
-  ]
+  const images = [carousel_1, carousel_2, carousel_3, carousel_4]
   const text = [
-    "Beautiful cities",
-    "Amazing views",
-    "Legendary mythic places"
+    "Our modern facility",
+    "Amazing city views",
+    "Great creations of nature are to be seen",
+    "Legendary mythic places await to be discovered"
   ]
 
 
