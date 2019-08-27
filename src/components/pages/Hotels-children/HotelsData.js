@@ -54,7 +54,7 @@ const data = {
     },
     {
       "id": 5,
-      "name": "Studio with verything under hand",
+      "name": "Studio with Everything under hand",
       "img": [room6_1],
       "price": 235,
       "bedrooms": "1",

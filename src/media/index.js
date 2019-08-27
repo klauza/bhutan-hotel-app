@@ -43,11 +43,11 @@ export {default as room7_3} from './Rooms/7-3.jpg';
 export {default as room7_4} from './Rooms/7-4.jpg';
 
 // Guides
-export {default as guide_1} from './Guides/pexels-photo-712521.jpg';
-export {default as guide_2} from './Guides/pexels-photo-736716.jpg';
-export {default as guide_3} from './Guides/pexels-photo-774909.jpg';
-export {default as guide_4} from './Guides/pexels-photo-1222271.jpg';
-export {default as guide_5} from './Guides/pexels-photo-1239291.jpg';
-export {default as guide_6} from './Guides/pexels-photo-1250426.jpg';
-export {default as guide_7} from './Guides/pexels-photo-1300402.jpg';
-export {default as guide_8} from './Guides/pexels-photo-1382731.jpg';
+export {default as guide_1} from './Guides/1-elizabeth.jpg';
+export {default as guide_2} from './Guides/2-mike.jpg';
+export {default as guide_3} from './Guides/3-merlin.jpg';
+export {default as guide_4} from './Guides/4-sarah.jpg';
+export {default as guide_5} from './Guides/5-geroge.jpg';
+export {default as guide_6} from './Guides/6-joe.jpg';
+export {default as guide_7} from './Guides/7-martha.jpg';
+export {default as guide_8} from './Guides/8-marie.jpg';
