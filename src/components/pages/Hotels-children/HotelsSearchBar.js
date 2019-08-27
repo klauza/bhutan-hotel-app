@@ -11,8 +11,6 @@ const HotelsHeaderBar = styled.div`
   padding-bottom: 50px;
   background: white;
   border: 0; border-top-left-radius: 5px; border-top-right-radius: 5px;
-  /* border-left: 1px solid lightgrey;
-  border-right: 1px solid lightgrey; */
 `;
 const Separator = styled.div`
   width: 100%;

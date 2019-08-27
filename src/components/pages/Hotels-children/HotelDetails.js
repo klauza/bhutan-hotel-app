@@ -110,7 +110,10 @@ const HotelDetails = (props) => {
     )
 
   } else {
-    return(<div></div>)
+    return(
+    <Wrapper>
+    <div style={{height: "100vh"}}></div>
+    </Wrapper>)
   }
 }
 

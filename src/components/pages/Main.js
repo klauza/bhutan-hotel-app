@@ -8,7 +8,7 @@ import { logo1, logo2, carImg } from '../../media/index';
 const Sponsors = styled.div`
   width: 100%;
   height: auto;
-  background: #f2f5f7;
+  /* background: #f2f5f7; */
   display: flex;
   flex-direction: column;
   p{

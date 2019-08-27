@@ -3,38 +3,24 @@ import styled from 'styled-components';
 import mobileNavIcon from '../../../media/hamburger.png';
 import NavLinks from './NavLinks';
 import {Link} from 'react-router-dom';
-import Logo from '../../../media/favicon.png';
+import Logo from '../../../media/logo.png';
 
 const MyDesktopNavbar = styled.nav`
   display: grid;
   grid-template-columns: 1fr 1fr;
-  /* flex-flow: row nowrap; */
-  /* justify-content: space-evenly; */
-  /* align-items: center; */
-
-  /* background: black; */
   color: white;
-  /* height: 150px; */
-
-  /* box-shadow: 0 5px 5px 1px rgba(0,0,0,0.45); */
 
   .nav-links{
     width: 50%;
     height: 100px;
     margin: 0 auto;
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  grid-column: span 2;
-  /* flex-flow: row nowrap; */
-  /* justify-content: space-around; */
-  align-items: center;
-  list-style: none;
-  /* width: 35vw; */
-  @media screen and (max-width: 768px){
-    display: none;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-column: span 2;
+    align-items: center;
+    list-style: none;
+    @media screen and (max-width: 768px){ display: none; }
   }
-  }
-
   .link{
     display: flex;
     flex-flow: column nowrap;
@@ -64,17 +50,14 @@ const MyMobileNavButton = styled.button`
   height: 50px;
   width: 50px;
   border: 0;
-  /* border: 1px solid white; */
   display: none;
   margin-right: 10px;
-
   transition: transform 1s;
   transform: rotate( ${props => props.displayMobileNavbar ? ("90deg") : ("0")} );
+
   &:focus{
     outline: none;
   }
-  
-
   img{
     width: 100%;
     height: 100%;
@@ -101,14 +84,15 @@ const NavbarBrand = styled.div`
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     text-transform: uppercase;
     img{
-    margin: 0 5px;
-    width: auto;
-    height: 45px;
-    object-fit: cover;
-    display: inline-block;
-  }
+      margin: 0 5px;
+      width: auto;
+      height: 45px;
+      object-fit: cover;
+      display: inline-block;
+    }
   }
 `;
+
 const SocialLinks = styled.div`
 align-self: center;
 justify-self: center;

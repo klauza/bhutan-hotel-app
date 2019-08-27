@@ -19,6 +19,11 @@ const Row = styled.div`
 const Col = styled.div`
   width: 40%;
   margin: 0 auto;
+  p{
+    text-align: center;
+    font-size: 2em;
+    font-weight: 700;
+  }
 `;
 const Image = styled.img`
   width: 100%;
@@ -33,7 +38,7 @@ const NotFound = () => {
       <Row>
         <Col>
           <Image src={NotFoundImage} />
-          <p style={{textAlign: "center", fontSize:"2em", fontWeight:"700"}}>Page not found</p>
+          <p>Page not found</p>
         </Col>
       </Row>
     </Wrapper>

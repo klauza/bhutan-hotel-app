@@ -47,7 +47,7 @@ const Guides = () => {
   const [guides] = useState(guidesData);
 
   return (
-    <Wrapper overflow="hidden">
+    <Wrapper>
       <GuidesTopText>
         <p>Hire a guide and let him lead your adventure to a higher level of exploration.</p>
         <p>Our guides have huge knowledge about local events and places with spectacular views.</p>

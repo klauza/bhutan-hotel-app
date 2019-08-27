@@ -49,15 +49,11 @@ background: rgba(255,255,255,0.5);
   p:nth-child(2){ padding: 10px 10px;}
   p{ color: black; font-weight: 500; }
 `;
-
 // end-styles
 
 const MainCards = () => {
   
   const imgs = [cardImg1, cardImg2, cardImg3];
-
-
-
 
   return (
     <Fragment>

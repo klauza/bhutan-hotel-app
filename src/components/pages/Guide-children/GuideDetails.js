@@ -73,7 +73,6 @@ const ExpertisePerks = styled.div`
 // styles-end
 const GuideDetails = (props) => {
   const [thisGuide, setThisGuide] = useState(null)
-  // const [loader, setLoader] = useState(false);
 
   useEffect(() =>{
     try{
@@ -123,7 +122,9 @@ const GuideDetails = (props) => {
   )
 
   } else {
-    return (<div></div>)
+    return (<Wrapper>
+      <div style={{height: "100vh"}}></div>
+      </Wrapper>)
   }
 }
 

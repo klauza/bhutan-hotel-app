@@ -1,4 +1,4 @@
-import React, { Fragment, useState, useEffect} from 'react';
+import React, { useState, useEffect} from 'react';
 import HotelCard from './Hotels-children/HotelCard';
 import HotelsSearchBar from './Hotels-children/HotelsSearchBar';
 import styled from 'styled-components';
@@ -16,10 +16,7 @@ const HotelContainer = styled.div`
 
 const Hotels = ({sort: {hotels, sortType, sortOrder, pageLocY, loading}, loadHotels, sortByType, sortByOrder, pageLocation}) => {
 
-  // const [hotel, setHotel] = useState(data.hotels[0]);
   const [collection, setCollection] = useState(null);
-  // const [sortParams, setSortParams] = useState({direction: undefined});
-
   const [selectedOption, setSelectedOption] = useState("default");
   const [selectedOrder, setSelectedOrder] = useState("asc");
   const [unblock, setUnblock] = useState(true);
@@ -39,8 +36,6 @@ const Hotels = ({sort: {hotels, sortType, sortOrder, pageLocY, loading}, loadHot
 
     loadHotelSDOM();
 
-
-
     //eslint-disable-next-line
   }, [hotels])
 
@@ -48,11 +43,9 @@ const Hotels = ({sort: {hotels, sortType, sortOrder, pageLocY, loading}, loadHot
     if(sortType === "default" || sortOrder === "default"){
       return
     } 
-
     const sortedCollection = orderBy(hotels, [sortType], [sortOrder]);  // Sort collection  
     
     setCollection(sortedCollection);  //Update component state with new data
-    
   }
 
   const handleType = (event) => {
@@ -66,8 +59,6 @@ const Hotels = ({sort: {hotels, sortType, sortOrder, pageLocY, loading}, loadHot
       const sortedCollection = orderBy(collection, [sortKey], [selectedOrder]);  // Sort collection  
       
       setCollection(sortedCollection);  //Update component state with new data
-      
-      // setSortParams({direction: sortDirection});  //Update component state with new data
     }
   }
 
@@ -104,7 +95,7 @@ const Hotels = ({sort: {hotels, sortType, sortOrder, pageLocY, loading}, loadHot
       </HotelContainer>
     )
   } else{
-    return (<div style={{minHeight: `${pageLocY+1000}px`}}></div>)
+    return (<div></div>)
   }
 }
 

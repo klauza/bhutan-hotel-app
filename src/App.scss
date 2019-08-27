@@ -2,22 +2,24 @@
   box-sizing: border-box;
   margin: 0; padding: 0;
 } 
-html, body{
+html{
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-family: "Segoe UI", "Roboto", "Oxygen",
   "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
   sans-serif;
-  overflow-x: hidden;
-  background: #f2f5f7;
+  // background: #f2f5f7;
+  background: url("./media/bg.png");
 }
-
+body{
+  overflow-x: hidden;
+  overflow-y: scroll;
+}
 
 .App{
   display: flex;
   flex-direction: column;
   min-height: calc(100vh - 50px);
-  overflow-x: hidden;
   // @media(min-width: 768px){
   //   overflow-y: scroll;
   // }

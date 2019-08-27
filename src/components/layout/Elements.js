@@ -12,7 +12,6 @@ const Container = styled.div`
   border: 0;
   border-top-left-radius: 6px;
   border-top-right-radius: 6px;
-  overflow: ${props => props.overflow};
   background: white;
   @media(max-width: 998px){ width: 85%; }
   @media(max-width: 768px){ width: 95%; }

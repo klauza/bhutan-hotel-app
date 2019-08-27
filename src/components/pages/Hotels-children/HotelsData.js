@@ -14,7 +14,7 @@ const data = {
     },
     {
       "id": 1,
-      "name": "The mountain with amazing views",
+      "name": "A flat with amazing views",
       "img": [room2_1, room2_2, room2_3, room2_4],
       "price": 790,
       "bedrooms": "2",
@@ -54,7 +54,7 @@ const data = {
     },
     {
       "id": 5,
-      "name": "Studio with Everything under hand",
+      "name": "Studio with Everything",
       "img": [room6_1],
       "price": 235,
       "bedrooms": "1",

@@ -6,8 +6,6 @@ import styled from 'styled-components';
 const GridContainer = styled.div`
   height: 20%;
   width: 100%;
-  /* margin: 0 auto; */
-  /* background: #444; */
   display: flex;
   flex-wrap: wrap;
 `;
