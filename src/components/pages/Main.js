@@ -93,7 +93,7 @@ const Main = () => {
       <MainCarrousel/>
 
       <Sponsors>
-        <p>Sponsors</p>
+        <p>Collaborators</p>
         <SponsorsLogos>
           <img src={logo1} alt=""/>
           <img src={logo2} alt=""/>
