@@ -11,7 +11,8 @@ import './App.scss';
 import 'leaflet/dist/leaflet.css';
 
 // layout
-import Navigation from './components/layout/Navigation';
+// import Navigation from './components/layout/Navigation';
+import Nav from './components/layout/Nav';
 import Footer from './components/layout/Footer';
 import NotFound from './components/layout/NotFound';
 
@@ -30,7 +31,7 @@ function App() {
       <Fragment>
           <Router history={history}>
             <div className="App">
-              <Navigation />
+              <Nav />
 
               <Switch>
                 <Route exact path="/" component={Main} />
@@ -45,7 +46,7 @@ function App() {
               </Switch>
 
             </div>
-            <Footer />
+            {/* <Footer /> */}
           </Router>
       </Fragment>
     </Provider>
