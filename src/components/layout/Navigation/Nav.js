@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { useState, useEffect } from 'react';
 import DesktopNav from './DesktopNav';
 import MobileNav from './MobileNav';
 import styled from 'styled-components';
@@ -8,7 +8,6 @@ const MyNavbar = styled.div`
   flex-direction: column;
   flex-wrap: nowrap;
   justify-content: flex-start;
-  /* border: 2px solid red; */
   height: 200px;
   @media(max-width:768px){
     height: 165px;
@@ -16,56 +15,57 @@ const MyNavbar = styled.div`
   background: black;
 `;
 
-export default class Nav extends Component {
+const Nav = () =>  {
 
-  state = {
-    displayMobileNavbar: false
-  }
-  componentDidMount = () => {
-    window.addEventListener("resize", this.checkAndAutoHideMobileNavMenu)
-  }
-  componentWillUnmount = () => {
-    window.removeEventListener("resize", this.checkAndAutoHideMobileNavMenu)
-  }
-  
+  const [displayMobileNavbar, setDisplayMobileNavbar] = useState(false);
 
-  toggleMobileNavbar = () =>{
-    this.setState({
-      displayMobileNavbar: !this.state.displayMobileNavbar
-    })
-  }
+  useEffect(()=>{
+    window.addEventListener("resize", checkAndAutoHideMobileNavMenu)
 
-  hideMobileNav = () => {
-      this.setState({
-        displayMobileNavbar: false
-      })
+    return () => {
+      window.removeEventListener("resize", checkAndAutoHideMobileNavMenu)
+    }
+    
+  //eslint-disable-next-line
+  },[displayMobileNavbar])
+
+
+
+
+  const toggleMobileNavbar = () =>{
+      setDisplayMobileNavbar(!displayMobileNavbar);
   }
 
-  checkAndAutoHideMobileNavMenu = () =>{ 
+  const hideMobileNav = () => {
+    setDisplayMobileNavbar(false);
+  }
+
+  const checkAndAutoHideMobileNavMenu = () =>{ 
     const screenWidth = window.innerWidth;
 
-    if(this.state.displayMobileNavbar && screenWidth > 768){
-      this.setState({
-        displayMobileNavbar: false
-      })
+    if(displayMobileNavbar && screenWidth > 768){
+      setDisplayMobileNavbar(false);
     }
   }
 
-  render() {
+
     return (
       <MyNavbar>
 
         <DesktopNav 
-        displayMobileNavbar={this.state.displayMobileNavbar}
-        toggleMobileNavbar={this.toggleMobileNavbar} 
+        displayMobileNavbar={displayMobileNavbar}
+        toggleMobileNavbar={toggleMobileNavbar} 
         />
         
         <MobileNav 
-        hideMobileNav={this.hideMobileNav}
-        displayMobileNavbar={this.state.displayMobileNavbar} 
+        hideMobileNav={hideMobileNav}
+        displayMobileNavbar={displayMobileNavbar} 
         />
 
       </MyNavbar>
     )
-  }
+
 }
+
+
+export default Nav
