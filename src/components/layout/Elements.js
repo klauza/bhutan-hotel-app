@@ -5,8 +5,15 @@ const history = createBrowserHistory();
 
 const Container = styled.div`
   width: 70%;
-  margin: 50px auto 50px;
+  margin: -50px auto 0px;
+  padding-bottom: 100px;
+  padding-left: 10px;
+  padding-right: 10px;
+  border: 0;
+  border-top-left-radius: 6px;
+  border-top-right-radius: 6px;
   overflow: ${props => props.overflow};
+  background: white;
   @media(max-width: 998px){ width: 85%; }
   @media(max-width: 768px){ width: 95%; }
 `;
@@ -14,10 +21,10 @@ const But1 = styled.button`
   min-width: 75px; height: 35px;
   outline: 0; border: 0;
   border-radius: 5px;
-  background: lightgrey;
+  background: lightblue;
   &:hover{
     cursor: pointer;
-    background: grey;
+    background: rgb(132, 182, 199);
   }
 `;
 const But2 = styled.button`

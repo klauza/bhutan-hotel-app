@@ -8,7 +8,7 @@ import { logo1, logo2, carImg } from '../../media/index';
 const Sponsors = styled.div`
   width: 100%;
   height: auto;
-  background: lightgrey;
+  background: #f2f5f7;
   display: flex;
   flex-direction: column;
   p{
@@ -31,7 +31,7 @@ const Description = styled.div`
   text-align: center;
   width: 100%;
   padding: 4rem 2rem;
-  background-color: #e9ecef;
+  background-color: white;
   display: block;
   h1{
     letter-spacing: 3px;
@@ -47,7 +47,7 @@ const Description = styled.div`
 const CarDiv = styled.div`
   display: flex;
   flex-direction: row;
-  margin: 150px auto;
+  margin: 100px auto -50px;
 `;
 const CarDesc = styled.div`
   flex: 1;
@@ -103,11 +103,11 @@ const Main = () => {
       <Description>
           <h1>By travellers for travellers</h1>
 
-          <p> Once we were travellers too, just like you. Discovering new horizons, <br/>
-          broadening knowledge, meeting new interesting people.</p>
+          <p> <strong>Once we were travellers too, just like you. Discovering new horizons, <br/>
+          broadening knowledge, meeting new interesting people.</strong></p>
 
-          <p><strong> Now, we help you achieve even something bigger <br/>
-          We help you with finding answers and provide a needed comfort.</strong></p>
+          <p> Now, we help you achieve even something bigger <br/>
+          We help you with finding answers and provide a needed comfort.</p>
       </Description>
 
       <Wrapper>

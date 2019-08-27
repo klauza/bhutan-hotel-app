@@ -8,17 +8,21 @@ html, body{
   font-family: "Segoe UI", "Roboto", "Oxygen",
   "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
   sans-serif;
-}
-body{
-  overflow-y: scroll;
   overflow-x: hidden;
+  background: #f2f5f7;
 }
+
 
 .App{
   display: flex;
   flex-direction: column;
   min-height: calc(100vh - 50px);
+  overflow-x: hidden;
+  // @media(min-width: 768px){
+  //   overflow-y: scroll;
+  // }
 }
+
 
 
 $i: 0;

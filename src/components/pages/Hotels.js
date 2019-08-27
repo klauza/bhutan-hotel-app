@@ -1,12 +1,18 @@
 import React, { Fragment, useState, useEffect} from 'react';
 import HotelCard from './Hotels-children/HotelCard';
 import HotelsSearchBar from './Hotels-children/HotelsSearchBar';
+import styled from 'styled-components';
 
 import { orderBy } from "lodash";
 
 import {connect} from 'react-redux';
 import {loadHotels, sortByType, sortByOrder, pageLocation} from '../../actions/sortingActions';
 
+// STYLES
+const HotelContainer = styled.div`
+  background: white;
+`;
+// end-styles
 
 const Hotels = ({sort: {hotels, sortType, sortOrder, pageLocY, loading}, loadHotels, sortByType, sortByOrder, pageLocation}) => {
 
@@ -88,14 +94,14 @@ const Hotels = ({sort: {hotels, sortType, sortOrder, pageLocY, loading}, loadHot
 
   if(!unblock){
     return (
-      <Fragment>
+      <HotelContainer>
           <HotelsSearchBar selectedOption={selectedOption} selectedOrder={selectedOrder} handleType={handleType} handleOrder={handleOrder} />
-          
+          <hr/>
         {
           collection && collection.map(hotel =>  <HotelCard saveRoomLoc={saveRoomLoc} key={hotel.id} hotel={hotel}/> )
         }
       
-      </Fragment>
+      </HotelContainer>
     )
   } else{
     return (<div style={{minHeight: `${pageLocY+1000}px`}}></div>)

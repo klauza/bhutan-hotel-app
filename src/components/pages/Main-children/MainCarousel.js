@@ -12,6 +12,7 @@ const Wrapper = styled.div`
   border: 1px solid black;
   border-radius: 3px;
   margin-bottom: 0px;
+  margin-top: -50px;
   li{
     div{
       height: 100%;

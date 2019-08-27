@@ -4,12 +4,32 @@ import styled from 'styled-components';
 // STYLES
 const HotelsHeaderBar = styled.div`
   height: auto;
+  width: 70%;
+  @media(max-width: 998px){ width: 85%; }
+  @media(max-width: 768px){ width: 95%; }
+  margin: -50px auto 0px;
+  padding-bottom: 50px;
+  background: white;
+  border: 0; border-top-left-radius: 5px; border-top-right-radius: 5px;
+  /* border-left: 1px solid lightgrey;
+  border-right: 1px solid lightgrey; */
+`;
+const Separator = styled.div`
   width: 100%;
-  background: whitesmoke;
+  height: 100px;
+  /* background: red; */
+`;
+const SearchBar = styled.div`
+  position: relative;
+  top: 0;
+  width: 100%;
+  height: 56px;
 `;
 const HotelTopText = styled.div`
   width: 60%; height: auto;
-  margin: 25px auto -25px auto;
+  @media(max-width: 768px){ width: 95%; }
+  margin: 0px auto 50px auto;
+  
   display: flex; flex-direction: column;
   justify-content: start;
   text-align: center;
@@ -23,18 +43,13 @@ const HotelTopText = styled.div`
     color: white;
     font-size: 1.55em;
     font-weight: 700;
+    padding: 10px;
   }
   p:nth-child(2){
     padding: 15px;
   }
 `;
-const SearchBar = styled.div`
-  position: relative;
-  top: 0;
-  width: 100%;
-  height: 56px;
-  margin: 25px auto 0 auto;
-`;
+
 const Wrapper = styled.div`
   width: 70%;
   height: 100%;
@@ -123,6 +138,11 @@ const Label = styled.label`
 const HotelsSearchBar = ({selectedOption, selectedOrder, handleType, handleOrder}) => {
   return (
     <HotelsHeaderBar>
+      <Separator></Separator>
+      <HotelTopText>
+        <p>We offer a vast amount of comfortable rooms.</p>
+        <p>Price refers to daily stay. Also, these rooms used to be inhabited by progenitors. Feel their presence and absorb the energy, acquire relax from subtle healthy flow of scent.</p> 
+      </HotelTopText>
       <SearchBar>
         <Wrapper>
           
@@ -141,10 +161,7 @@ const HotelsSearchBar = ({selectedOption, selectedOrder, handleType, handleOrder
 
         </Wrapper>
       </SearchBar>
-      <HotelTopText>
-        <p>We offer a vast amount of comfortable rooms.</p>
-        <p>Price refers to daily stay. Also, these rooms used to be inhabited by progenitors. Feel their presence and absorb the energy, acquire relax from subtle healthy flow of scent.</p> 
-      </HotelTopText>
+ 
     </HotelsHeaderBar>
   )
 }

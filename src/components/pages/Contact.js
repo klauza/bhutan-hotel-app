@@ -5,15 +5,17 @@ import { Wrapper } from '../layout/Elements';
 
 // PAGE STYLES
 const Header = styled.h1`
+  margin-top: 100px;
   text-align: center;
   font-family: Verdana;
   color: green;
   font-weight: bold;
+  text-shadow: 1.5px 1.5px #000;
 `;
 const Paragraph = styled.p`
   text-align: center;
   width: 50%;
-  margin: 0px auto 50px auto; 
+  margin: 0px auto 100px auto; 
   font-style: italic; font-weight: 500;
   color: green;
 `;

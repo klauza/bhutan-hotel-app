@@ -12,7 +12,7 @@ const Grid = styled.div`
   }
 `;
 const Column = styled.div`
-  margin: 35px 5px;
+  margin: 50px 5px;
 `;
 const Card = styled.div`
   border: 1px solid grey; border-radius: 3px;
