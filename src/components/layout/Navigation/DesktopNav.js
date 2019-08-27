@@ -1,9 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
-import mobileNavIcon from '../../media/hamburger.png';
+import mobileNavIcon from '../../../media/hamburger.png';
 import NavLinks from './NavLinks';
 import {Link} from 'react-router-dom';
-import Logo from '../../media/favicon.png';
+import Logo from '../../../media/favicon.png';
 
 const MyDesktopNavbar = styled.nav`
   display: grid;

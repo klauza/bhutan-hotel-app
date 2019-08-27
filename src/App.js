@@ -11,9 +11,7 @@ import './App.scss';
 import 'leaflet/dist/leaflet.css';
 
 // layout
-// import Navigation from './components/layout/Navigation';
-import Nav from './components/layout/Nav';
-import Footer from './components/layout/Footer';
+import Nav from './components/layout/Navigation/Nav';
 import NotFound from './components/layout/NotFound';
 
 // pages
