@@ -77,7 +77,7 @@ const HotelDetails = (props) => {
 
   // Buttons functions
   const goBackReload = () => {
-    history.push('/hotel-list')
+    history.push('/apartment-list')
     window.location.reload(true);
   }
 

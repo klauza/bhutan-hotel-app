@@ -27,7 +27,7 @@ const NavLinks = ({sort: {pageLocY}, pageLocation, props}) => {
         <Link to='/contact' className="link" tabIndex = {tabulator} onClick={props.hideMobileNav}>Contact</Link>
       </li>
       <li>
-        <Link to='/hotel-list' className="link" tabIndex = {tabulator} onClick={() => {setLocationToZero(); if(window.innerWidth <= 768){props.hideMobileNav(); }}}>Rooms</Link>
+        <Link to='/apartment-list' className="link" tabIndex = {tabulator} onClick={() => {setLocationToZero(); if(window.innerWidth <= 768){props.hideMobileNav(); }}}>Apartments</Link>
       </li>
       <li>
         <Link to='/guides' className="link" tabIndex = {tabulator} onClick={props.hideMobileNav}>Guides</Link>
