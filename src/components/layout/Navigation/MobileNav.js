@@ -4,7 +4,7 @@ import NavLinks from './NavLinks';
 
 const MyMobileNavbar = styled.nav`
   width: 50vw;
-  position: absolute; top: 0; right: 0;
+  position: fixed; top: 0; right: 0;
   background: grey;
   display: flex;
   justify-content: center;
