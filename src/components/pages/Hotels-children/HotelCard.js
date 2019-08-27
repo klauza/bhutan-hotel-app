@@ -17,11 +17,11 @@ const Gradient = styled.div`
   }
   &:before{
     left: 0;
-    background: linear-gradient(to right, rgba(255, 255, 255, 1) 35%, rgba(255, 255, 255, 0) 100%);
+    background: linear-gradient(to right, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0) 50%, rgba(255, 255, 255, 0) 100%);
   }
   &:after{
     left: auto; right: 0;
-    background: linear-gradient(to left, rgba(255, 255, 255, 1) 35%, rgba(255, 255, 255, 0) 100%);
+    background: linear-gradient(to left, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0) 50%, rgba(255, 255, 255, 0) 100%);
   }
 `;
 
@@ -209,7 +209,7 @@ const HotelCard = ({hotel, saveRoomLoc}) => {
                 
                 <span>{hotel.name}</span>
                 <Link onClick={() => saveRoomLoc()} to={{
-                  pathname: `/hotel/${hotel.id}`,
+                  pathname: `/apartment/${hotel.id}`,
                   state: {hotel}
                   }} >
                   <Button>Check hotel</Button>

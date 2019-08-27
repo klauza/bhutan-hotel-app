@@ -2,6 +2,7 @@ import React, { useState, useEffect} from 'react';
 import HotelCard from './Hotels-children/HotelCard';
 import HotelsSearchBar from './Hotels-children/HotelsSearchBar';
 import styled from 'styled-components';
+import { Wrapper } from '../layout/Elements';
 
 import { orderBy } from "lodash";
 
@@ -11,6 +12,7 @@ import {loadHotels, sortByType, sortByOrder, pageLocation} from '../../actions/s
 // STYLES
 const HotelContainer = styled.div`
   background: white;
+  overflow: hidden;
 `;
 // end-styles
 
@@ -85,6 +87,7 @@ const Hotels = ({sort: {hotels, sortType, sortOrder, pageLocY, loading}, loadHot
 
   if(!unblock){
     return (
+      <Wrapper>
       <HotelContainer>
           <HotelsSearchBar selectedOption={selectedOption} selectedOrder={selectedOrder} handleType={handleType} handleOrder={handleOrder} />
           <hr/>
@@ -93,9 +96,12 @@ const Hotels = ({sort: {hotels, sortType, sortOrder, pageLocY, loading}, loadHot
         }
       
       </HotelContainer>
+      </Wrapper>
     )
   } else{
-    return (<div></div>)
+    return ( <Wrapper>
+      <div style={{height: "100vh"}}></div>
+      </Wrapper>)
   }
 }
 
