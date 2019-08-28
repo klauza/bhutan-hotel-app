@@ -17,6 +17,8 @@ export {default as carImg} from './Main/cars.jpeg';
 // logos
 export {default as logo1} from './Logos/56-apple-512.png';
 export {default as logo2} from './Logos/iconfinder_Python_logo_282803.png';
+export {default as logo3} from './Logos/iconfinder_134_111077.png';
+export {default as logo4} from './Logos/iconfinder_11_1757457.png';
 
 // rooms
 export {default as room1_1} from './Rooms/1-1.jpg';

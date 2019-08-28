@@ -3,7 +3,7 @@ import MainCarrousel from './Main-children/MainCarousel';
 import MainCards from './Main-children/MainCards';
 import styled from 'styled-components';
 import { Wrapper } from '../layout/Elements';
-import { logo1, logo2, carImg } from '../../media/index';
+import { logo1, logo2, logo3, logo4, carImg } from '../../media/index';
 
 const Sponsors = styled.div`
   width: 100%;
@@ -11,6 +11,8 @@ const Sponsors = styled.div`
   /* background: #f2f5f7; */
   display: flex;
   flex-direction: column;
+  border-bottom: 1px solid lightgrey;
+  background: rgba(255,255,255,0.35);
   p{
     text-align: center;
     letter-spacing: 3px;
@@ -22,16 +24,18 @@ const Sponsors = styled.div`
 const SponsorsLogos = styled.div`
 width: auto;
 margin: 0 auto;
+
   img{
-    width: 75px; height: 75px; object-fit: cover; 
+    width: 60px; height: 60px; object-fit: cover; margin: 0 10px;
   }
 `;
 const Description = styled.div`
-  margin: 100px 0;
+  border-top: 1px solid lightgrey; border-bottom: 1px solid lightgrey;
+  margin: 100px 0 150px;
   text-align: center;
   width: 100%;
   padding: 4rem 2rem;
-  background-color: white;
+  background-color: rgba(255,255,255,0.35);
   display: block;
   h1{
     letter-spacing: 3px;
@@ -97,6 +101,8 @@ const Main = () => {
         <SponsorsLogos>
           <img src={logo1} alt=""/>
           <img src={logo2} alt=""/>
+          <img src={logo3} alt=""/>
+          <img src={logo4} alt=""/>
         </SponsorsLogos>
       </Sponsors>
       
