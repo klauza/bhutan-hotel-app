@@ -103,6 +103,7 @@ justify-self: center;
     &:hover{
       color: lightgrey;
     }
+    i:hover{cursor: pointer;}
   }
 `;
 
@@ -113,10 +114,10 @@ const DesktopNav = (props) => {
         <NavbarBrand><Link to="/"><img src={Logo} alt="" />Bhutanotel</Link></NavbarBrand>
 
         <SocialLinks>
-          <a href="https://github.com/klauza"><i className="fa fa-github"></i></a>
-          <a href="https://www.linkedin.com"><i className="fa fa-linkedin-square"></i></a>
-          <a href="https://www.facebook.com/"><i className="fa fa-facebook-official"></i></a>
-          <a href="https://twitter.com/"><i className="fa fa-twitter-square"></i></a>
+          <a href="https://github.com/klauza/bhutanotel"><i className="fa fa-github"></i></a>
+          <a href="https://www.linkedin.com/in/michal-klauza-b22318186/"><i className="fa fa-linkedin-square"></i></a>{/* eslint-disable-next-line */}
+          <a><i className="fa fa-facebook-official"></i></a>{/* eslint-disable-next-line */}
+          <a><i className="fa fa-twitter-square"></i></a>
           <Link to="/contact"><i className="fa fa-map-marker"></i></Link>
         </SocialLinks>
 

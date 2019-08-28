@@ -15,6 +15,10 @@ const Grid = styled.div`
 const GridLeft = styled.div`
   justify-self: center;
   text-align: center;
+  a{
+    color: black;
+    font-weight: 700;
+  }
 `;
 const GridImage = styled.img`
   width: 250px;
@@ -101,7 +105,7 @@ const GuideDetails = (props) => {
         <GridLeft>
           <GridImage src={thisGuide.img} />
           <GridGuideName>{thisGuide.name}</GridGuideName>
-          <i className="fa fa-phone"></i> 07394234511
+          <i className="fa fa-phone"></i> <a href={`tel:+${thisGuide.phone}`}>{thisGuide.phone}</a>
         </GridLeft>
 
         <GridRight>
