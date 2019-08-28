@@ -15,9 +15,15 @@ const Header = styled.h1`
 const Paragraph = styled.p`
   text-align: center;
   width: 50%;
-  margin: 0px auto 100px auto; 
+  margin: 5px auto 100px auto; 
   font-style: italic; font-weight: 500;
   color: green;
+  &::after{
+    content:'';
+    display: block; width: 10%; height: 2px;
+    background: green;
+    margin: 15px auto 0;
+  }
 `;
 const FlexLayout = styled.div`
   display: flex;
@@ -54,7 +60,7 @@ const Contact = () => {
   return (
     <Wrapper>
       <Header>CONTACT</Header>
-      <Paragraph>We always help. We love to help.</Paragraph>
+      <Paragraph>We can always help.<br/> We love to help.</Paragraph>
       
       <FlexLayout>
 

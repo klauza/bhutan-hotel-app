@@ -139,7 +139,7 @@ const HotelsSearchBar = ({selectedOption, selectedOrder, handleType, handleOrder
       <Separator></Separator>
       <HotelTopText>
         <p>We offer a vast amount of comfortable rooms.</p>
-        <p>Price refers to daily stay. Also, these rooms used to be inhabited by progenitors. Feel their presence and absorb the energy, acquire relax from subtle healthy flow of scent.</p> 
+        <p>Price refers to daily stay. Also, these rooms used to be inhabited by progenitors. Feel their presence, absorb the energy and relax flowing through the chambers.</p> 
       </HotelTopText>
       <SearchBar>
         <Wrapper>

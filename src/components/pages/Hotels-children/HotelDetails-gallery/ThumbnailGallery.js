@@ -23,18 +23,23 @@ const Separator = styled.hr`
   margin: -100px auto 20px auto;
 `;
 const GoldenText = styled.p`
- text-align: left;
- margin-bottom: 15px;
- color: gold;
- letter-spacing: 3px;
- /* text-transform: uppercase; */
- font-family: Halvetica;
- font-size: 1.75em;
+  text-align: left;  
+  max-width: 1024px;
+  margin: 0 auto 15px auto;
+  color: gold;
+  letter-spacing: 3px;
+  font-weight: 700;
+  font-family: Halvetica;
+  font-size: 1.75em;
 `;
 const FlatStory = styled.p`
-  margin-bottom: 25px;
+  max-width: 1024px;
+  margin: 0 auto 25px auto;
 `;
-
+const ListItem = styled.li`
+  max-width: 1024px;
+  margin: 0 auto;
+`;
 // styles-end
 
 const ThumbnailGallery = ({features, images}) => {
@@ -56,16 +61,15 @@ const ThumbnailGallery = ({features, images}) => {
             <ThumbnailGrid imgs={images} handleClick={handleClick} />
           </div>
           
-
         </Wrapper>
         
         <Separator />
-        <GoldenText>Short Story Long</GoldenText>
+        <GoldenText>About apartment</GoldenText>
         <FlatStory>The story about the flat goes here. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Asperiores, quasi reprehenderit perferendis iure dolore fugiat? Cupiditate, in numquam laboriosam repudiandae explicabo ad. Aut maiores tempore modi repudiandae provident debitis obcaecati voluptas quaerat necessitatibus libero sed eum eius recusandae tenetur enim quod sint harum minima quasi, fuga magnam temporibus. Autem, sunt. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatem alias eius vel omnis doloribus quaerat.</FlatStory>
 
-        <GoldenText>Flat Exclusive Features</GoldenText>
+        <GoldenText>Exclusive Features</GoldenText>
 
-        {features.map((feature,id) => <li key={id}>{feature}</li>)}
+        {features.map((feature,id) => <ListItem key={id}>{feature}</ListItem>)}
    
 
       </Fragment>
