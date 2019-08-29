@@ -22,7 +22,6 @@ const MyMobileNavbar = styled.nav`
   list-style: none;
   height: 60vh; width: 100%;
 
-  }
 
   .link{
     text-align: center;
@@ -36,6 +35,8 @@ const MyMobileNavbar = styled.nav`
     &:hover{
       background: lightgrey;
     }
+    img{display: none;}
+  }
   }
 `;
 const MobileNav = (props) => {

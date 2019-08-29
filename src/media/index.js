@@ -53,3 +53,9 @@ export {default as guide_5} from './Guides/5-geroge.jpg';
 export {default as guide_6} from './Guides/6-joe.jpg';
 export {default as guide_7} from './Guides/7-martha.jpg';
 export {default as guide_8} from './Guides/8-marie.jpg';
+
+export {default as reservationCalendar} from './reservationCalendar.png';
+export {default as homeImg} from './homeImg.png';
+export {default as apartmentImg} from './apartmentImg.png';
+export {default as guideImg} from './guideImg.png';
+export {default as contactImg} from './contactImg.png';

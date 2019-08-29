@@ -3,6 +3,7 @@ import {Link} from 'react-router-dom';
 
 import {connect} from 'react-redux';
 import {pageLocation} from '../../../actions/sortingActions';
+import {reservationCalendar, homeImg, apartmentImg, guideImg, contactImg} from '../../../media/index.js';
 
 
 const NavLinks = ({sort: {pageLocY}, pageLocation, props}) => {
@@ -21,16 +22,19 @@ const NavLinks = ({sort: {pageLocY}, pageLocation, props}) => {
   return (
     <ul className="nav-links">
       <li>
-        <Link to='/' className="link" tabIndex = {tabulator} onClick={props.hideMobileNav}>Home</Link>
+        <Link to='/' className="link" tabIndex = {tabulator} onClick={props.hideMobileNav}><img src={homeImg} alt=""/><span>Home</span></Link>
       </li>
       <li>
-        <Link to='/contact' className="link" tabIndex = {tabulator} onClick={props.hideMobileNav}>Contact</Link>
+        <Link to='/contact' className="link" tabIndex = {tabulator} onClick={props.hideMobileNav}><img src={contactImg} alt=""/><span>Contact</span></Link>
       </li>
       <li>
-        <Link to='/apartment-list' className="link" tabIndex = {tabulator} onClick={() => {setLocationToZero(); if(window.innerWidth <= 768){props.hideMobileNav(); }}}>Apartments</Link>
+        <Link to='/apartment-list' className="link" tabIndex = {tabulator} onClick={() => {setLocationToZero(); if(window.innerWidth <= 768){props.hideMobileNav(); }}}><img src={apartmentImg} alt=""/><span>Apartments</span></Link>
       </li>
       <li>
-        <Link to='/guides' className="link" tabIndex = {tabulator} onClick={props.hideMobileNav}>Guides</Link>
+        <Link to='/guides' className="link" tabIndex = {tabulator} onClick={props.hideMobileNav}><img src={guideImg} alt=""/><span>Guides</span></Link>
+      </li>
+      <li>
+        <Link to='/account' className="link" tabIndex = {tabulator} onClick={props.hideMobileNav}><img src={reservationCalendar} alt=""/> <span>Reservations</span></Link>
       </li>
     </ul>
   )

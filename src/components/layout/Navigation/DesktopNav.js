@@ -11,38 +11,60 @@ const MyDesktopNavbar = styled.nav`
   color: white;
 
   .nav-links{
-    width: 50%;
-    height: 100px;
+    width: 45%;
+    height: 80px;
     margin: 0 auto;
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    /* grid-template-columns: repeat(4, 1fr); */
+    
+    grid-template-columns: repeat(auto-fit, minmax(0px, 1fr));
     grid-column: span 2;
     align-items: center;
     list-style: none;
     @media screen and (max-width: 768px){ display: none; }
+   
+    
   }
   .link{
     display: flex;
     flex-flow: column nowrap;
-    justify-content: center;
     align-items: center;
     color: white;
-    font-size: 2.25vh;
+    font-size: 1.5vw;
+    @media(min-width: 1200px){ font-size: 20px;}
     text-decoration: none;
     font-family: 'Livvic', sans-serif;
     font-weight: bold;
     &::after{
       content:'';
       height: 2px; width: 0px;
-      background: white;
+      background: lightgrey;
       display: block;
       transition: width 0.5s ease-in-out;
+      @media(max-width: 1200px){ display: none; }
     }
     &:hover::after{
       transition: width 0.25s ease-in-out;
-      width: 25%;
+      width: 40%;
+    }
+
+    & > img{
+      width: 25px; height: 25px; object-fit: cover;
+      display: block;
+      margin: 0 auto;
+      @media(max-width: 1200px){ 
+        width: 35px; height: 35px; 
+        
+      }
+    }
+    & > span{
+      @media(max-width: 1200px){ display: none; }
+    }
+    &:hover{
+      color: lightgrey;
     }
   }
+
 `;
 
 const MyMobileNavButton = styled.button`
