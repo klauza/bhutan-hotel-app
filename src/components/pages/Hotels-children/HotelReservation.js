@@ -2,7 +2,9 @@ import React from 'react';
 import { createBrowserHistory } from 'history';
 import styled from 'styled-components';
 import {Wrapper, BackButton} from '../../layout/Elements';
+import Picker from './Picker';
 const history = createBrowserHistory();
+
 
 
 // STYLES
@@ -48,6 +50,7 @@ const HotelReservation = (props) => {
         <Title>
           You are going to make a reservation on {thisHotel.name}
         </Title>
+        <Picker />
       </Wrapper>
     )
   } else {
