@@ -6,7 +6,7 @@ import {pageLocation} from '../../../actions/sortingActions';
 import {reservationCalendar, homeImg, apartmentImg, guideImg, contactImg} from '../../../media/index.js';
 
 
-const NavLinks = ({sort: {pageLocY}, calendar: {dates}, pageLocation, props}) => {
+const NavLinks = ({sort: {pageLocY}, reservation: {dates}, pageLocation, props}) => {
 
   let tabulator
   if (props.isMobileLink) {
@@ -34,14 +34,14 @@ const NavLinks = ({sort: {pageLocY}, calendar: {dates}, pageLocation, props}) =>
         <Link to='/guides' className="link" tabIndex = {tabulator} onClick={props.hideMobileNav}><img src={guideImg} alt=""/><span>Guides</span></Link>
       </li>
       <li>
-        <Link to='/account' className="link" tabIndex = {tabulator} onClick={props.hideMobileNav}><img src={reservationCalendar} alt=""/>{dates !== null && <div style={{color: "red"}}>!</div> } <span>Reservations</span></Link>
+        <Link to='/account' className="link" tabIndex = {tabulator} onClick={props.hideMobileNav}><img src={reservationCalendar} alt=""/>{dates !== null && <div style={{color: "lightgreen"}}>!</div> } <span>Reservations</span></Link>
       </li>
     </ul>
   )
 }
 const mapStateToProps = (state, ownProps) => ({
   sort: state.sort,
-  calendar: state.calendar,
+  reservation: state.reservation,
   props: ownProps
 })
 export default connect(mapStateToProps, {pageLocation})(NavLinks)

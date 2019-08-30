@@ -1,9 +1,9 @@
 import { combineReducers } from 'redux';
 import sortingReducer from './sortingReducer';
-import calendarReducer from './calendarReducer';
+import reservationReducer from './reservationReducer';
 
 
 export default combineReducers({
   sort: sortingReducer,
-  calendar: calendarReducer
+  reservation: reservationReducer
 });

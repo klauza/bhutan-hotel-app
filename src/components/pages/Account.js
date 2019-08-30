@@ -74,7 +74,7 @@ const Key = styled.div`
 `;
 // end-styles
 
-const Account = ({ calendar: {dates} }) => {
+const Account = ({ reservation: {dates} }) => {
  
   // dates = [new Date(), new Date()];
 
@@ -119,6 +119,7 @@ const Account = ({ calendar: {dates} }) => {
 
         <Key>
           <p>You can grab the apartment <i className="fa fa-key"></i> at <span>9:00 am</span> on reservation day</p>
+          <p>Also, you must give the key back at the latest by <strong>9:00 am</strong> the reservation ending day</p>
           
         </Key>
       </Wrapper>
@@ -136,6 +137,6 @@ const Account = ({ calendar: {dates} }) => {
   }
 }
 const mapStateToProps = state => ({
-  calendar: state.calendar
+  reservation: state.reservation
 })
 export default connect(mapStateToProps)(Account)
