@@ -17,8 +17,7 @@ const Picker = ({setCalendarDates}) => {
 
   const validation = () => {
     setShowDate(true);
-    console.log(date);
-    setCalendarDates(date)
+    setCalendarDates([date[0].toLocaleDateString("en-GB"), date[1].toLocaleDateString("en-GB") ])
   }
 
   const reset = () => {
@@ -40,8 +39,8 @@ const Picker = ({setCalendarDates}) => {
       }
       {showDate ? (
         <div>
-          <p>From: {date[0].toLocaleDateString()}</p>
-          <p>To: {date[1].toLocaleDateString()}</p>
+          <p>From: {date[0].toLocaleDateString("en-GB")}</p>
+          <p>To: {date[1].toLocaleDateString("en-GB")}</p>
         </div>
       ) : (null)}
     </div>
