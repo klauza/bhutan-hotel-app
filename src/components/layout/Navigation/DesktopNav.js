@@ -35,6 +35,7 @@ const MyDesktopNavbar = styled.nav`
     text-decoration: none;
     font-family: 'Livvic', sans-serif;
     font-weight: bold;
+    position: relative;
     &::after{
       content:'';
       height: 2px; width: 0px;
@@ -59,6 +60,12 @@ const MyDesktopNavbar = styled.nav`
     }
     & > span{
       @media(max-width: 1200px){ display: none; }
+    }
+    & > div{
+      font-size: 2rem;
+      position: absolute;
+      top: -7px; right: 20%; transform: translateX(-50%);
+      @media(max-width: 1200px){ top: 0; right: 15%; transform: translateX(35%); }
     }
     &:hover{
       color: lightgrey;
