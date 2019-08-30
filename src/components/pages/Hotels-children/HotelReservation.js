@@ -26,6 +26,10 @@ const Button = styled.button`
 const NoHotel = styled.div`
   text-align: center;
 `;
+const DatePicker = styled.div`
+  display: flex;
+  justify-content: center;
+`;
 // end-styles
 
 
@@ -49,8 +53,11 @@ const HotelReservation = (props) => {
         <BackButton>Back</BackButton>
         <Title>
           You are going to make a reservation on {thisHotel.name}
+          Price depending on how many days: X
         </Title>
-        <Picker />
+        <DatePicker>
+          <Picker apartment={thisHotel} />
+        </DatePicker>
       </Wrapper>
     )
   } else {

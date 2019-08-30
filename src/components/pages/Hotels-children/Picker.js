@@ -1,27 +1,64 @@
 import React, { useState } from 'react'
 import Calendar from 'react-calendar';
 import {connect} from 'react-redux';
-import {setCalendarDates} from '../../../actions/calendarActions';
+import {setCalendarDates, setApartment} from '../../../actions/reservationActions';
+import styled from 'styled-components';
 
-const Picker = ({setCalendarDates}) => {
+// STYLES
+const ReservationDates = styled.div`
+  display: flex; flex-direction: row;
+  justify-content: space-between;
+
+`;
+const ReservationButton = styled.button`
+  border: 1px solid black; border-radius: 4px;
+  background: green; color: white; font-weight: 900;
+  width: 100px; height: 40px;
+  display: block; margin: 25px auto;
+  &:hover{
+    cursor: pointer; background: rgb(15, 150, 15);
+    box-shadow: 0 0 5px 0px rgba(0,0,0,0.5);
+  }
+`;
+
+// end-styles
+const Picker = ({setCalendarDates, setApartment, apartment}) => {
 
 
   const [date, setDate] = useState(null);
   const [showDate, setShowDate] = useState(false);
-
+  const [showReservation, setShowReservation] = useState(false);
+  const [price, setPrice] = useState(null);
 
 
   const onChange = date => {
+    let Difference_In_Time = date[1].getTime() - date[0].getTime();
+    let Difference_In_Days = Math.floor(Difference_In_Time / (1000 * 3600 * 24) +1); 
+    
+    let toPay = Difference_In_Days * apartment.price;
+
     setDate(date);
+    setShowDate(true);
+    setShowReservation(true);
+    setPrice(toPay)
   }
 
-  const validation = () => {
-    setShowDate(true);
+  const validate = () => {
+    // setShowDate(true);
+
+
+    // show reservation button
+    // setShowReservation(true);
+  }
+
+  const reservation = () => {
     setCalendarDates([date[0].toLocaleDateString("en-GB"), date[1].toLocaleDateString("en-GB") ])
+    setApartment(apartment);
   }
 
   const reset = () => {
-    setShowDate(false);
+    // setShowDate(false);
+    // setShowReservation(false);
   }
   
   return (
@@ -33,19 +70,29 @@ const Picker = ({setCalendarDates}) => {
         value={date} 
         minDate ={new Date()}/>
       </div>
-      {date ? (
-        <button onClick={validation}>Validate</button>
+      {/* {date ? (
+        <button onClick={validate}>Validate</button>
       ) : (null)
-      }
+      } */}
       {showDate ? (
-        <div>
-          <p>From: {date[0].toLocaleDateString("en-GB")}</p>
-          <p>To: {date[1].toLocaleDateString("en-GB")}</p>
-        </div>
+        <ReservationDates>
+          <p><strong>From:</strong> {date[0].toLocaleDateString("en-GB")}</p>
+          <p><strong>To:</strong> {date[1].toLocaleDateString("en-GB")}</p>
+        </ReservationDates>
       ) : (null)}
+      {showDate ? (
+          <p>Price: {price}$</p>
+      ) : (null)}
+
+      {showReservation ? (
+        <ReservationButton onClick={reservation}>Make reservation</ReservationButton>
+      ) : (null)
+        
+      }
+
     </div>
   )
   
 }
 
-export default connect(null, {setCalendarDates})(Picker)
+export default connect(null, {setCalendarDates, setApartment})(Picker)
