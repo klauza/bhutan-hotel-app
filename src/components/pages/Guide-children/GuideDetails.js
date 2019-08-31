@@ -118,8 +118,9 @@ const TripTrip = styled.div`
       li:nth-child(5){
         color: black;
         font-weight: 500;
-        grid-column: 1 / 3;
+        grid-column: 1 / 4;
         &:before{ content: "Price: "; }
+        line-height: 40px;
       }
       li:nth-child(6){
         color: blue;
@@ -150,6 +151,9 @@ const TripTrip = styled.div`
         cursor: pointer;
         background: rgb(0, 158, 0);
       }
+    }
+    &:nth-child(6){
+      height: 60%;
     }
   }
 `;
@@ -234,7 +238,7 @@ const GuideDetails = (props) => {
 
   } else {
     return (<Wrapper>
-      <div style={{height: "100vh"}}></div>
+      <div style={{height: "50vh"}}></div>
       </Wrapper>)
   }
 }
