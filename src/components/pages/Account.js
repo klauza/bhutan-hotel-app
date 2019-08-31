@@ -3,6 +3,7 @@ import {connect} from 'react-redux';
 import { Wrapper } from '../layout/Elements';
 import styled from 'styled-components';
 import { reservationCalendar } from '../../media/index';
+import { Link } from 'react-router-dom';
 
 // STYLES
 const Outline = styled.div`
@@ -25,7 +26,7 @@ const OutlineContent = styled.div`
   border: 0; border-radius: 3px;
 `;
 // ---------------- //
-const AccountContainer = styled.div`
+const ApartmentContainer = styled.div`
   display: flex; flex-direction: column;
 `;
 const AccountTitle = styled.h2`
@@ -61,7 +62,43 @@ align-items: center;
     }
   }
 `;
-
+// ----------------------- //
+const ApartmentCard = styled.div`
+  display: grid; 
+  /* grid-template-rows: 1fr 100px; */
+  border: 1px solid black;
+  width: auto;
+  max-width: 400px;
+  max-height: 300px;
+  margin: 0 auto;
+  box-shadow: 0px 2px 3px 1px rgba(0,0,0,0.45); transition: all 250ms ease;
+  &:hover{ box-shadow: 0px 2px 3px 3px rgba(0,0,0,0.45); transition: all 250ms ease; filter: brightness(0.9); }
+  a{
+    text-decoration: none; color: black;
+  }
+`;
+const ApartmentImg = styled.div`
+  width: 100%; height: 100%;
+  img{ width: 50%; height: 100%; object-fit: cover; }
+  display: flex; flex-direction: row;
+  div{ 
+    width: 50%;
+    display: flex; flex-direction: column;
+    font-size: 2rem;
+    padding-left: 15px;
+    span{
+      width: 100%; height: 100%; 
+      display: flex;
+      align-items: center;
+    }
+  }
+`;
+const ApartmentName = styled.div`
+  background: green;
+  color: white; font-weight: 700;
+  text-align: center;
+  line-height: 100px;
+`;
 // ----------------------- //
 const Key = styled.div`
   width: 80%; height: auto;
@@ -72,24 +109,54 @@ const Key = styled.div`
     color: red;
   }
 `;
+// ---------------------- //
+const TripsContainer = styled.div`
+  border: 2px solid black; border-radius: 3px;
+  width: auto; max-width: 900px; margin: 20px auto;
+  min-height: 50px;
+  line-height: 50px;
+  background: lightgrey;
+  text-align: center;
+`;
+const CarContainer = styled.div`
+  border: 2px solid black; border-radius: 3px;
+  width: auto; max-width: 900px; margin: 20px auto;
+  min-height: 50px;
+  line-height: 50px;
+  background: lightgrey;
+  text-align: center;
+`;
 // end-styles
 
-const Account = ({ reservation: {dates} }) => {
+const Account = ({ reservation: {dates, apartment} }) => {
  
   // dates = [new Date(), new Date()];
 
-  if(dates !== null){
+  if(dates !== null && apartment !== null){
     return (
       <Wrapper>
-        <AccountContainer>
+        <ApartmentContainer>
 
           <AccountTitle>You have an apartment reservation!</AccountTitle>
-
+          
+          <ApartmentCard>
+            <Link to={`/apartment/${apartment.id}`}>
+              <ApartmentImg>
+                <img src={apartment.img[0]} alt=""/>
+                <div>
+                  <span>{apartment.bathrooms} <i className="fa fa-bath"></i></span>
+                  <span>{apartment.bedrooms} <i className="fa fa-bed"></i></span>
+                </div>
+              </ApartmentImg>
+              <ApartmentName>
+                <p>"{apartment.name}"</p>
+              </ApartmentName>
+            </Link>
+          </ApartmentCard>
+         
           <Flex>
-
             <Card>
               <p>From</p>
-
               <CardCalendar>
                 <div>
                   <img src={reservationCalendar} alt=""/>
@@ -97,12 +164,10 @@ const Account = ({ reservation: {dates} }) => {
 
                 <span>{dates[0]}</span>
               </CardCalendar>
-
             </Card>
 
             <Card>
               <p>To</p>
-
               <CardCalendar>
                 <div>
                   <img src={reservationCalendar} alt=""/>
@@ -110,18 +175,24 @@ const Account = ({ reservation: {dates} }) => {
 
                 <span>{dates[1]}</span>
               </CardCalendar>
-
             </Card>
-
           </Flex>
         
-        </AccountContainer>
+        </ApartmentContainer>
 
         <Key>
           <p>You can grab the apartment <i className="fa fa-key"></i> at <span>9:00 am</span> on reservation day</p>
           <p>Also, you must give the key back at the latest by <strong>9:00 am</strong> the reservation ending day</p>
           
         </Key>
+
+        <TripsContainer>
+          <p>You don't have any upcoming trips.</p>
+        </TripsContainer>
+
+        <CarContainer>
+          <p>You didn't make any car reservation.</p>
+        </CarContainer>
       </Wrapper>
     )
   } else {

@@ -9,15 +9,14 @@ html{
   "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
   sans-serif;
   // background: #f2f5f7;
-  background: url("./media/bg.png");
+  background: url("./media/bg.png") repeat;
 }
 body{
   overflow-x: hidden;
   overflow-y: scroll;
   width: 100%;
 }
-body{
-}
+
 
 .App{
   display: flex;
@@ -39,4 +38,9 @@ $i: 0;
       opacity: 1;
     }
   }
+}
+
+.react-calendar__navigation__next2-button,
+.react-calendar__navigation__prev2-button{
+  display: none;
 }

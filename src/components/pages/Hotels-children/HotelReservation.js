@@ -12,6 +12,7 @@ const Title = styled.div`
   text-align: center;
   font-size: 1.25rem;
   font-weight: 700;
+  margin-bottom: 50px;
 `;
 const Button = styled.button`
     margin: 60px 10px 10px 10px;
@@ -53,7 +54,6 @@ const HotelReservation = (props) => {
         <BackButton>Back</BackButton>
         <Title>
           You are going to make a reservation on {thisHotel.name}
-          Price depending on how many days: X
         </Title>
         <DatePicker>
           <Picker apartment={thisHotel} />

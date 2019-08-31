@@ -4,8 +4,7 @@ import ThumbnailGallery from './HotelDetails-gallery/ThumbnailGallery';
 import styled from 'styled-components';
 import {Wrapper, BackButton} from '../../layout/Elements';
 import {Link} from 'react-router-dom';
-import { createBrowserHistory } from 'history';
-const history = createBrowserHistory();
+import history from '../../../history';
 
 // STYLES
 const Header = styled.h2`
@@ -77,8 +76,7 @@ const HotelDetails = (props) => {
 
   // Buttons functions
   const goBackReload = () => {
-    history.push('/apartment-list')
-    window.location.reload(true);
+    history.push('/apartment-list');
   }
 
 

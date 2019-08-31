@@ -81,7 +81,7 @@ const Picker = ({setCalendarDates, setApartment, apartment}) => {
         </ReservationDates>
       ) : (null)}
       {showDate ? (
-          <p>Price: {price}$</p>
+          <p><strong>Price: {price}<i className="fa fa-money" style={{marginLeft: "5px", fontSize: "1.15rem"}}></i></strong></p>
       ) : (null)}
 
       {showReservation ? (
