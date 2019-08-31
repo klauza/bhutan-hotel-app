@@ -61,7 +61,7 @@ const Separator = styled.hr`
 `;
 const ExpertiseGrid = styled.div`
   width: 60%;
-  margin:0 auto;
+  margin: 0 auto 50px;
   @media(max-width: 768px){ width: 100%; }
 `;
 const ExpertiseTitle = styled.h2`
@@ -73,6 +73,85 @@ const ExpertisePerks = styled.div`
   text-align: center;
   li{ list-style: none; line-height: 30px; font-weight: 700;}
   li:not(:first-child){ border-top: 1px solid black; }
+`;
+const TripsGrid = styled.div`
+  width: 100%;
+  margin: 100px auto;
+  min-height: 50px;
+  
+`;
+const TripsTitle = styled.h2`
+  text-align: center;
+`;
+const TripTrip = styled.div`
+  width: 100%;
+  display: grid; grid-template-columns: 1fr;
+  ul{
+    li{ text-align: center; display: inline-block;   }
+    button{
+      display: block;
+      color: white; 
+      width: 100%; height: 100%;
+      /* letter-spacing: 5px; */
+      text-transform: uppercase;
+      border: 1px solid black;
+      background: green;
+    }
+    li:nth-child(6), li:nth-child(5){
+      border: 0;
+    }
+
+    display: grid; justify-content: center; align-items: center;
+    grid-template-rows: minmax(50px, auto);
+    @media(min-width: 581px){ grid-template-columns: 88px 80px 68px 150px 60px 60px;  }
+    @media(max-width: 580px){
+      grid-template-columns: auto auto auto minmax(auto, 150px);
+      justify-content: inherit;
+      border-top: 1px solid black;
+      &.trip > li:not(:first-child) { border-left: 1px solid black; }
+      &.trip > li {  font-size: 0.85rem; }
+      &.trip > li:nth-child(5),
+      &.trip > li:nth-child(6) { 
+        border: 0; 
+      }
+
+      li:nth-child(5){
+        color: black;
+        font-weight: 500;
+        grid-column: 1 / 3;
+        &:before{ content: "Price: "; }
+      }
+      li:nth-child(6){
+        color: blue;
+        grid-column: 4 / -1;
+        button{
+          width: 100%;
+        }
+      }
+    }
+  }
+
+  .trips-header{
+    font-weight: 700;
+    font-size: 0.75rem;
+    border: 0;
+    /* border-bottom: 1px solid black; */
+    
+    @media(max-width: 580px){ li:nth-child(5), li:nth-child(6){ display: none; }}
+  }
+  .trip:nth-child(odd){
+    background: #f5f5f5;
+  }
+  .trip > li{
+   
+    &:nth-child(5){ border: 0;}
+    button{
+      &:hover{
+        cursor: pointer;
+        background: rgb(0, 158, 0);
+      }
+    }
+  }
 `;
 // styles-end
 const GuideDetails = (props) => {
@@ -122,6 +201,34 @@ const GuideDetails = (props) => {
         <ExpertisePerks>{thisGuide.expertise.map((perk,id) => <li key={id}>{perk}</li>)}</ExpertisePerks>
       </ExpertiseGrid>
     
+
+      <TripsGrid>
+        <TripsTitle>Trips</TripsTitle>
+        <TripTrip>
+          <ul className="trips-header">
+            <li>Date</li>
+            <li>Departure</li>
+            <li>Return</li>
+            <li>Name</li>
+            <li>Price</li>
+            <li></li>
+          </ul>
+          {thisGuide.trips.map(trip => { 
+            return(
+              <ul key={trip.id} className="trip">
+                <li>{trip.date}</li>
+                <li>{trip.departure}</li>
+                <li>{trip.return}</li>
+                <li>{trip.name}</li>
+                <li>{trip.price}</li>
+                <li><button>B u y</button></li>
+              </ul> 
+            )
+          })}
+        </TripTrip>
+      </TripsGrid>
+
+
     </Wrapper>
   )
 
