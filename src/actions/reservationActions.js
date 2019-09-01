@@ -1,4 +1,4 @@
-import {SET_RESERVATION_DATES, SET_RESERVATION_APARTMENT} from './types';
+import {SET_RESERVATION_DATES, SET_RESERVATION_APARTMENT, SET_TRIP} from './types';
 
 export const setCalendarDates = (dates) => async dispatch => {
   dispatch({
@@ -13,3 +13,10 @@ export const setApartment = (apartment) => async dispatch => {
     payload: apartment
   })
 }
+
+export const setTrip = (trip) => async dispatch => {
+  dispatch({
+    type: SET_TRIP,
+    payload: trip
+  })
+} 

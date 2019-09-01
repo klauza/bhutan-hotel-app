@@ -1,4 +1,6 @@
 import React, {useEffect, useState} from 'react';
+import {connect} from 'react-redux';
+import { setTrip } from '../../../actions/reservationActions';
 import styled from 'styled-components';
 
 import guidesData from './GuideData';
@@ -158,8 +160,9 @@ const TripTrip = styled.div`
   }
 `;
 // styles-end
-const GuideDetails = (props) => {
+const GuideDetails = ({props, setTrip, reservation}) => {
   const [thisGuide, setThisGuide] = useState(null)
+  const [tripsSet, setTripsSet] = useState(null);
 
   useEffect(() =>{
     try{
@@ -176,9 +179,33 @@ const GuideDetails = (props) => {
       
       guidesData.find(guide => guide.name.toLowerCase() === name && setThisGuide(guide));
     }
+    
+    setTripsSet(reservation.trips);
 
   //eslint-disable-next-line
-  }, []);
+  }, [reservation.trips]);
+
+  console.log(tripsSet);
+  
+  const TripReservation = (trip) => {
+    
+    // data to save: [ trip ID | guide_name ]
+    var theSame = reservation.trips ?  (
+      reservation.trips.filter(same => same.trip.id === trip.id && same.guideName === thisGuide.name)
+    ) 
+    : (null);
+    
+    // add trip if not added already
+    theSame.length === 0 ? (
+      setTrip({
+        guideName: thisGuide.name,
+        trip: trip
+      })
+    ) : (console.log('juz zostalo dodane'));
+
+
+  }
+
 
   if(thisGuide){
   return (
@@ -225,8 +252,8 @@ const GuideDetails = (props) => {
                 <li>{trip.return}</li>
                 <li>{trip.name}</li>
                 <li>{trip.price}</li>
-                <li><button>B u y</button></li>
-              </ul> 
+                <li> <button onClick={() => TripReservation(trip)}>Buyy</button> </li>
+              </ul>
             )
           })}
         </TripTrip>
@@ -242,5 +269,8 @@ const GuideDetails = (props) => {
       </Wrapper>)
   }
 }
-
-export default GuideDetails
+const mapStateToProps = (state, ownProps) => ({
+  reservation: state.reservation,
+  props: ownProps
+})
+export default connect(mapStateToProps, {setTrip})(GuideDetails)
