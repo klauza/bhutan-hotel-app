@@ -18,7 +18,7 @@ const Grid = styled.div`
 `;
 const GuidesTopText = styled.div`
   width: 60%; height: auto;
-  margin: 100px auto 50px;
+  margin: 50px auto 50px;
   display: flex; flex-direction: column;
   justify-content: start;
   text-align: center;

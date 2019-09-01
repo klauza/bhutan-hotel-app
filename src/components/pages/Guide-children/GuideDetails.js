@@ -1,6 +1,8 @@
 import React, {useEffect, useState} from 'react';
 import {connect} from 'react-redux';
 import { setTrip } from '../../../actions/reservationActions';
+import { setAlert } from '../../../actions/alertActions';
+
 import styled from 'styled-components';
 
 import guidesData from './GuideData';
@@ -160,7 +162,7 @@ const TripTrip = styled.div`
   }
 `;
 // styles-end
-const GuideDetails = ({props, setTrip, reservation}) => {
+const GuideDetails = ({props, setTrip, setAlert, reservation}) => {
   const [thisGuide, setThisGuide] = useState(null)
   const [tripsSet, setTripsSet] = useState(null);
 
@@ -191,19 +193,22 @@ const GuideDetails = ({props, setTrip, reservation}) => {
     
     // data to save: [ trip ID | guide_name ]
     var theSame = reservation.trips ?  (
-      reservation.trips.filter(same => same.trip.id === trip.id && same.guideName === thisGuide.name)
+      reservation.trips.filter(same => same.trip.id === trip.id && same.guide.name === thisGuide.name)
     ) 
     : (null);
     
     // add trip if not added already
     theSame.length === 0 ? (
       setTrip({
-        guideName: thisGuide.name,
+        guide: {
+          "name": thisGuide.name,
+          "img": thisGuide.img  
+        },
         trip: trip
       })
-    ) : (console.log('juz zostalo dodane'));
+    ) : ( alert('you already have claimed a reservation on that trip') );
 
-
+    
   }
 
 
@@ -252,7 +257,14 @@ const GuideDetails = ({props, setTrip, reservation}) => {
                 <li>{trip.return}</li>
                 <li>{trip.name}</li>
                 <li>{trip.price}</li>
-                <li> <button onClick={() => TripReservation(trip)}>Buyy</button> </li>
+                <li> 
+                  {reservation.apartment !== null ? (
+                    <button onClick={() => TripReservation(trip)}>Buy</button> 
+                  ) : (
+                    <button onClick={() => setAlert("some stuff here", "blue") }>Buy</button>
+                  )}
+                  
+                </li>
               </ul>
             )
           })}
@@ -273,4 +285,4 @@ const mapStateToProps = (state, ownProps) => ({
   reservation: state.reservation,
   props: ownProps
 })
-export default connect(mapStateToProps, {setTrip})(GuideDetails)
+export default connect(mapStateToProps, {setTrip, setAlert})(GuideDetails)
