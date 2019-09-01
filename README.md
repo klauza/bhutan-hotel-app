@@ -1,9 +1,12 @@
 ## About
+`app` :
+It's a handracfted frontend application with my authorship, made with tools like React, Redux and styled-components.
 
+`project` :
 "Bhutanotel" is an abstract hotel facility located in the capitol of Bhutan - Thimphu. <br/>
-The hotel offers a set of high standard rooms and many attractions around the place. <br/>
+The hotel offers for a newcomer a set of high standard apartments to rent; a guide to hire or car to lease.<br/>
 The enterprise was founded for travellers and world-explorers to provide them a cosy, luxury and pleasant place to stay between their demanding adventures. <br/>
-A newcomer can hire a guide or rent a car in this place to speed up the exploration of this beautiful country. <br/>
+
 
 <br/>
 
@@ -37,3 +40,5 @@ A newcomer can hire a guide or rent a car in this place to speed up the explorat
 | **leaflet** | 1.5.1  |
 | **lodash** | 4.17.15  |
 | **styled-components** | 4.3.2  |
+| **react-calendar** | 2.19.1  |
+| **react-responsive-carousel** | 3.1.50  |
