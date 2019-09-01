@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
 import Calendar from 'react-calendar';
 import {connect} from 'react-redux';
+import { setAlert } from '../../../actions/alertActions';
+import history from '../../../history';
 import {setCalendarDates, setApartment} from '../../../actions/reservationActions';
 import styled from 'styled-components';
 
@@ -22,7 +24,7 @@ const ReservationButton = styled.button`
 `;
 
 // end-styles
-const Picker = ({setCalendarDates, setApartment, apartment}) => {
+const Picker = ({setCalendarDates, setApartment, setAlert, apartment}) => {
 
 
   const [date, setDate] = useState(null);
@@ -43,17 +45,22 @@ const Picker = ({setCalendarDates, setApartment, apartment}) => {
     setPrice(toPay)
   }
 
-  const validate = () => {
+  // const validate = () => {
     // setShowDate(true);
 
 
     // show reservation button
     // setShowReservation(true);
-  }
+  // }
 
   const reservation = () => {
     setCalendarDates([date[0].toLocaleDateString("en-GB"), date[1].toLocaleDateString("en-GB") ])
     setApartment(apartment);
+    setAlert('Done, redirecting to your reservation...', 'green', 2000);
+    setTimeout(()=> {
+      setAlert('You can now additionally hire a guide or rent a car', 'green', 5000);
+      history.push('/account');
+    }, 2000)
   }
 
   const reset = () => {
@@ -95,4 +102,4 @@ const Picker = ({setCalendarDates, setApartment, apartment}) => {
   
 }
 
-export default connect(null, {setCalendarDates, setApartment})(Picker)
+export default connect(null, {setCalendarDates, setApartment, setAlert})(Picker)

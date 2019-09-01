@@ -227,10 +227,10 @@ const Account = ({ reservation: {dates, apartment, trips} }) => {
           <Fragment>
             <TripsTitle>You have a trip coming soon!</TripsTitle>
             <TripsPopulated>
-              {trips.map(adventure => {
+              {trips.map((adventure, index) => {
                 return (
                   
-                    <TripsText>Adventure with <img src={adventure.guide.img} alt=""/> {adventure.guide.name} on <strong style={{margin: "0 5px"}}>{adventure.trip.name}</strong> starting on {adventure.trip.date} at {adventure.trip.departure} </TripsText> 
+                    <TripsText key={index}>Adventure with <img src={adventure.guide.img} alt=""/> {adventure.guide.name} on <strong style={{margin: "0 5px"}}>{adventure.trip.name}</strong> starting on {adventure.trip.date} at {adventure.trip.departure} </TripsText> 
                 
                 )
               })}

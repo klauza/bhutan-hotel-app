@@ -1,4 +1,6 @@
 import React, {useState, useEffect} from 'react';
+import { connect } from 'react-redux';
+import { setAlert } from '../../../actions/alertActions';
 import data from './HotelsData';
 import ThumbnailGallery from './HotelDetails-gallery/ThumbnailGallery';
 import styled from 'styled-components';
@@ -53,7 +55,7 @@ const ExternalBackButton = styled.button`
 `;
 // styles-end
 
-const HotelDetails = (props) => {
+const HotelDetails = ({props, reservation, setAlert}) => {
   const [thisHotel, setThisHotel] = useState(null)
   const [reloadBtn, setReloadBtn] = useState(false);
   
@@ -62,7 +64,7 @@ const HotelDetails = (props) => {
       var { hotel } = props.location.state;
       setThisHotel(hotel);
     } catch(err){ 
-      console.log('error'); 
+      // console.log('error'); 
     }
 
     if(!hotel){
@@ -72,13 +74,14 @@ const HotelDetails = (props) => {
       setReloadBtn(true)
     }
     window.scrollTo(0, 0);
-  }, [thisHotel, props.match.params.id, props.location.state])
+
+    //eslint-disable-next-line
+  }, [])
 
   // Buttons functions
   const goBackReload = () => {
     history.push('/apartment-list');
   }
-
 
   if(thisHotel){
     return(
@@ -94,14 +97,22 @@ const HotelDetails = (props) => {
 
         <ThumbnailGallery features={thisHotel.features} images={thisHotel.img} />
 
-        <ReservationButton>
-        <Link to={{
-          pathname: `/reservation`,
-          state: {thisHotel}
-          }} >
-          Make a reservation
-        </Link>
-        </ReservationButton>
+        {reservation.apartment !== null ? (
+          <ReservationButton onClick={() => setAlert('you have already made a reservation', 'blue')}> {/* eslint-disable-next-line */}
+            <a>Make a reservation</a>
+          </ReservationButton>
+        ) : (
+          <ReservationButton>
+            <Link to={{
+              pathname: `/reservation`,
+              state: {thisHotel}
+              }} >
+              Make a reservation
+            </Link>
+          </ReservationButton>
+        ) }
+
+
         <Questions><p>In case you would have any questions <br/> call: 02329322394</p></Questions>
         
       </Wrapper>
@@ -115,4 +126,8 @@ const HotelDetails = (props) => {
   }
 }
 
-export default HotelDetails
+const mapStateToProps = (state, ownProps) => ({
+  props: ownProps,
+  reservation: state.reservation
+})
+export default connect(mapStateToProps, {setAlert})(HotelDetails)

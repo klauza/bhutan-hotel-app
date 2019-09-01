@@ -164,7 +164,6 @@ const TripTrip = styled.div`
 // styles-end
 const GuideDetails = ({props, setTrip, setAlert, reservation}) => {
   const [thisGuide, setThisGuide] = useState(null)
-  const [tripsSet, setTripsSet] = useState(null);
 
   useEffect(() =>{
     try{
@@ -182,12 +181,10 @@ const GuideDetails = ({props, setTrip, setAlert, reservation}) => {
       guidesData.find(guide => guide.name.toLowerCase() === name && setThisGuide(guide));
     }
     
-    setTripsSet(reservation.trips);
 
   //eslint-disable-next-line
-  }, [reservation.trips]);
+  }, []);
 
-  console.log(tripsSet);
   
   const TripReservation = (trip) => {
     
@@ -198,17 +195,19 @@ const GuideDetails = ({props, setTrip, setAlert, reservation}) => {
     : (null);
     
     // add trip if not added already
-    theSame.length === 0 ? (
+    if(theSame.length === 0){
       setTrip({
         guide: {
           "name": thisGuide.name,
           "img": thisGuide.img  
         },
         trip: trip
-      })
-    ) : ( alert('you already have claimed a reservation on that trip') );
+      });
+      setAlert("Trip added!", "green", 1500);
+    } else {
+     setAlert("You already participate in that adventure.", "yellow");
+    }
 
-    
   }
 
 
@@ -261,7 +260,7 @@ const GuideDetails = ({props, setTrip, setAlert, reservation}) => {
                   {reservation.apartment !== null ? (
                     <button onClick={() => TripReservation(trip)}>Buy</button> 
                   ) : (
-                    <button onClick={() => setAlert("some stuff here", "blue") }>Buy</button>
+                    <button onClick={() => setAlert("Firstly, you need to make an apartment reservation", "blue") }>Buy</button>
                   )}
                   
                 </li>
