@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {Fragment} from 'react';
 import {connect} from 'react-redux';
 import { Wrapper } from '../layout/Elements';
 import styled from 'styled-components';
@@ -30,9 +30,17 @@ const ApartmentContainer = styled.div`
   display: flex; flex-direction: column;
 `;
 const AccountTitle = styled.h2`
-  color: green;
+  color: white;
   text-align: center;
   margin: 100px 0 50px;
+  line-height: 40px;
+  background: linear-gradient(to right,
+    rgba(255,255,255, 0) 0%,
+    rgba(0,128,0, 1) 35%,
+    rgba(0,128,0, 1) 65%,
+    rgba(255,255,255, 0) 100%
+  );
+  @media(max-width: 768px){ background: rgba(0,128,0, 1); }
 `;
 const Flex = styled.div`
   display: flex; flex-direction: row; flex-wrap: wrap;
@@ -118,6 +126,30 @@ const TripsContainer = styled.div`
   background: lightgrey;
   text-align: center;
 `;
+const TripsTitle = styled.h2`
+  background: linear-gradient(to right,
+    rgba(255,255,255, 0) 0%,
+    rgba(0,128,0, 1) 35%,
+    rgba(0,128,0, 1) 65%,
+    rgba(255,255,255, 0) 100%
+  );
+  @media(max-width: 768px){ background: rgba(0,128,0, 1); }
+  line-height: 40px;
+  color: white;
+  text-align: center;
+  margin: 100px 0 50px;
+`;
+const TripsPopulated = styled.div`
+  width: auto; max-width: 900px; margin: 20px auto;
+`;
+const TripsText = styled.div`
+  line-height: 55px;
+  display: inline-block;
+  img{
+    width: 50px; height: 50px; object-fit: cover; margin: 0 10px;
+  }
+`;
+// ---------------------- //
 const CarContainer = styled.div`
   border: 2px solid black; border-radius: 3px;
   width: auto; max-width: 900px; margin: 20px auto;
@@ -126,9 +158,10 @@ const CarContainer = styled.div`
   background: lightgrey;
   text-align: center;
 `;
+
 // end-styles
 
-const Account = ({ reservation: {dates, apartment} }) => {
+const Account = ({ reservation: {dates, apartment, trips} }) => {
  
   // dates = [new Date(), new Date()];
 
@@ -182,13 +215,29 @@ const Account = ({ reservation: {dates, apartment} }) => {
 
         <Key>
           <p>You can grab the apartment <i className="fa fa-key"></i> at <span>9:00 am</span> on reservation day</p>
-          <p>Also, you must give the key back at the latest by <strong>9:00 am</strong> the reservation ending day</p>
+          <p>Also, you must give the key back at the latest by <strong>9:00 pm</strong> the reservation ending day</p>
           
         </Key>
 
-        <TripsContainer>
-          <p>You don't have any upcoming trips.</p>
-        </TripsContainer>
+        {trips.length === 0 ? (
+          <TripsContainer>
+            <p>You don't have any upcoming trips.</p>
+          </TripsContainer>
+        ) : (
+          <Fragment>
+            <TripsTitle>You have a trip coming soon!</TripsTitle>
+            <TripsPopulated>
+              {trips.map(adventure => {
+                return (
+                  
+                    <TripsText>Adventure with <img src={adventure.guide.img} alt=""/> {adventure.guide.name} on <strong style={{margin: "0 5px"}}>{adventure.trip.name}</strong> starting on {adventure.trip.date} at {adventure.trip.departure} </TripsText> 
+                
+                )
+              })}
+            </TripsPopulated>
+          </Fragment>
+        )}
+
 
         <CarContainer>
           <p>You didn't make any car reservation.</p>
