@@ -1,5 +1,5 @@
 import React from 'react';
-import {Link} from 'react-router-dom';
+import {NavLink, Link} from 'react-router-dom';
 
 import {connect} from 'react-redux';
 import {pageLocation} from '../../../actions/sortingActions';
@@ -22,19 +22,19 @@ const NavLinks = ({sort: {pageLocY}, reservation: {dates}, pageLocation, props})
   return (
     <ul className="nav-links">
       <li>
-        <Link to='/' className="link" tabIndex = {tabulator} onClick={props.hideMobileNav}><img src={homeImg} alt=""/><span>Home</span></Link>
+        <NavLink exact activeClassName="active" to='/' className="link" tabIndex = {tabulator} onClick={props.hideMobileNav}><img src={homeImg} alt=""/><span>Home</span></NavLink>
       </li>
       <li>
-        <Link to='/contact' className="link" tabIndex = {tabulator} onClick={props.hideMobileNav}><img src={contactImg} alt=""/><span>Contact</span></Link>
+        <NavLink exact activeClassName="active" to='/contact' className="link" tabIndex = {tabulator} onClick={props.hideMobileNav}><img src={contactImg} alt=""/><span>Contact</span></NavLink>
       </li>
       <li>
-        <Link to='/apartment-list' className="link" tabIndex = {tabulator} onClick={() => {setLocationToZero(); if(window.innerWidth <= 768){props.hideMobileNav(); }}}><img src={apartmentImg} alt=""/><span>Apartments</span></Link>
+        <NavLink exact activeClassName="active" to='/apartment-list' className="link" tabIndex = {tabulator} onClick={() => {setLocationToZero(); if(window.innerWidth <= 768){props.hideMobileNav(); }}}><img src={apartmentImg} alt=""/><span>Apartments</span></NavLink>
       </li>
       <li>
-        <Link to='/guides' className="link" tabIndex = {tabulator} onClick={props.hideMobileNav}><img src={guideImg} alt=""/><span>Guides</span></Link>
+        <NavLink exact activeClassName="active" to='/guides' className="link" tabIndex = {tabulator} onClick={props.hideMobileNav}><img src={guideImg} alt=""/><span>Guides</span></NavLink>
       </li>
       <li>
-        <Link to='/account' className="link" tabIndex = {tabulator} onClick={props.hideMobileNav}><img src={reservationCalendar} alt=""/>{dates !== null && <div style={{color: "lightgreen"}}>!</div> } <span>Reservations</span></Link>
+        <NavLink exact activeClassName="active" to='/account' className="link" tabIndex = {tabulator} onClick={props.hideMobileNav}><img src={reservationCalendar} alt=""/>{dates !== null && <div style={{color: "lightgreen"}}>!</div> } <span>Reservations</span></NavLink>
       </li>
     </ul>
   )

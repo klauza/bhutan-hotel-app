@@ -26,28 +26,35 @@ const MyDesktopNavbar = styled.nav`
     
   }
   .link{
+    
     display: flex;
     flex-flow: column nowrap;
     align-items: center;
     color: white;
-    font-size: 1.5vw;
-    @media(min-width: 1200px){ font-size: 20px;}
+    font-size: 1.5vw; @media(min-width: 1200px){ font-size: 20px;}
     text-decoration: none;
     font-family: 'Livvic', sans-serif;
     font-weight: bold;
     position: relative;
+    transition: width 500ms ease, color 500ms ease;
+    
+    &:hover{
+      color: lightgrey; 
+    }
     &::after{
       content:'';
       height: 2px; width: 0px;
       background: lightgrey;
       display: block;
       transition: width 0.5s ease-in-out;
+      width: 0%;
       @media(max-width: 1200px){ display: none; }
-    }
-    &:hover::after{
+    } 
+    &.active::after{
       transition: width 0.25s ease-in-out;
       width: 40%;
     }
+    &.active{ color: lightgrey; }
 
     & > img{
       width: 25px; height: 25px; object-fit: cover;
@@ -66,9 +73,6 @@ const MyDesktopNavbar = styled.nav`
       position: absolute;
       top: -7px; right: 20%; transform: translateX(-50%);
       @media(max-width: 1200px){ top: 0; right: 15%; transform: translateX(35%); }
-    }
-    &:hover{
-      color: lightgrey;
     }
   }
 
