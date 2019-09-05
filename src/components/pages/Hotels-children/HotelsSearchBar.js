@@ -24,7 +24,7 @@ const SearchBar = styled.div`
   height: 56px;
 `;
 const HotelTopText = styled.div`
-  width: 80%; height: auto;
+  width: 85%; height: auto;
   @media(max-width: 768px){ width: 95%; }
   margin: 0px auto 50px auto;
   

@@ -7,31 +7,31 @@ import { Wrapper } from '../layout/Elements';
 const HeadBar = styled.div`
   margin: 50px auto 100px;
   height: auto;
-  width: 70%;
-  border: 0; border-top-left-radius: 5px; border-top-right-radius: 5px;
-  background: lightcyan;
+  width: 60%; @media(max-width: 768px){ width: 100%; }
+  border: 2px solid black; border-top-left-radius: 5px; border-top-right-radius: 5px;
+  box-shadow: 0px 5px 6px -2px rgba(117,117,117,0.65);
 `;
 const HeadTitle = styled.div`
-  display: flex; flex-direction: row;
+  display: flex; flex-direction: row;  background: green; color: white;
 `;
 const TitleMain = styled.h1`
- flex: 1;
- font-size: 3em;
- align-self: center;
- &::after{
-   content: '';
-   background: black;
-   height: 35px;
-   width: 3px;
-   display: inline-block;
-   margin-left: 25px;
- }
+  flex: 1;
+  font-size: 2.75em;
+  text-align: right;
+  align-self: center;
+  border-right: 1px solid lightgrey;
+  margin-right: 10px;
+  padding-right: 10px;
+  @media(max-width: 768px){ font-size: 2.2em; }
 `;
 const TitleBody = styled.div`
   flex: 1;
 `;
 const HeadHelp = styled.div`
   text-align: center;
+  padding: 15px 0;
+  background: lightgreen;
+  font-weight: 700;
 `;
 // ---------------------- //
 
@@ -59,6 +59,8 @@ const MapOverlay = styled.div`
   box-shadow: 0px 5px 6px -2px rgba(117,117,117,0.65);
  &::after{
    content: 'Click to use map';
+   text-align: center;
+   color: white; font-size: 1.6em;
    display: block;
    position: absolute;
    top: 50%; left: 50%; transform: translateX(-50%);
@@ -92,7 +94,7 @@ const Contact = () => {
           <TitleBody>
             <p>Need immediate help?</p>
             <p>Got a question?</p>
-            <div><i className="fa fa-phone" style={{fontSize: "1.6rem"}}></i> <strong>02422515431</strong> - 24h open line</div>
+            <div><i className="fa fa-phone" style={{fontSize: "1.6rem"}}></i> <strong>02422515431</strong>  </div>
           </TitleBody>
         </HeadTitle>
       
