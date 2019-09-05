@@ -1,11 +1,11 @@
-import React from 'react';
+import React, {useRef, useState} from 'react';
 import styled from 'styled-components';
 import MapContact from './Contact-children/MapContact';
 import { Wrapper } from '../layout/Elements';
 
 // PAGE STYLES
 const HeadBar = styled.div`
-  margin: 100px auto;
+  margin: 50px auto 100px;
   height: auto;
   width: 70%;
   border: 0; border-top-left-radius: 5px; border-top-right-radius: 5px;
@@ -37,10 +37,10 @@ const HeadHelp = styled.div`
 
 const FlexLayout = styled.div`
   display: flex; flex-direction: column;
-  min-height: 500px;
+  min-height: 600px;
   margin-bottom: 100px;
   @media(max-width: 768px){flex-direction: column; }
-  box-shadow: 0px 5px 6px -2px rgba(117,117,117,0.65);
+  position: relative;
 `;
 const MapHeader = styled.p`
   text-align: center;
@@ -49,11 +49,38 @@ const MapHeader = styled.p`
   margin: 0;
   padding: 5px 0;
 `;
+const MapOverlay = styled.div`
+
+  position: absolute;
+  z-index: 999;
+  top: 0; left: 0;
+  background: rgba(0,0,0,0.9);
+  width: 100%; min-height: 631px;
+  box-shadow: 0px 5px 6px -2px rgba(117,117,117,0.65);
+ &::after{
+   content: 'Click to use map';
+   display: block;
+   position: absolute;
+   top: 50%; left: 50%; transform: translateX(-50%);
+ }
+`;
+const TheMap = styled.div`
+  z-index: 1;
+  transition: all 250ms ease;
+  opacity :  ${props => props.ishidden ? ("0.5") : ("1")} ;
+  pointer-events: ${props => props.ishidden ? ("none") : ("auto")} ;
+  touch-action: ${props => props.ishidden ? ("none") : ("auto")} ;
+`;
+
 // styles-end
 
 const Contact = () => {
 
+  const [wrapped, setWrapped] = useState(true);
 
+  const runFunction = () => {
+    setWrapped(false);
+  }
 
   return (
     <Wrapper>
@@ -80,14 +107,16 @@ const Contact = () => {
 
       </HeadBar>
 
-
+      
       <FlexLayout>
-          <MapHeader>Trouble with finding our facility? Use our map.</MapHeader>
-          <div className="map" style={{backgroundColor: "lightblue", height: "600px"}}>
+        <MapOverlay onClick={runFunction}>
+            <MapHeader>Trouble with finding our facility? Use our map.</MapHeader>
+            <TheMap ishidden={wrapped} className="map" style={{backgroundColor: "lightblue", height: "600px"}}>
 
-            <MapContact/>
-          
-          </div>
+              <MapContact/>
+
+            </TheMap>
+      </MapOverlay>
       </FlexLayout>
 
     </Wrapper>
