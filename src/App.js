@@ -24,6 +24,7 @@ import Contact from './components/pages/Contact';
 import Guides from './components/pages/Guides';
 import GuideDetails from './components/pages/Guide-children/GuideDetails';
 import Alert from './components/layout/Alert';
+import Cars from './components/pages/Cars';
 
 function App() {
   return (
@@ -42,6 +43,7 @@ function App() {
                 <Route path='/account' component={Account} />
                 <Route path='/guides' component={Guides} />
                 <Route path='/guide/:name' component={GuideDetails} />
+                <Route path='/rent-a-car' component={Cars} />
 
                 <Route component={NotFound} />
               </Switch>

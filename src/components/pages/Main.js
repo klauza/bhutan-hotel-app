@@ -1,4 +1,5 @@
 import React, {Fragment} from 'react';
+import { Link } from 'react-router-dom';
 import MainCarrousel from './Main-children/MainCarousel';
 import MainCards from './Main-children/MainCards';
 import styled from 'styled-components';
@@ -88,6 +89,9 @@ const CarButton = styled.button`
   padding: 10px;
   background: green;
   color: white;
+  &:hover{
+    cursor: pointer;
+  }
 `;
 
 
@@ -123,7 +127,7 @@ const Main = () => {
             <CarDesc>
               <CarTopDesc>Would you like to speed up your exploration?</CarTopDesc>
               <CarTitle>Rent a car!</CarTitle>
-              <CarButton>Check deals</CarButton>
+              <Link to='/rent-a-car'> <CarButton>Check deals</CarButton> </Link>
             </CarDesc>
 
             <CarImage>
