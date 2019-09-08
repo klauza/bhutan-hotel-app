@@ -5,8 +5,8 @@ const history = createBrowserHistory();
 
 const Container = styled.div`
   width: 70%;
-  margin: -50px auto 0px;
-  padding-bottom: 100px;
+  margin: -50px auto 50px;
+  padding-bottom: 50px;
   padding-left: 10px;
   padding-right: 10px;
   border: 0;
