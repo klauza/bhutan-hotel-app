@@ -102,11 +102,15 @@ const Cars = ({setCar, setAlert, reservation}) => {
 
   const makeCarReservation = (car) => {
     // if already made a reservation, show alert
-    if(reservation.car !== null){
-      setAlert("You already made a car reservation", "red", 2000);
+    if(reservation.apartment === null){
+      setAlert("You must make an apartment reservation at first", "red");
     } else {
-      setAlert("You have successfully rented a car", "red");
-      setCar(car);
+        if(reservation.car !== null){
+          setAlert("You already made a car reservation", "red", 2000);
+      } else {
+          setAlert("You have successfully rented a car", "red");
+          setCar(car);
+      }
     }
   }
 
