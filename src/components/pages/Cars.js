@@ -1,10 +1,64 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
-import { Wrapper } from '../layout/Elements';
+import { Wrapper, BackButton } from '../layout/Elements';
 
 import carsData from './Cars-children/carsData';
 
 // STYLES
+const CarBlock = styled.div`
+  width: 100%;
+  border: 1px solid lightgrey; border-radius: 3px;
+  margin: 20px 0;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: 350px;
+  background: lightgrey;
+
+  @media(max-width: 768px){
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+`;
+const DescContainer = styled.div`
+  width: 80%;
+  margin: 0 auto;
+  /* display: grid;
+  align-content: center; */
+`;
+const DescMark = styled.div`
+  text-align: center;
+  display: block;
+  font-size: 2em;
+  letter-spacing: 10px;
+`;
+const DescAbout = styled.div`
+  margin: 25px 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-auto-rows: minmax(100px, 1fr);
+  align-items: center;
+`;
+const DescRent = styled.button`
+  display: block;
+  margin: 0 auto;
+  width: 80px;
+  height: 30px;
+  border: 0; border-radius: 3px;
+  background: #f08080;
+  box-shadow: 0 1px 1px 1px rgba(0,0,0,0.5);
+  transition: all ease 225ms;
+  letter-spacing: 2px;
+  font-weight: 700;
+  &:hover{
+    cursor: pointer;
+    box-shadow: unset;
+    transition: all ease 250ms;
+    background: #ff9999;
+  }
+`;
+const ImageContainer = styled.div`
+  width: 100%; height: 100%;
+`;
 const CarImage = styled.img`
   width: 100%; height: 100%;
   object-fit: cover;
@@ -21,7 +75,6 @@ const Cars = () => {
     // load all car images
    let images = [];
    cars.forEach(car => images.push(car.img));
-   console.log(images);
 
 
    const checkImage = (path) =>
@@ -46,16 +99,28 @@ const Cars = () => {
 
   return (
     <Wrapper>
-
+      <BackButton>Back</BackButton>
       {!loader ? (
 
       cars.map((car, i) => {
         return(
-          <div key={i}>
-            <p>{car.id}</p>
-            <p>{car.mark}</p>
-            <CarImage src={car.img} />
-          </div>
+          <CarBlock key={i}>
+            <DescContainer>
+              <DescMark>{car.mark.toUpperCase()}</DescMark>
+
+              <DescAbout>
+                <div>{car.type.toUpperCase()}</div>
+                <div>engine: {car.engine}</div>
+                <div>price: {car.price}</div>
+                <div>avg mpg: {car.mpg}</div>
+              </DescAbout>
+              <DescRent>RENT</DescRent>
+            </DescContainer>
+
+            <ImageContainer>
+              <CarImage src={car.img} />
+            </ImageContainer>
+          </CarBlock>
         )
       })
       ) : (
