@@ -2,7 +2,7 @@ import React, {Fragment} from 'react';
 import {connect} from 'react-redux';
 import { Wrapper } from '../layout/Elements';
 import styled from 'styled-components';
-import { reservationCalendar } from '../../media/index';
+import { reservationCalendar, carImg } from '../../media/index';
 import { Link } from 'react-router-dom';
 
 // STYLES
@@ -158,10 +158,38 @@ const CarContainer = styled.div`
   background: lightgrey;
   text-align: center;
 `;
-
+const CarTitle = styled.h2`
+  background: linear-gradient(to right,
+    rgba(255,255,255, 0) 0%,
+    rgba(0,128,0, 1) 35%,
+    rgba(0,128,0, 1) 65%,
+    rgba(255,255,255, 0) 100%
+  );
+  text-align: center;
+  line-height: 40px;
+  color: white;
+  margin: 100px 0 50px;
+  @media(max-width: 768px){ background: rgba(0,128,0, 1); }
+`;
+const CarWrapper = styled.div`
+  width: auto; max-width: 900px; margin: 20px auto;
+  background: lightgrey;
+  text-align: center;
+  border: 2px solid black; border-radius: 3px;
+  display: flex;
+  flex-direction: column;
+  div{
+    min-height: 75px;
+    font-size: 1.6em;
+    padding: 10px;
+  }
+`;
+const CarImage = styled.img`
+  width: 100%; height: 100%; object-fit: cover;
+`;
 // end-styles
 
-const Account = ({ reservation: {dates, apartment, trips} }) => {
+const Account = ({ reservation: {dates, apartment, trips, car} }) => {
  
   // dates = [new Date(), new Date()];
 
@@ -238,10 +266,20 @@ const Account = ({ reservation: {dates, apartment, trips} }) => {
           </Fragment>
         )}
 
+        {car === null ? (
+          <CarContainer>
+            <p>You didn't make any car reservation.</p>
+          </CarContainer>
+        ) : (
+          <Fragment>
+            <CarTitle>You have a car waiting in our place!</CarTitle>
+            <CarWrapper>
+              <div>Superfast {car.type} {car.mark} with {car.engine} engine is ready to be picked up!</div>
+              <CarImage src={car.img} />
+            </CarWrapper>
+          </Fragment>
+        )}
 
-        <CarContainer>
-          <p>You didn't make any car reservation.</p>
-        </CarContainer>
       </Wrapper>
     )
   } else {
