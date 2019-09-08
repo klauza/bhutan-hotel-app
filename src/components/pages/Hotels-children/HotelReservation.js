@@ -1,9 +1,8 @@
 import React from 'react';
-import { createBrowserHistory } from 'history';
 import styled from 'styled-components';
 import {Wrapper, BackButton} from '../../layout/Elements';
 import Picker from './Picker';
-const history = createBrowserHistory();
+import history from '../../../history';
 
 
 
@@ -44,8 +43,7 @@ const HotelReservation = (props) => {
 
 
   const goHome = () => {
-    history.push('/hotel-list')
-    window.location.reload(true);
+    history.push('/apartment-list')
   }
   
   if(thisHotel ){
@@ -63,8 +61,8 @@ const HotelReservation = (props) => {
   } else {
     return ( 
     <NoHotel>
-      <p>No hotel chosen</p>
-      <Button onClick={goHome}>Back to hotel list</Button>
+      <p>No apartment was chosen</p>
+      <Button onClick={goHome}>Back to apartment list</Button>
     </NoHotel>
       )
   }
