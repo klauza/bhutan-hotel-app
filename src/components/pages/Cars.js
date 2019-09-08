@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { Fragment, useState, useEffect } from 'react';
 import { connect } from 'react-redux';
 import { setCar } from '../../actions/reservationActions';
 import { setAlert } from '../../actions/alertActions';
@@ -8,6 +8,24 @@ import { Wrapper, BackButton } from '../layout/Elements';
 import carsData from './Cars-children/carsData';
 
 // STYLES
+const AboutPage = styled.div`
+  width: 100%;
+  margin: 50px auto;
+  text-align: center;
+  border: 1px solid lightgrey;
+  border-radius: 5px;
+  min-height: 200px;
+  display: grid;
+  align-content: center;
+  padding: 15px;
+  p{
+    margin: 10px 0;
+  }
+  p{
+    font-weight: 700;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+  }
+`;
 const CarBlock = styled.div`
   width: 100%;
   border: 1px solid lightgrey; border-radius: 3px;
@@ -16,10 +34,11 @@ const CarBlock = styled.div`
   grid-template-columns: repeat(2, 1fr);
   grid-template-rows: 350px;
   background: lightgrey;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  text-align: center;
 
   @media(max-width: 768px){
     grid-template-columns: 1fr;
-    text-align: center;
   }
 `;
 const DescContainer = styled.div`
@@ -32,7 +51,12 @@ const DescMark = styled.div`
   text-align: center;
   display: block;
   font-size: 2em;
-  letter-spacing: 10px;
+  letter-spacing: 10px; text-indent: 5px;
+  margin: 20px 0;
+
+  border-bottom: 1px solid black;
+  border-image: linear-gradient(to right, rgba(0,0,0,0), lightgrey ,black, lightgrey, rgba(0,0,0,0));
+  border-image-slice: 5;
 `;
 const DescAbout = styled.div`
   margin: 25px 0;
@@ -118,28 +142,38 @@ const Cars = ({setCar, setAlert, reservation}) => {
     <Wrapper>
       <BackButton>Back</BackButton>
       {!loader ? (
+        
+        <Fragment>
+          <AboutPage>
+            <p>Car will have full tank of fuel, however, you must pay for any fuel you will use.</p>
+            <p>Car prices are refering to daily rent.</p>
+            <p>You have to prior make an apartment reservation to rent any of our car.</p>
+            <p>One-time administrative charge fee is 69.</p>
+          </AboutPage>
 
-      cars.map((car, i) => {
-        return(
-          <CarBlock key={i}>
-            <DescContainer>
-              <DescMark>{car.mark.toUpperCase()}</DescMark>
+        {cars.map((car, i) => {
+            return(
+            <CarBlock key={i}>
+              <DescContainer>
+                <DescMark>{car.mark.toUpperCase()}</DescMark>
 
-              <DescAbout>
-                <div>{car.type.toUpperCase()}</div>
-                <div>engine: {car.engine}</div>
-                <div>price: {car.price}</div>
-                <div>avg mpg: {car.mpg}</div>
-              </DescAbout>
-              <DescRent onClick={() => makeCarReservation(car)}>RENT</DescRent>
-            </DescContainer>
+                <DescAbout>
+                  <div>{car.type.toUpperCase()}</div>
+                  <div>engine: {car.engine}</div>
+                  <div>price: {car.price}</div>
+                  <div>avg mpg: {car.mpg}</div>
+                </DescAbout>
+                <DescRent onClick={() => makeCarReservation(car)}>RENT</DescRent>
+              </DescContainer>
 
-            <ImageContainer>
-              <CarImage src={car.img} />
-            </ImageContainer>
-          </CarBlock>
-        )
-      })
+              <ImageContainer>
+                <CarImage src={car.img} />
+              </ImageContainer>
+            </CarBlock>
+            )
+        })}
+        
+      </Fragment>
       ) : (
         <div style={{minHeight: "50vh"}}>LOADING</div>
       )
