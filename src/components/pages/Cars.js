@@ -1,4 +1,7 @@
 import React, { useState, useEffect } from 'react';
+import { connect } from 'react-redux';
+import { setCar } from '../../actions/reservationActions';
+import { setAlert } from '../../actions/alertActions';
 import styled from 'styled-components';
 import { Wrapper, BackButton } from '../layout/Elements';
 
@@ -65,7 +68,7 @@ const CarImage = styled.img`
 `;
 // styles-end
 
-const Cars = () => {
+const Cars = ({setCar, setAlert, reservation}) => {
 
   const [cars] = useState(carsData);
   const [loader, setLoader] = useState(true);
@@ -97,6 +100,16 @@ const Cars = () => {
   } ,[])
 
 
+  const makeCarReservation = (car) => {
+    // if already made a reservation, show alert
+    if(reservation.car !== null){
+      setAlert("You already made a car reservation", "red", 2000);
+    } else {
+      setAlert("You have successfully rented a car", "red");
+      setCar(car);
+    }
+  }
+
   return (
     <Wrapper>
       <BackButton>Back</BackButton>
@@ -114,7 +127,7 @@ const Cars = () => {
                 <div>price: {car.price}</div>
                 <div>avg mpg: {car.mpg}</div>
               </DescAbout>
-              <DescRent>RENT</DescRent>
+              <DescRent onClick={() => makeCarReservation(car)}>RENT</DescRent>
             </DescContainer>
 
             <ImageContainer>
@@ -133,5 +146,7 @@ const Cars = () => {
     </Wrapper>
   )
 }
-
-export default Cars
+const mapStateToProps = (state) => ({
+  reservation: state.reservation
+})
+export default connect(mapStateToProps, {setCar, setAlert})(Cars)

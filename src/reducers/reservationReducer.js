@@ -1,4 +1,4 @@
-import {SET_RESERVATION_DATES, SET_RESERVATION_APARTMENT, SET_TRIP} from '../actions/types';
+import {SET_RESERVATION_DATES, SET_RESERVATION_APARTMENT, SET_TRIP, SET_CAR} from '../actions/types';
 
 const initialState = {
   dates: null,
@@ -26,6 +26,12 @@ export default(state = initialState, action) => {
       return{
         ...state,
         trips: [ action.payload, ...state.trips]
+      }
+
+    case SET_CAR:
+      return{
+        ...state,
+        car: action.payload
       }
 
     default:

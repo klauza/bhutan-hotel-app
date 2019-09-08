@@ -7,6 +7,7 @@ export const SET_LOADING = "SET_LOADING";
 export const SET_RESERVATION_DATES = "SET_RESERVATION_DATES";
 export const SET_RESERVATION_APARTMENT = "SET_RESERVATION_APARTMENT";
 export const SET_TRIP = "SET_TRIP";
+export const SET_CAR = "SET_CAR";
 
 
 export const SET_ALERT = "SET_ALERT";
