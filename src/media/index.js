@@ -14,6 +14,14 @@ export {default as cardImg3} from './Main/dog.jpg'
 // Main - car
 export {default as carImg} from './Main/cars.jpeg';
 
+// Cars
+export {default as car_1} from './Cars/adventure-automobile-automotive-1682666.jpg';
+export {default as car_2} from './Cars/alloy-rim-audi-audi-rs6-1035108.jpg';
+export {default as car_3} from './Cars/asphalt-automobile-car-2384101.jpg';
+export {default as car_4} from './Cars/automobile-automotive-blacktop-1082655.jpg';
+export {default as car_5} from './Cars/automobile-automotive-car-119435.jpg';
+export {default as car_6} from './Cars/automobile-automotive-car-1335077.jpg';
+
 // logos
 export {default as logo1} from './Logos/56-apple-512.png';
 export {default as logo2} from './Logos/iconfinder_Python_logo_282803.png';

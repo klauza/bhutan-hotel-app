@@ -173,10 +173,10 @@ const Cars = ({setCar, setAlert, reservation}) => {
                 <DescMark>{car.mark.toUpperCase()}</DescMark>
 
                 <DescAbout>
-                  <div>{car.type.toUpperCase()}</div>
-                  <div>engine: {car.engine}</div>
-                  <div>price: {car.price}</div>
-                  <div>avg mpg: {car.mpg}</div>
+                  <div>type: <strong>{car.type.toUpperCase()}</strong></div>
+                  <div>engine: <strong>{car.engine}</strong></div>
+                  <div>price: <strong>{car.price}</strong></div>
+                  <div>avg mpg: <strong>{car.mpg}</strong></div>
                 </DescAbout>
                 <DescRent onClick={() => makeCarReservation(car)}>RENT</DescRent>
               </DescContainer>

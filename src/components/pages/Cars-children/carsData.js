@@ -1,60 +1,60 @@
-// import { carImg1 } from '../../../media/index';
+import { car_1, car_2, car_3, car_4, car_5, car_6 } from '../../../media/index';
 
 
 const carsData = [
   {
     "id": 1,
-    "mark": "Vauxhall",
-    "img": "https://cdn2.carbuyer.co.uk/sites/carbuyer_d7/files/2018/05/corsavxr_0075.jpg",
-    "engine": 1.6,
-    "price": 500,
-    "mpg": 40,
-    "type": "hatchback"
+    "mark": "Jeep",
+    "img": car_1,
+    "engine": "2.0",
+    "price": 125,
+    "mpg": 25,
+    "type": "SUV"
   },
   {
     "id": 2,
-    "mark": "Honda",
-    "img": "https://upload.wikimedia.org/wikipedia/commons/2/22/2018_Honda_Accord_front_4.1.18.jpg",
-    "engine": 1.6,
-    "price": 500,
-    "mpg": 40,
-    "type": "hatchback"
+    "mark": "Audi",
+    "img": car_2,
+    "engine": "3.0",
+    "price": 185,
+    "mpg": 32,
+    "type": "sedan"
   },
   {
     "id": 3,
-    "mark": "Toyota",
-    "img": "https://cnet2.cbsistatic.com/img/LhmzwaObHulnYauZO6kqRVWgIBo=/2017/11/28/14223d77-f550-4fc6-900f-2ae114acf51b/toyota-c-hr-promo.jpg",
-    "engine": 1.6,
-    "price": 500,
-    "mpg": 40,
-    "type": "hatchback"
+    "mark": "Ford",
+    "img": car_3,
+    "engine": "3.6",
+    "price": 275,
+    "mpg": 27,
+    "type": "coupe"
   },
   {
     "id": 4,
-    "mark": "Ford",
-    "img": "https://cdn2.buyacar.co.uk/sites/buyacar/files/fordgeneva2016_mondeo_vignale_milanogrigio_01.jpg",
-    "engine": 1.6,
-    "price": 500,
-    "mpg": 40,
-    "type": "hatchback"
+    "mark": "Porsche",
+    "img": car_4,
+    "engine": "3.3",
+    "price": 275,
+    "mpg": 33,
+    "type": "coupe"
   },
   {
     "id": 5,
-    "mark": "Seat",
-    "img": "https://upload.wikimedia.org/wikipedia/commons/c/c3/2019_SEAT_Arona_XCELLENCE_Lux_1.6.jpg",
-    "engine": 1.6,
-    "price": 500,
-    "mpg": 40,
-    "type": "hatchback"
+    "mark": "Jeep",
+    "img": car_5,
+    "engine": "2.0",
+    "price": 200,
+    "mpg": 38,
+    "type": "SUV"
   },
   {
     "id": 6,
-    "mark": "Nissan",
-    "img": "https://upload.wikimedia.org/wikipedia/commons/2/28/2018_Nissan_Qashqai_N-Connecta_DCi_1.5_Front.jpg",
-    "engine": 1.6,
-    "price": 500,
-    "mpg": 40,
-    "type": "hatchback"
+    "mark": "Mercedes",
+    "img": car_6,
+    "engine": "4.6",
+    "price": 215,
+    "mpg": 25,
+    "type": "coupe"
   }
 ]
 
