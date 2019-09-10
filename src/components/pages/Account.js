@@ -1,5 +1,7 @@
 import React, {Fragment} from 'react';
 import {connect} from 'react-redux';
+import { cancelReservation } from '../../actions/reservationActions';
+import { setAlert } from '../../actions/alertActions';
 import { Wrapper } from '../layout/Elements';
 import styled from 'styled-components';
 import { reservationCalendar } from '../../media/index';
@@ -192,11 +194,30 @@ const CarWrapper = styled.div`
 const CarImage = styled.img`
   width: 100%; height: 100%; object-fit: cover;
 `;
+const ButtonCancel = styled.button`
+  box-shadow: 0px 1px 3px 1px #6e6e6e; 
+  display: block;
+  width: 200px; height: 60px;
+  border: 2px solid #b51047; border-radius: 3px;
+  margin: 25px auto;
+  background: #c2021c;
+  color: white; font-weight: 900;
+  &:hover{
+    background: #a60218;
+    cursor: pointer;
+  }
+`;
 // end-styles
 
-const Account = ({ reservation: {dates, apartment, trips, car} }) => {
+const Account = ({ reservation: {dates, apartment, trips, car}, cancelReservation, setAlert }) => {
  
-  // dates = [new Date(), new Date()];
+
+  const reservationCancellation = () => {
+  if (window.confirm('Are you sure you want to cancel the whole reservation?')) {
+    cancelReservation();
+    setAlert("Reservation cancelled!", "yellow", 1750);
+  } 
+  }
 
   if(dates !== null && apartment !== null){
     return (
@@ -285,6 +306,8 @@ const Account = ({ reservation: {dates, apartment, trips, car} }) => {
           </Fragment>
         )}
 
+      <ButtonCancel onClick={reservationCancellation}>Cancel this reservation?</ButtonCancel>
+
       </Wrapper>
     )
   } else {
@@ -302,4 +325,4 @@ const Account = ({ reservation: {dates, apartment, trips, car} }) => {
 const mapStateToProps = state => ({
   reservation: state.reservation
 })
-export default connect(mapStateToProps)(Account)
+export default connect(mapStateToProps, {cancelReservation, setAlert})(Account)
