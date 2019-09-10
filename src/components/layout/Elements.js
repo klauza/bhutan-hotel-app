@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { createBrowserHistory } from 'history';
+import loading from '../../media/smallloader.gif';
 const history = createBrowserHistory();
 
 const Container = styled.div`
@@ -36,6 +37,19 @@ const But2 = styled.button`
     background-color: rgb(36, 207, 199);
   }
 `;
+const Loading = styled.div`
+  margin: 50px auto;
+  width: 200px; height: 200px;
+  /* border: 2px solid black; */
+  display: grid; place-items: center;
+  opacity: 0;
+  animation: showMyself forwards 5ms;
+  @keyframes showMyself { 100%{opacity: 1;}}
+  img{
+    width: 50%; height: 50%;
+  }
+`;
+
 
 const goBackOnePage = () => {
   history.goBack();
@@ -60,6 +74,14 @@ export const Button = (props) => {
 export const BackButton = (props) => {
   return (
     <But2 onClick={goBackOnePage}>{props.children}</But2>
+  )
+}
+
+export const Loader = () =>{
+  return(
+    <Loading>
+      <img src={loading} alt=""/>
+    </Loading>
   )
 }
 

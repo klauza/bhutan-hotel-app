@@ -1,9 +1,9 @@
-import React, { Fragment, useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { connect } from 'react-redux';
 import { setCar } from '../../actions/reservationActions';
 import { setAlert } from '../../actions/alertActions';
 import styled from 'styled-components';
-import { Wrapper, BackButton } from '../layout/Elements';
+import { Wrapper, BackButton, Loader } from '../layout/Elements';
 
 import carsData from './Cars-children/carsData';
 
@@ -90,6 +90,10 @@ const CarImage = styled.img`
   width: 100%; height: 100%;
   object-fit: cover;
 `;
+const InternalWrap = styled.div`
+  opacity: 0;
+  transform: translateY(200px);
+`;
 // styles-end
 
 const Cars = ({setCar, setAlert, reservation}) => {
@@ -97,8 +101,9 @@ const Cars = ({setCar, setAlert, reservation}) => {
   const [cars] = useState(carsData);
   const [loader, setLoader] = useState(true);
 
-  useEffect(()=>{
+  const entryAnimation = useRef();
 
+  useEffect(()=>{
     // load all car images
    let images = [];
    cars.forEach(car => images.push(car.img));
@@ -117,13 +122,20 @@ const Cars = ({setCar, setAlert, reservation}) => {
 
    loadImg(images)
     .then(() => setLoader(false))
+    .then(() => {
+      if(!loader){
+        entryAnimation.current.style.transition = "all 550ms ease";
+        entryAnimation.current.style.transform = "translateY(0px)";
+        entryAnimation.current.style.opacity = "1" ;
+      }
+    })
     .catch(reason => console.log(reason));
 
-
+    
   //eslint-disable-next-line
-  } ,[])
+  } ,[loader, entryAnimation])
 
-
+  
   const makeCarReservation = (car) => {
     // if already made a reservation, show alert
     if(reservation.apartment === null){
@@ -138,12 +150,15 @@ const Cars = ({setCar, setAlert, reservation}) => {
     }
   }
 
+
+
   return (
+    
     <Wrapper>
       <BackButton>Back</BackButton>
       {!loader ? (
         
-        <Fragment>
+        <InternalWrap ref={entryAnimation}>
           <AboutPage>
             <p>Car will have full tank of fuel, however, you must pay for any fuel you will use.</p>
             <p>Car prices are referring to daily rent.</p>
@@ -173,9 +188,9 @@ const Cars = ({setCar, setAlert, reservation}) => {
             )
         })}
         
-      </Fragment>
+      </InternalWrap>
       ) : (
-        <div style={{minHeight: "50vh"}}>LOADING</div>
+        <div style={{minHeight: "50vh"}}><Loader></Loader></div>
       )
 
      }
