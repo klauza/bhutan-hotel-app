@@ -98,7 +98,7 @@ const HotelDetails = ({props, reservation, setAlert}) => {
         <ThumbnailGallery features={thisHotel.features} images={thisHotel.img} />
 
         {reservation.apartment !== null ? (
-          <ReservationButton onClick={() => setAlert('you have already made a reservation', 'blue')}> {/* eslint-disable-next-line */}
+          <ReservationButton onClick={() => setAlert('you have already made a reservation', 'yellow')}> {/* eslint-disable-next-line */}
             <a>Make a reservation</a>
           </ReservationButton>
         ) : (

@@ -56,11 +56,15 @@ const Picker = ({setCalendarDates, setApartment, setAlert, apartment}) => {
   const reservation = () => {
     setCalendarDates([date[0].toLocaleDateString("en-GB"), date[1].toLocaleDateString("en-GB") ])
     setApartment(apartment);
-    setAlert('Done, redirecting to your reservation...', 'green', 2000);
+    setAlert('Done! ...', 'green', 2000);
     setTimeout(()=> {
-      setAlert('You can now additionally hire a guide or rent a car', 'green', 5000);
       history.push('/account');
-    }, 2000)
+    }, 400);
+
+    setTimeout(()=>{
+      setAlert('You can now additionally hire a guide or rent a car', 'green', 3000);
+    }, 2000);
+
   }
 
   const reset = () => {

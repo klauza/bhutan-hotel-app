@@ -25,6 +25,7 @@ const TitleMain = styled.h1`
   @media(max-width: 768px){ font-size: 2.2em; }
 `;
 const TitleBody = styled.div`
+  padding: 5px;
   flex: 1;
 `;
 const HeadHelp = styled.div`
@@ -52,7 +53,7 @@ const MapHeader = styled.p`
 const MapOverlay = styled.div`
 
   position: absolute;
-  z-index: 999;
+  z-index: 99;
   top: 0; left: 0;
   background: rgba(0,0,0,0.9);
   width: 100%; min-height: 631px;

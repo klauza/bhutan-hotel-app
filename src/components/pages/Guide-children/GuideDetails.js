@@ -203,9 +203,9 @@ const GuideDetails = ({props, setTrip, setAlert, reservation}) => {
         },
         trip: trip
       });
-      setAlert("Trip added!", "green", 1500);
+      setAlert("Trip added!", "green", 1250);
     } else {
-     setAlert("You already participate in that adventure.", "yellow");
+     setAlert("You already participate in that adventure.", "yellow", 2000);
     }
 
   }
@@ -260,7 +260,7 @@ const GuideDetails = ({props, setTrip, setAlert, reservation}) => {
                   {reservation.apartment !== null ? (
                     <button onClick={() => TripReservation(trip)}>Buy</button> 
                   ) : (
-                    <button onClick={() => setAlert("Firstly, you need to make an apartment reservation", "blue") }>Buy</button>
+                    <button onClick={() => setAlert("Firstly, you need to make an apartment reservation", "red", 3000) }>Buy</button>
                   )}
                   
                 </li>

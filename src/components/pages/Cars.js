@@ -127,12 +127,12 @@ const Cars = ({setCar, setAlert, reservation}) => {
   const makeCarReservation = (car) => {
     // if already made a reservation, show alert
     if(reservation.apartment === null){
-      setAlert("You must make an apartment reservation at first", "red");
+      setAlert("You must make an apartment reservation at first", "red", 3000);
     } else {
         if(reservation.car !== null){
-          setAlert("You already made a car reservation", "red", 2000);
+          setAlert("You already made a car reservation", "yellow", 3000);
       } else {
-          setAlert("You have successfully rented a car", "red");
+          setAlert("You have successfully rented a car", "green");
           setCar(car);
       }
     }
@@ -146,7 +146,7 @@ const Cars = ({setCar, setAlert, reservation}) => {
         <Fragment>
           <AboutPage>
             <p>Car will have full tank of fuel, however, you must pay for any fuel you will use.</p>
-            <p>Car prices are refering to daily rent.</p>
+            <p>Car prices are referring to daily rent.</p>
             <p>You have to prior make an apartment reservation to rent any of our car.</p>
             <p>One-time administrative charge fee is 69.</p>
           </AboutPage>

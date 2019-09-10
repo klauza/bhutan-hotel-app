@@ -2,7 +2,7 @@ import React, {Fragment} from 'react';
 import {connect} from 'react-redux';
 import { Wrapper } from '../layout/Elements';
 import styled from 'styled-components';
-import { reservationCalendar, carImg } from '../../media/index';
+import { reservationCalendar } from '../../media/index';
 import { Link } from 'react-router-dom';
 
 // STYLES
@@ -50,6 +50,7 @@ const Card = styled.div`
   display: flex; flex-direction: column;
   margin: 20px;
   p{
+    font-weight: 700;
     background: orange;
     text-align: center;
   }
@@ -140,9 +141,13 @@ const TripsTitle = styled.h2`
   margin: 100px 0 50px;
 `;
 const TripsPopulated = styled.div`
+  display: grid;
+  justify-content: center;
   width: auto; max-width: 900px; margin: 20px auto;
 `;
 const TripsText = styled.div`
+  margin-top: 10px;
+  border-bottom: 1px solid lightgrey;
   line-height: 55px;
   display: inline-block;
   img{

@@ -12,7 +12,7 @@ const MyMobileNavbar = styled.nav`
   box-shadow: -1px 2px 4px 1px rgba(79,79,79,1);
   transition: transform 1s;
   transform: translateX( ${ props => props.displayMobileNavbar ? ("0") : ("calc(100% + 15px)")} );
-  z-index: 999;
+  z-index: 200;
 
   .nav-links{
   display: flex;
