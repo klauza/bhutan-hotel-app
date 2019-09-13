@@ -85,7 +85,7 @@ const MyMobileNavButton = styled.button`
   border: 0;
   display: none;
   margin-right: 10px;
-  transition: transform 1s;
+  transition: transform 650ms;
   transform: rotate( ${props => props.displayMobileNavbar ? ("90deg") : ("0")} );
 
   &:focus{
