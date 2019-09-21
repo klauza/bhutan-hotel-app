@@ -58,7 +58,7 @@ const Picker = ({setCalendarDates, setApartment, setAlert, apartment}) => {
     setApartment(apartment);
     setAlert('Done! ...', 'green', 2000);
     setTimeout(()=> {
-      history.push('/account');
+      history.replace("/account");
     }, 400);
 
     setTimeout(()=>{
