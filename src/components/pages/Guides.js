@@ -1,11 +1,27 @@
-import React, {useState} from 'react'
-import { Link } from 'react-router-dom';
+import React, {Fragment, useState} from 'react'
 import GuideList from './Guide-children/GuideList';
 import guidesData from './Guide-children/GuideData';
 import styled from 'styled-components';
-import { Wrapper } from '../layout/Elements';
 
 // STYLES
+const AboutPage = styled.div`
+  width: 100%;
+  margin: 50px auto;
+  text-align: center;
+  border: 1px solid lightgrey;
+  border-radius: 5px;
+  min-height: 200px;
+  display: grid;
+  align-content: center;
+  padding: 15px;
+  p{
+    margin: 10px 0;
+  }
+  p{
+    font-weight: 700;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+  }
+`;
 const Grid = styled.div`
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -17,64 +33,26 @@ const Grid = styled.div`
     grid-gap: 3px;
   }
 `;
-const GuidesTopText = styled.div`
-  width: 60%; height: auto;
-  margin: 50px auto 50px;
-  display: flex; flex-direction: column;
-  justify-content: start;
-  text-align: center;
-  border: 2px solid black; border-radius: 3px;
-  box-shadow: 0px 5px 6px -2px rgba(117,117,117,0.65);
-  &>p:nth-child(1){
-    background: grey;
-    color: white;
-    font-size: 1.15em;
-    font-weight: 700;
-    padding: 15px;
-  }
-  &>p:nth-child(2){
-    background: lightblue;
-    color: black;
-    font-size: 1.15em;
-    font-weight: 500;
-    padding: 15px;
-  }
-  div{
-    background: black;
-    p, button{ 
-     display: inline-block;
-    }
-    p{
-      padding: 15px;
-      color: white;
-      font-size: 1.15em;
-      font-weight: 500;
-    }
-    button{
-      width: 60px; height: 40px; border: 0; border-radius: 3px; background: white; margin: 5px;
-      &:hover{ cursor: pointer; background: grey; color: white;}
-    }
-  }
-`;
+
 // end-styles
 
 
 const Guides = () => {
 
   const [guides] = useState(guidesData);
+  // const [change, setDisplay] = useState(true);
 
   return (
-    <Wrapper>
-      <GuidesTopText>
+    <Fragment>
+      <AboutPage>
         <p>Hire a guide and let him lead your adventure to a higher level of exploration.</p>
         <p>Our guides have huge knowledge about local events and places with spectacular views.</p>
-        <div><p>Or maybe you need a car instead?</p><Link to='rent-a-car'><button>Go here</button></Link></div>
-      </GuidesTopText>
-
+      </AboutPage>
       <Grid>
         {guides.map((guide, id) => <GuideList id={id} key={id} guide={guide} /> )}
       </Grid>
-    </Wrapper>
+
+    </Fragment>
   )
 }
 

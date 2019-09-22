@@ -21,10 +21,9 @@ import HotelDetails from './components/pages/Hotels-children/HotelDetails';
 import HotelReservation from './components/pages/Hotels-children/HotelReservation';
 import Account from './components/pages/Account';
 import Contact from './components/pages/Contact';
-import Guides from './components/pages/Guides';
 import GuideDetails from './components/pages/Guide-children/GuideDetails';
 import Alert from './components/layout/Alert';
-import Cars from './components/pages/Cars';
+import Hiring from './components/pages/Hiring';
 
 function App() {
   return (
@@ -41,9 +40,8 @@ function App() {
                 <Route path='/apartment/:id' component={HotelDetails} />
                 <Route path='/reservation' component={HotelReservation} />
                 <Route path='/account' component={Account} />
-                <Route path='/guides' component={Guides} />
-                <Route path='/guide/:name' component={GuideDetails} />
-                <Route path='/rent-a-car' component={Cars} />
+                <Route path='/hiring/:name' component={GuideDetails} />
+                <Route path='/hiring' component={Hiring} />
 
                 <Route component={NotFound} />
               </Switch>

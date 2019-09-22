@@ -1,9 +1,9 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { Fragment, useState, useEffect, useRef } from 'react';
 import { connect } from 'react-redux';
 import { setCar } from '../../actions/reservationActions';
 import { setAlert } from '../../actions/alertActions';
 import styled from 'styled-components';
-import { Wrapper, BackButton, Loader } from '../layout/Elements';
+import { Loader } from '../layout/Elements';
 
 import carsData from './Cars-children/carsData';
 
@@ -94,6 +94,7 @@ const InternalWrap = styled.div`
   opacity: 0;
   transform: translateY(200px);
 `;
+
 // styles-end
 
 const Cars = ({setCar, setAlert, reservation}) => {
@@ -131,7 +132,7 @@ const Cars = ({setCar, setAlert, reservation}) => {
     })
     .catch(reason => console.log(reason));
 
-    
+
   //eslint-disable-next-line
   } ,[loader, entryAnimation])
 
@@ -154,49 +155,55 @@ const Cars = ({setCar, setAlert, reservation}) => {
 
   return (
     
-    <Wrapper>
-      <BackButton>Back</BackButton>
+    <Fragment>
+
+
+      {/* <BackButton>Back</BackButton> */}
+
+
       {!loader ? (
-        
-        <InternalWrap ref={entryAnimation}>
+        <Fragment>
           <AboutPage>
             <p>Car will have full tank of fuel, however, you must pay for any fuel you will use.</p>
             <p>Car prices are referring to daily rent.</p>
             <p>You have to prior make an apartment reservation to rent any of our car.</p>
             <p>One-time administrative charge fee is 69.</p>
           </AboutPage>
+          <InternalWrap ref={entryAnimation}>
 
-        {cars.map((car, i) => {
-            return(
-            <CarBlock key={i}>
-              <DescContainer>
-                <DescMark>{car.mark.toUpperCase()}</DescMark>
 
-                <DescAbout>
-                  <div>type: <strong>{car.type.toUpperCase()}</strong></div>
-                  <div>engine: <strong>{car.engine}</strong></div>
-                  <div>price: <strong>{car.price}</strong></div>
-                  <div>avg mpg: <strong>{car.mpg}</strong></div>
-                </DescAbout>
-                <DescRent onClick={() => makeCarReservation(car)}>RENT</DescRent>
-              </DescContainer>
+          {cars.map((car, i) => {
+              return(
+              <CarBlock key={i}>
+                <DescContainer>
+                  <DescMark>{car.mark.toUpperCase()}</DescMark>
 
-              <ImageContainer>
-                <CarImage src={car.img} />
-              </ImageContainer>
-            </CarBlock>
-            )
-        })}
-        
-      </InternalWrap>
+                  <DescAbout>
+                    <div>type: <strong>{car.type.toUpperCase()}</strong></div>
+                    <div>engine: <strong>{car.engine}</strong></div>
+                    <div>price: <strong>{car.price}</strong></div>
+                    <div>avg mpg: <strong>{car.mpg}</strong></div>
+                  </DescAbout>
+                  <DescRent onClick={() => makeCarReservation(car)}>RENT</DescRent>
+                </DescContainer>
+
+                <ImageContainer>
+                  <CarImage src={car.img} />
+                </ImageContainer>
+              </CarBlock>
+              )
+          })}
+          
+        </InternalWrap>
+      </Fragment>
       ) : (
-        <div style={{minHeight: "50vh"}}><Loader></Loader></div>
+        <div style={{minHeight: "100vh"}}><Loader></Loader></div>
       )
 
      }
 
 
-    </Wrapper>
+    </Fragment>
   )
 }
 const mapStateToProps = (state) => ({

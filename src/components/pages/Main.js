@@ -127,7 +127,7 @@ const Main = () => {
             <CarDesc>
               <CarTopDesc>Would you like to speed up your exploration?</CarTopDesc>
               <CarTitle>Rent a car!</CarTitle>
-              <Link to='/rent-a-car'> <CarButton>Check deals</CarButton> </Link>
+              <Link to='/hiring'> <CarButton>Check deals</CarButton> </Link>
             </CarDesc>
 
             <CarImage>

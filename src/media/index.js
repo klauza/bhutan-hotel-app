@@ -15,6 +15,7 @@ export {default as cardImg3} from './Main/dog.jpg'
 export {default as carImg} from './Main/cars.jpeg';
 
 // Cars
+export {default as cars_hero_image} from './Cars/carsAdventure.jpg';
 export {default as car_1} from './Cars/adventure-automobile-automotive-1682666.jpg';
 export {default as car_2} from './Cars/alloy-rim-audi-audi-rs6-1035108.jpg';
 export {default as car_3} from './Cars/asphalt-automobile-car-2384101.jpg';
@@ -53,6 +54,7 @@ export {default as room7_3} from './Rooms/7-3.jpg';
 export {default as room7_4} from './Rooms/7-4.jpg';
 
 // Guides
+export {default as guides_hero_image} from './Guides/guidesAdventure.jpg';
 export {default as guide_1} from './Guides/1-elizabeth.jpg';
 export {default as guide_2} from './Guides/2-mike.jpg';
 export {default as guide_3} from './Guides/3-merlin.jpg';

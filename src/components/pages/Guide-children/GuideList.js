@@ -95,7 +95,7 @@ const GuideList = ({guide, id}) => {
             
             <Link 
             to={{
-              pathname: `/guide/${guideName}`,
+              pathname: `/hiring/guide/${guideName}`,
               state: {guide}
               }} >
               <Button>Details</Button>

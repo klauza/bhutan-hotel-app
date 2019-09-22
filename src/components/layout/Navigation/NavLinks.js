@@ -31,7 +31,7 @@ const NavLinks = ({sort: {pageLocY}, reservation: {dates}, pageLocation, props})
         <NavLink exact activeClassName="active" to='/apartment-list' className="link" tabIndex = {tabulator} onClick={() => {setLocationToZero(); if(window.innerWidth <= 768){props.hideMobileNav(); }}}><img src={apartmentImg} alt=""/><span>Apartments</span></NavLink>
       </li>
       <li>
-        <NavLink exact activeClassName="active" to='/guides' className="link" tabIndex = {tabulator} onClick={props.hideMobileNav}><img src={guideImg} alt=""/><span>Guides</span></NavLink>
+        <NavLink exact activeClassName="active" to='/hiring' className="link" tabIndex = {tabulator} onClick={props.hideMobileNav}><img src={guideImg} alt=""/><span>Hiring</span></NavLink>
       </li>
       <li>
         <NavLink exact activeClassName="active" to='/account' className="link" tabIndex = {tabulator} onClick={props.hideMobileNav}><img src={reservationCalendar} alt=""/>{dates !== null && <div style={{color: "lightgreen"}}>!</div> } <span>Reservations</span></NavLink>
