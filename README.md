@@ -1,12 +1,14 @@
 ## About
-`app` :
-It's a handracfted frontend application with my authorship, made with tools like React, Redux and styled-components.
+`app` :<br/>
+ It's a handracfted frontend application. "Bhutanotel" is a fictitious hotel facility located in Thimphu, the capitol of Bhutan. The enterprise was founded for travellers and world-explorers to provide them a cosy, luxury and pleasant place to stay between their demanding adventures.<br/><br/>
 
-`project` :
-"Bhutanotel" is an abstract hotel facility located in the capitol of Bhutan - Thimphu. <br/>
-The hotel offers for a newcomer a set of high standard apartments to rent; a guide to hire or car to lease.<br/>
-The enterprise was founded for travellers and world-explorers to provide them a cosy, luxury and pleasant place to stay between their demanding adventures. <br/>
+`features` :  
+ - renting: **a flat, a guide (plus tour), or a car**<br/>
+  - project is mobile-friendly
+  - there is a map to see the hotel location
+ 
 
+Live page under this link: [bhutanotel.netlify.com](https://bhutanotel.netlify.com/)
 
 <br/>
 
@@ -32,7 +34,7 @@ The enterprise was founded for travellers and world-explorers to provide them a 
 
 <br/>
 
-## Additional Dependencies besides React stuff
+## Additional Dependencies
 
 | Name  | version |
 | ------------- | ------------- |
