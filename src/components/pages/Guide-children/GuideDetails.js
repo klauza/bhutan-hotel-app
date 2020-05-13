@@ -166,6 +166,9 @@ const GuideDetails = ({props, setTrip, setAlert, reservation}) => {
   const [thisGuide, setThisGuide] = useState(null)
 
   useEffect(() =>{
+    //reset pageYoffset
+    window.scrollBy(0, 0);
+
     try{
       var { guide } = props.location.state
       setThisGuide(guide);
