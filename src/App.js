@@ -8,6 +8,7 @@ import store from './store';
 
 // styles
 import './App.scss';
+import './App.css';
 import 'leaflet/dist/leaflet.css';
 
 // layout
