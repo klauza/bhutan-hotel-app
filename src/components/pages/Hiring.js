@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 import styled from 'styled-components';
 import Guides from './Guides';
 import Cars from './Cars';
@@ -73,6 +73,10 @@ const Hiring = () => {
   const [guidesHighlighted, setGuidesHighlighted] = useState(true);
   const [carsHighlighted, setCarsHighlighted] = useState(false);
 
+  useEffect(()=>{
+    window.scrollTo(0, 0);
+  }, [])
+  
   const changeHiringPage = (bool) => {
     if(bool === true && hiringPage !== true){
       setHiringPage(true);
