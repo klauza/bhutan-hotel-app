@@ -1,4 +1,4 @@
-import { LOAD_HOTELS, SET_SORT1, SET_SORT2, PAGE_LOC, SET_LOADING } from './types.js';
+import { LOAD_HOTELS, SET_SORT1, SET_SORT2, PAGE_LOC, SET_LOADING, SET_HIRING } from './types.js';
 import data from '../components/pages/Hotels-children/HotelsData.js';
 
 export const loadHotels = () => async dispatch => {
@@ -29,6 +29,14 @@ export const pageLocation = (id) => async dispatch => {
   dispatch({
     type: PAGE_LOC,
     payload: id
+  })
+}
+
+export const setHiring = (bool) => async dispatch => {
+  setLoading();
+  dispatch({
+    type: SET_HIRING,
+    payload: bool
   })
 }
 

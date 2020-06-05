@@ -6,6 +6,10 @@ import { Wrapper } from '../layout/Elements';
 import { guides_hero_image, cars_hero_image } from '../../media/index';
 // import history from '../../history';
 
+// redux
+import {connect} from 'react-redux';
+import { setHiring } from '../../actions/sortingActions';
+
 const HiringTopContainer = styled.div`
   width: 70%; height: auto;
   @media(max-width: 900px){ width: 90%; }
@@ -67,11 +71,11 @@ const CarsButton = styled.div`
 
 
 
-const Hiring = () => {
+const Hiring = ({setHiring, sort: {hiring}}) => {
 
-  const [hiringPage, setHiringPage] = useState(true);
-  const [guidesHighlighted, setGuidesHighlighted] = useState(true);
-  const [carsHighlighted, setCarsHighlighted] = useState(false);
+  const [hiringPage] = useState(hiring);
+  const [guidesHighlighted, setGuidesHighlighted] = useState(hiringPage ? true : false);
+  const [carsHighlighted, setCarsHighlighted] = useState(hiringPage ? false : true);
 
   useEffect(()=>{
     window.scrollTo(0, 0);
@@ -79,13 +83,13 @@ const Hiring = () => {
   
   const changeHiringPage = (bool) => {
     if(bool === true && hiringPage !== true){
-      setHiringPage(true);
+      setHiring(true);
       setGuidesHighlighted(!guidesHighlighted);
       setCarsHighlighted(!carsHighlighted);
     }
 
     if(bool === false && hiringPage !== false){
-      setHiringPage(false);
+      setHiring(false);
       setCarsHighlighted(!carsHighlighted);
       setGuidesHighlighted(!guidesHighlighted);
     }
@@ -120,4 +124,7 @@ const Hiring = () => {
   )
 }
 
-export default Hiring
+const mapStateToProps = state => ({
+  sort: state.sort
+})
+export default connect(mapStateToProps, {setHiring})(Hiring)
