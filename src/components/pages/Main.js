@@ -23,13 +23,39 @@ const Sponsors = styled.div`
   }
 `;
 const SponsorsLogos = styled.div`
-width: auto;
-margin: 0 auto;
+  height: 70px;
+  margin: 0 auto;
+  width: 180px;
+  position: relative;
+  overflow: hidden;
+  transform: translate3d(0, 0, 0);
+
+  @keyframes moveSlideshow {
+    100% { 
+      transform: translateX(-66.6666%);  
+    }
+  }
 
   img{
-    width: 60px; height: 60px; object-fit: cover; margin: 0 10px;
+    width: 60px; 
+    height: 60px; 
+    object-fit: cover; 
+    margin: 0 10px;
+  }
+  & > div {
+    height: 70px;
+    width: 480px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    transform: translate3d(0, 0, 0);
+  }
+  .mover {
+    animation: moveSlideshow 4s linear infinite;
   }
 `;
+
 const Description = styled.div`
   border-top: 1px solid lightgrey; border-bottom: 1px solid lightgrey;
   margin: 100px 0 150px;
@@ -103,10 +129,14 @@ const Main = () => {
       <Sponsors>
         <p>Collaborators</p>
         <SponsorsLogos>
-          <img src={logo1} alt=""/>
-          <img src={logo2} alt=""/>
-          <img src={logo3} alt=""/>
-          <img src={logo4} alt=""/>
+          <div className="mover">
+            <img src={logo1} alt=""/>
+            <img src={logo2} alt=""/>
+            <img src={logo3} alt=""/>
+            <img src={logo4} alt=""/>
+            <img src={logo1} alt=""/>
+            <img src={logo2} alt=""/>
+          </div>
         </SponsorsLogos>
       </Sponsors>
       
