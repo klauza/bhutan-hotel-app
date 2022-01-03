@@ -166,7 +166,7 @@ const DesktopNav = (props) => {
         <NavbarBrand>
           <Link to="/">
             <img src={Logo} alt="" />
-            Bhutanotel
+            Bhutan-Hotel
           </Link>
         </NavbarBrand>
 
