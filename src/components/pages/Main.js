@@ -16,13 +16,14 @@ const Sponsors = styled.div`
   border-bottom: 1px solid lightgrey;
   border-top: 1px solid lightgrey;
   background: rgba(255, 255, 255, 0.35);
-  p {
+  p,
+  h1 {
     margin-top: 12.5px;
     text-align: center;
     letter-spacing: 3px;
     font-weight: 700;
-    font-size: 1.5rem;
-    text-transform: uppercase;
+    /* font-size: 1.5rem; */
+    /* text-transform: uppercase; */
   }
 
   img {
@@ -83,7 +84,7 @@ const Description = styled.div`
   display: block;
   h1 {
     letter-spacing: 3px;
-    font-weight: 900;
+    font-weight: 700;
   }
   p {
     font-size: 1.1rem;
@@ -95,22 +96,16 @@ const Description = styled.div`
 const CarDiv = styled.div`
   display: flex;
   flex-direction: row;
-  margin: 100px auto -50px;
+  justify-items: space-between;
+  margin: 100px 5px 100px;
 `;
 const CarDesc = styled.div`
   flex: 1;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: end;
   justify-content: center;
-`;
-const CarImage = styled.div`
-  flex: 1;
-  img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
+  margin-right: 10px;
 `;
 const CarTopDesc = styled.h3`
   text-align: center;
@@ -120,15 +115,17 @@ const CarTitle = styled.h1`
   margin-top: 20px;
   &:after {
     content: '';
-    background: rgb(0, 0, 0);
-    width: 50%;
+    background: #d4d4d4;
+    width: 100%;
     height: 3px;
     border: 0;
     border-radius: 35px;
-    margin: 20px auto 20px;
+    /* margin-left: auto; */
+    margin: 5px 0 25px auto;
     display: block;
   }
 `;
+
 const CarButton = styled.button`
   border: 0;
   border-radius: 4px;
@@ -139,6 +136,14 @@ const CarButton = styled.button`
     cursor: pointer;
   }
 `;
+const CarImage = styled.div`
+  flex: 1;
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+`;
 
 const Main = () => {
   return (
@@ -146,13 +151,38 @@ const Main = () => {
       <MainCarrousel />
 
       <Sponsors>
-        <p>Collaborators</p>
+        <h1>Collaborators</h1>
         <SponsorsLogos>
           {/* <div className="mover"> */}
-          <img src={logo1} alt="" />
-          <img src={logo2} alt="" />
-          <img src={logo3} alt="" />
-          <img src={logo4} alt="" />
+          <a
+            rel="noopener noreferrer"
+            target="_blank"
+            href="https://www.google.com/"
+          >
+            <img src={logo1} alt="" />
+          </a>
+          <a
+            rel="noopener noreferrer"
+            target="_blank"
+            href="https://www.google.com/"
+          >
+            <img src={logo2} alt="" />
+          </a>
+          <a
+            rel="noopener noreferrer"
+            target="_blank"
+            href="https://www.google.com/"
+          >
+            <img src={logo3} alt="" />
+          </a>
+          <a
+            rel="noopener noreferrer"
+            target="_blank"
+            href="https://www.google.com/"
+          >
+            <img src={logo4} alt="" />
+          </a>
+
           {/* </div> */}
         </SponsorsLogos>
       </Sponsors>
@@ -161,16 +191,12 @@ const Main = () => {
         <h1>By travellers for travellers</h1>
 
         <p>
-          {' '}
-          <strong>
-            Once we were travellers too, just like you. Discovering new
-            horizons, <br />
-            broadening knowledge, meeting new interesting people.
-          </strong>
+          Once we were travellers too, just like you. Discovering new horizons,
+          <br />
+          broadening knowledge, meeting new interesting people.
         </p>
 
         <p>
-          {' '}
           Now, we help you achieve even something bigger <br />
           We help you with finding answers and provide a needed comfort.
         </p>
@@ -186,7 +212,6 @@ const Main = () => {
             </CarTopDesc>
             <CarTitle>Rent a car!</CarTitle>
             <Link to="/hiring">
-              {' '}
               <CarButton>Check deals</CarButton>{' '}
             </Link>
           </CarDesc>
