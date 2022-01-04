@@ -108,7 +108,7 @@ const CarDesc = styled.div`
   margin-right: 10px;
 `;
 const CarTopDesc = styled.h3`
-  text-align: center;
+  text-align: right;
 `;
 const CarTitle = styled.h1`
   text-align: center;

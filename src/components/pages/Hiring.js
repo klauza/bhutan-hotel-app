@@ -14,6 +14,13 @@ const HiringTopContainer = styled.div`
   width: 100%;
   height: auto;
 
+  opacity: 0;
+  transform: translateX(-150px);
+
+  transition: all 500ms ease;
+  transition-delay: 175ms, 175ms;
+  transition-property: transform, opacity;
+
   margin: 10px auto 50px;
   display: flex;
   flex-direction: row;
@@ -118,6 +125,11 @@ const Hiring = ({ setHiring, sort: { hiring } }) => {
 
   useEffect(() => {
     window.scrollTo(0, 0);
+
+    document.querySelectorAll('.hide-show').forEach((each) => {
+      each.style.opacity = '1';
+      each.style.transform = 'translateX(0px)';
+    });
   }, []);
 
   const changeHiringPage = (bool) => {
@@ -136,7 +148,7 @@ const Hiring = ({ setHiring, sort: { hiring } }) => {
 
   return (
     <Wrapper>
-      <HiringTopContainer>
+      <HiringTopContainer className="hide-show">
         <GuidesButton
           isHighlighted={guidesHighlighted}
           onClick={() => changeHiringPage(true)}

@@ -11,6 +11,14 @@ const HeadBar = styled.div`
   margin: 10px auto 100px;
   height: auto;
   width: 100%;
+
+  opacity: 0;
+  transform: translateX(-150px);
+
+  transition: all 500ms ease;
+  transition-delay: 175ms, 175ms;
+  transition-property: transform, opacity;
+
   @media (max-width: 768px) {
     width: 100%;
   }
@@ -25,7 +33,7 @@ const HeadBar = styled.div`
 const HeaderImage = styled.div`
   .header-image-container {
     width: 350px;
-    height: 100%;
+    height: 235px;
     @media (max-width: 768px) {
       display: none;
     }
@@ -97,7 +105,7 @@ const TitleMain = styled.h1`
 const FlexLayout = styled.div`
   display: flex;
   flex-direction: column;
-  min-height: 600px;
+  min-height: 631px;
   margin-bottom: 100px;
   @media (max-width: 768px) {
     flex-direction: column;
@@ -145,13 +153,20 @@ const TheMap = styled.div`
 const Contact = () => {
   const [wrapped, setWrapped] = useState(true);
 
+  React.useEffect(() => {
+    document.querySelectorAll('.hide-show').forEach((each) => {
+      each.style.opacity = '1';
+      each.style.transform = 'translateX(0px)';
+    });
+  }, []);
+
   const runFunction = () => {
     setWrapped(false);
   };
 
   return (
     <Wrapper>
-      <HeadBar>
+      <HeadBar className="hide-show">
         <HeaderImage>
           <div className="header-image-container">
             <img src={contactHeader} alt="contact-img" />

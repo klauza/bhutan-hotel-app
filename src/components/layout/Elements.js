@@ -5,6 +5,7 @@ import loading from '../../media/smallloader.gif';
 const history = createBrowserHistory();
 
 const Container = styled.div`
+  overflow: hidden;
   width: 70%;
   margin: -50px auto 50px;
   padding-bottom: 50px;
