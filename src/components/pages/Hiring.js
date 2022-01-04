@@ -116,12 +116,12 @@ const CarsButton = styled.div`
 
 const Hiring = ({ setHiring, sort: { hiring } }) => {
   const [hiringPage] = useState(hiring);
-  const [guidesHighlighted, setGuidesHighlighted] = useState(
-    hiringPage ? true : false
-  );
-  const [carsHighlighted, setCarsHighlighted] = useState(
-    hiringPage ? false : true
-  );
+  // const [guidesHighlighted, setGuidesHighlighted] = useState(
+  //   hiringPage === 'person' ? 'person' : 'car'
+  // );
+  // const [carsHighlighted, setCarsHighlighted] = useState(
+  //   hiringPage === 'car' ? 'car' : 'person'
+  // );
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -132,17 +132,17 @@ const Hiring = ({ setHiring, sort: { hiring } }) => {
     });
   }, []);
 
-  const changeHiringPage = (bool) => {
-    if (bool === true && hiringPage !== true) {
-      setHiring(true);
-      setGuidesHighlighted(!guidesHighlighted);
-      setCarsHighlighted(!carsHighlighted);
+  const changeHiringPage = (data) => {
+    if (data === 'person') {
+      setHiring('person');
+      // setGuidesHighlighted(!guidesHighlighted);
+      // setCarsHighlighted(!carsHighlighted);
     }
 
-    if (bool === false && hiringPage !== false) {
-      setHiring(false);
-      setCarsHighlighted(!carsHighlighted);
-      setGuidesHighlighted(!guidesHighlighted);
+    if (data === 'car') {
+      setHiring('car');
+      // setCarsHighlighted(!carsHighlighted);
+      // setGuidesHighlighted(!guidesHighlighted);
     }
   };
 
@@ -150,23 +150,23 @@ const Hiring = ({ setHiring, sort: { hiring } }) => {
     <Wrapper>
       <HiringTopContainer className="hide-show">
         <GuidesButton
-          isHighlighted={guidesHighlighted}
-          onClick={() => changeHiringPage(true)}
+          isHighlighted={hiring === 'person'}
+          onClick={() => changeHiringPage('person')}
         >
           <img src={guides_hero_image} alt="" />
           <p>Guides</p>
         </GuidesButton>
 
         <CarsButton
-          isHighlighted={carsHighlighted}
-          onClick={() => changeHiringPage(false)}
+          isHighlighted={hiring === 'car'}
+          onClick={() => changeHiringPage('car')}
         >
           <img src={cars_hero_image} alt="" />
           <p>Cars</p>
         </CarsButton>
       </HiringTopContainer>
 
-      {hiringPage === true ? <Guides /> : <Cars />}
+      {hiring === 'car' ? <Cars /> : <Guides />}
     </Wrapper>
   );
 };

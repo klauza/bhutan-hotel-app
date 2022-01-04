@@ -1,60 +1,64 @@
-import { LOAD_HOTELS, SET_SORT1, SET_SORT2, PAGE_LOC, SET_LOADING, SET_HIRING } from '../actions/types.js';
+import {
+  LOAD_HOTELS,
+  SET_SORT1,
+  SET_SORT2,
+  PAGE_LOC,
+  SET_LOADING,
+  SET_HIRING,
+} from '../actions/types.js';
 
 const initialState = {
   hotels: null,
-  sortType: "default",
-  sortOrder: "asc",
+  sortType: 'default',
+  sortOrder: 'asc',
   pageLocY: 0,
   loading: true,
-  hiring: true
-}
+  hiring: 'person',
+};
 
-
-export default(state = initialState, action) => {
-  switch(action.type){
-
+export default (state = initialState, action) => {
+  switch (action.type) {
     case LOAD_HOTELS:
-      return{
+      return {
         ...state,
         loading: false,
-        hotels: action.payload
-      }
+        hotels: action.payload,
+      };
 
     case SET_HIRING:
-      return{
+      return {
         ...state,
         loading: false,
-        hiring: action.payload
-      }
-      
+        hiring: action.payload,
+      };
+
     case SET_SORT1:
-      return{
+      return {
         ...state,
         loading: false,
-        sortType: action.payload
-      }
+        sortType: action.payload,
+      };
 
     case SET_SORT2:
-      return{
+      return {
         ...state,
         loading: false,
-        sortOrder: action.payload
-      }
-    
+        sortOrder: action.payload,
+      };
+
     case PAGE_LOC:
-      return{
+      return {
         ...state,
         loading: false,
-        pageLocY: action.payload
-      }
+        pageLocY: action.payload,
+      };
     case SET_LOADING:
-      return{
+      return {
         ...state,
-        loading: true
-      }
+        loading: true,
+      };
 
     default:
-    return state;
+      return state;
   }
-
-}
+};
