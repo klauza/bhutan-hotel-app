@@ -11,6 +11,7 @@
 # production
 # /build
 .netlify
+build
 
 # misc
 .DS_Store
