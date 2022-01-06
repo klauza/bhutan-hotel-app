@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import HotelsHeader from './HotelsHeader';
+// import HotelsHeader from './HotelsHeader';
 
 // STYLES
 const HotelsHeaderBar = styled.div`
@@ -150,7 +150,7 @@ const HotelsSearchBar = ({
     <HotelsHeaderBar>
       {/* <Separator></Separator> */}
 
-      <HotelsHeader />
+      {/* <HotelsHeader /> */}
 
       <SearchBar>
         <Wrapper>

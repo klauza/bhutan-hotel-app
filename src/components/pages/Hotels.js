@@ -4,6 +4,8 @@ import HotelsSearchBar from './Hotels-children/HotelsSearchBar';
 import styled from 'styled-components';
 import { Wrapper } from '../layout/Elements';
 
+import HotelsHeader from './Hotels-children/HotelsHeader';
+
 import { orderBy } from 'lodash';
 
 import { connect } from 'react-redux';
@@ -94,9 +96,10 @@ const Hotels = ({
     pageLocation(window.pageYOffset);
   };
 
-  if (!unblock) {
-    return (
-      <Wrapper>
+  return (
+    <Wrapper>
+      <HotelsHeader />
+      {!unblock ? (
         <HotelContainer>
           <HotelsSearchBar
             selectedOption={selectedOption}
@@ -114,15 +117,11 @@ const Hotels = ({
               />
             ))}
         </HotelContainer>
-      </Wrapper>
-    );
-  } else {
-    return (
-      <Wrapper>
+      ) : (
         <div style={{ height: '100vh' }}></div>
-      </Wrapper>
-    );
-  }
+      )}
+    </Wrapper>
+  );
 };
 
 const mapStateToProps = (state) => ({
