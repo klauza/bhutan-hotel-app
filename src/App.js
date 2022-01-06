@@ -1,5 +1,5 @@
-import React, {Fragment} from 'react';
-import {Router, Route, Switch} from 'react-router-dom';
+import React, { Fragment } from 'react';
+import { Router, Route, Switch } from 'react-router-dom';
 import history from './history';
 
 // redux
@@ -14,6 +14,7 @@ import 'leaflet/dist/leaflet.css';
 // layout
 import Nav from './components/layout/Navigation/Nav';
 import NotFound from './components/layout/NotFound';
+import Footer from './components/layout/Footer';
 
 // pages
 import Main from './components/pages/Main';
@@ -30,26 +31,25 @@ function App() {
   return (
     <Provider store={store}>
       <Fragment>
-          <Router history={history}>
-            <div className="App">
-              <Nav />
-              <Alert />
-              <Switch>
-                <Route exact path="/" component={Main} />
-                <Route path="/apartment-list" component={Hotels} />
-                <Route path="/contact" component={Contact} />
-                <Route path='/apartment/:id' component={HotelDetails} />
-                <Route path='/reservation' component={HotelReservation} />
-                <Route path='/account' component={Account} />
-                <Route path='/hiring/:name' component={GuideDetails} />
-                <Route path='/hiring' component={Hiring} />
+        <Router history={history}>
+          <div className="App">
+            <Nav />
+            <Alert />
+            <Switch>
+              <Route exact path="/" component={Main} />
+              <Route path="/apartment-list" component={Hotels} />
+              <Route path="/contact" component={Contact} />
+              <Route path="/apartment/:id" component={HotelDetails} />
+              <Route path="/reservation" component={HotelReservation} />
+              <Route path="/account" component={Account} />
+              <Route path="/hiring/:name" component={GuideDetails} />
+              <Route path="/hiring" component={Hiring} />
 
-                <Route component={NotFound} />
-              </Switch>
-
-            </div>
-            {/* <Footer /> */}
-          </Router>
+              <Route component={NotFound} />
+            </Switch>
+          </div>
+          <Footer />
+        </Router>
       </Fragment>
     </Provider>
   );

@@ -5,6 +5,7 @@ import loading from '../../media/smallloader.gif';
 const history = createBrowserHistory();
 
 const Container = styled.div`
+  overflow: hidden;
   width: 70%;
   margin: -50px auto 50px;
   padding-bottom: 50px;
@@ -14,15 +15,24 @@ const Container = styled.div`
   border-top-left-radius: 6px;
   border-top-right-radius: 6px;
   background: white;
-  @media(max-width: 998px){ width: 85%; }
-  @media(max-width: 768px){ width: 95%; }
+  box-shadow: 0px 0px 10px 0px rgba(66, 68, 90, 0.7);
+  @media (max-width: 998px) {
+    width: 85%;
+  }
+  @media (max-width: 768px) {
+    width: 95%;
+  }
 `;
 const But1 = styled.button`
-  min-width: 75px; height: 35px;
-  outline: 0; border: 0;
+  min-width: 75px;
+  height: 35px;
+  outline: 0;
+  border: 0;
   border-radius: 5px;
+  font-weight: 700;
   background: lightblue;
-  &:hover{
+  box-shadow: 0px 2px 6px -1px rgba(66, 68, 90, 1);
+  &:hover {
     cursor: pointer;
     background: rgb(132, 182, 199);
   }
@@ -30,58 +40,54 @@ const But1 = styled.button`
 const But2 = styled.button`
   margin: 60px 10px 10px 10px;
   background: lightseagreen;
-  border: 0; border-radius: 3px;
+  border: 0;
+  border-radius: 3px;
   padding: 10px;
-  &:hover{
+  &:hover {
     cursor: pointer;
     background-color: rgb(36, 207, 199);
   }
 `;
 const Loading = styled.div`
   margin: 50px auto;
-  width: 200px; height: 200px;
+  width: 200px;
+  height: 200px;
   /* border: 2px solid black; */
-  display: grid; place-items: center;
+  display: grid;
+  place-items: center;
   opacity: 0;
   animation: showMyself forwards 5ms;
-  @keyframes showMyself { 100%{opacity: 1;}}
-  img{
-    width: 50%; height: 50%;
+  @keyframes showMyself {
+    100% {
+      opacity: 1;
+    }
+  }
+  img {
+    width: 50%;
+    height: 50%;
   }
 `;
 
-
 const goBackOnePage = () => {
   history.goBack();
-}
-
+};
 
 export const Wrapper = (props) => {
-  return (
-    <Container>
-      {props.children}
-    </Container>
-  )
-}
-
+  return <Container>{props.children}</Container>;
+};
 
 export const Button = (props) => {
-  return (
-    <But1>{props.children}</But1>
-  )
-}
+  return <But1>{props.children}</But1>;
+};
 
 export const BackButton = (props) => {
+  return <But2 onClick={goBackOnePage}>{props.children}</But2>;
+};
+
+export const Loader = () => {
   return (
-    <But2 onClick={goBackOnePage}>{props.children}</But2>
-  )
-}
-
-export const Loader = () =>{
-  return(
     <Loading>
-      <img src={loading} alt=""/>
+      <img src={loading} alt="" />
     </Loading>
-  )
-}
-
+  );
+};

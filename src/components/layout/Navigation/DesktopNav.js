@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import mobileNavIcon from '../../../media/hamburger.png';
 import NavLinks from './NavLinks';
-import {Link} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import Logo from '../../../media/logo.png';
 
 const MyDesktopNavbar = styled.nav`
@@ -10,72 +10,88 @@ const MyDesktopNavbar = styled.nav`
   grid-template-columns: 1fr 1fr;
   color: white;
 
-  .nav-links{
+  .nav-links {
     width: 45%;
     height: 80px;
     margin: 0 auto;
     display: grid;
     /* grid-template-columns: repeat(4, 1fr); */
-    
+
     grid-template-columns: repeat(auto-fit, minmax(0px, 1fr));
     grid-column: span 2;
     align-items: center;
     list-style: none;
-    @media screen and (max-width: 768px){ display: none; }
-   
-    
+    @media screen and (max-width: 768px) {
+      display: none;
+    }
   }
-  .link{
-    
+  .link {
     display: flex;
     flex-flow: column nowrap;
     align-items: center;
     color: white;
-    font-size: 1.5vw; @media(min-width: 1200px){ font-size: 20px;}
+    font-size: 1.5vw;
+    @media (min-width: 1200px) {
+      font-size: 20px;
+    }
     text-decoration: none;
     font-family: 'Livvic', sans-serif;
     font-weight: bold;
     position: relative;
     transition: width 500ms ease, color 500ms ease;
-    
-    &:hover{
-      color: lightgrey; 
+
+    &:hover {
+      color: lightgrey;
     }
-    &::after{
-      content:'';
-      height: 2px; width: 0px;
+    &::after {
+      content: '';
+      height: 2px;
+      width: 0px;
       background: lightgrey;
       display: block;
       transition: width 0.5s ease-in-out;
       width: 0%;
-      @media(max-width: 1200px){ display: none; }
-    } 
-    &.active::after{
+      @media (max-width: 1200px) {
+        display: none;
+      }
+    }
+    &.active::after {
       transition: width 0.25s ease-in-out;
       width: 40%;
     }
-    &.active{ color: lightgrey; }
+    &.active {
+      color: lightgrey;
+    }
 
-    & > img{
-      width: 25px; height: 25px; object-fit: cover;
+    & > img {
+      width: 25px;
+      height: 25px;
+      object-fit: cover;
       display: block;
       margin: 0 auto;
-      @media(max-width: 1200px){ 
-        width: 35px; height: 35px; 
-        
+      @media (max-width: 1200px) {
+        width: 35px;
+        height: 35px;
       }
     }
-    & > span{
-      @media(max-width: 1200px){ display: none; }
+    & > span {
+      @media (max-width: 1200px) {
+        display: none;
+      }
     }
-    & > div{
+    & > div {
       font-size: 2rem;
       position: absolute;
-      top: -7px; right: 20%; transform: translateX(-50%);
-      @media(max-width: 1200px){ top: 0; right: 15%; transform: translateX(35%); }
+      top: -7px;
+      right: 20%;
+      transform: translateX(-50%);
+      @media (max-width: 1200px) {
+        top: 0;
+        right: 15%;
+        transform: translateX(35%);
+      }
     }
   }
-
 `;
 
 const MyMobileNavButton = styled.button`
@@ -86,17 +102,17 @@ const MyMobileNavButton = styled.button`
   display: none;
   margin-right: 10px;
   transition: transform 650ms;
-  transform: rotate( ${props => props.displayMobileNavbar ? ("90deg") : ("0")} );
+  transform: rotate(${(props) => (props.displayMobileNavbar ? '90deg' : '0')});
 
-  &:focus{
+  &:focus {
     outline: none;
   }
-  img{
+  img {
     width: 100%;
     height: 100%;
     object-fit: cover;
   }
-  @media screen and (max-width: 768px){
+  @media screen and (max-width: 768px) {
     display: grid;
     justify-self: end;
   }
@@ -104,10 +120,11 @@ const MyMobileNavButton = styled.button`
 const NavbarBrand = styled.div`
   color: red;
   height: 100%;
-  display: flex; flex-direction: row;
+  display: flex;
+  flex-direction: row;
   align-self: center;
   justify-self: center;
-  a{
+  a {
     display: grid;
     grid-template-columns: auto auto;
     height: 56px;
@@ -116,7 +133,7 @@ const NavbarBrand = styled.div`
     text-decoration: none;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     text-transform: uppercase;
-    img{
+    img {
       margin: 0 5px;
       width: auto;
       height: 45px;
@@ -127,16 +144,18 @@ const NavbarBrand = styled.div`
 `;
 
 const SocialLinks = styled.div`
-align-self: center;
-justify-self: center;
-  a{
+  align-self: center;
+  justify-self: center;
+  a {
     font-size: 1.5em;
     color: white;
     margin-left: 15px;
-    &:hover{
+    &:hover {
       color: lightgrey;
     }
-    i:hover{cursor: pointer;}
+    i:hover {
+      cursor: pointer;
+    }
   }
 `;
 
@@ -144,27 +163,41 @@ const DesktopNav = (props) => {
   return (
     <div>
       <MyDesktopNavbar>
-        <NavbarBrand><Link to="/"><img src={Logo} alt="" />Bhutanotel</Link></NavbarBrand>
+        <NavbarBrand>
+          <Link to="/">
+            <img src={Logo} alt="" />
+            Bhutan-Hotel
+          </Link>
+        </NavbarBrand>
 
         <SocialLinks>
-          <a href="https://github.com/klauza/bhutanotel"><i className="fa fa-github"></i></a>
-          <a href="https://www.linkedin.com/in/michal-klauza-b22318186/"><i className="fa fa-linkedin-square"></i></a>{/* eslint-disable-next-line */}
-          <a><i className="fa fa-facebook-official"></i></a>{/* eslint-disable-next-line */}
-          <a><i className="fa fa-twitter-square"></i></a>
-          <Link to="/contact"><i className="fa fa-map-marker"></i></Link>
+          <a>
+            <i className="fa fa-linkedin-square"></i>
+          </a>
+          {/* eslint-disable-next-line */}
+          <a>
+            <i className="fa fa-facebook-official"></i>
+          </a>
+          {/* eslint-disable-next-line */}
+          <a>
+            <i className="fa fa-twitter-square"></i>
+          </a>
+          <Link to="/contact">
+            <i className="fa fa-map-marker"></i>
+          </Link>
         </SocialLinks>
 
-        <NavLinks/>
+        <NavLinks />
 
-        <MyMobileNavButton 
+        <MyMobileNavButton
           displayMobileNavbar={props.displayMobileNavbar}
           onClick={props.toggleMobileNavbar}
         >
-          <img src={mobileNavIcon} alt=""/>
+          <img src={mobileNavIcon} alt="" />
         </MyMobileNavButton>
       </MyDesktopNavbar>
     </div>
-  )
-}
+  );
+};
 
-export default DesktopNav
+export default DesktopNav;

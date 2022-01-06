@@ -1,24 +1,27 @@
-*, *:before, *:after{
+*,
+*:before,
+*:after {
   box-sizing: border-box;
-  margin: 0; padding: 0;
-} 
+  margin: 0;
+  padding: 0;
+}
 
-html{
+html {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  // font-family: "Segoe UI", "Roboto", "Oxygen",
+  font-family: 'Segoe UI', 'Roboto', 'Oxygen';
   // "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
   /* background: #f2f5f7; */
-  background-image: url("media/bg.png");
+  background-image: url('media/bg.png');
   background-repeat: repeat;
 }
 
-body{
+body {
   overflow-x: hidden;
   overflow-y: scroll;
   width: 100%;
 }
-.App{
+.App {
   display: flex;
   flex-direction: column;
   min-height: calc(100vh - 50px);
@@ -28,17 +31,17 @@ body{
 }
 
 $i: 0;
-@for $i from 0 through 6{
-  .active-slide-#{$i} .card-#{$i}{
+@for $i from 0 through 6 {
+  .active-slide-#{$i} .card-#{$i} {
     opacity: 1;
     transform: scale(1);
-    .card-details{
+    .card-details {
       opacity: 1;
     }
   }
 }
 
 .react-calendar__navigation__next2-button,
-.react-calendar__navigation__prev2-button{
+.react-calendar__navigation__prev2-button {
   display: none;
 }
