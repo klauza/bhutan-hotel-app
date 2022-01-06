@@ -29,7 +29,9 @@ const But1 = styled.button`
   outline: 0;
   border: 0;
   border-radius: 5px;
+  font-weight: 700;
   background: lightblue;
+  box-shadow: 0px 2px 6px -1px rgba(66, 68, 90, 1);
   &:hover {
     cursor: pointer;
     background: rgb(132, 182, 199);
