@@ -1,22 +1,23 @@
 ## About
 
+[Live page](https://bhutan-hotel-app.netlify.app/)
+
 `app` :<br/>
-It's a handracfted frontend application. "Bhutanotel" is a fictitious hotel facility located in Thimphu, the capitol of Bhutan. The enterprise was founded for travellers and world-explorers to provide them a cosy, luxury and pleasant place to stay between their demanding adventures.<br/>
-[live page](https://bhutanotel.netlify.app/)
-
- <br/>
-
-`features` :
-
-- renting: **a flat, a guide (plus tour), or a car**<br/>
-- project is mobile-friendly
-- there is a map to see the hotel location
-
-Live page under this link: [bhutanotel.netlify.com](https://bhutanotel.netlify.com/)
+A handcrafter drontend application with various features listed below. Bhutan-hotela-app is a fictive hotel facility located in Bhutan. The facility in a fictitious way was founded for world explorers who may want to stay for a while in this beautiful country.
 
 <br/>
 
-| Project includes                                                                                                                                                                                   |
+`features` :
+
+- **renting:** a flat, a guide (plus tour), or a car
+- **map:** a map with hotel location and nearby attractions
+- project is mobile-friendly
+
+<br/>
+
+## Main Packages
+
+| Name                                                                                                                                                                                               |
 | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | **React**                                                                                                                                                                                          |
 | **Redux**                                                                                                                                                                                          |
@@ -27,14 +28,14 @@ Live page under this link: [bhutanotel.netlify.com](https://bhutanotel.netlify.c
 
 <br/>
 
-## Images
+## Media
 
-| Image               | Attribution                                   |
-| ------------------- | --------------------------------------------- |
-| **main-page-logos** | [iconfinder.com](https://www.iconfinder.com/) |
-| **favicon/logo**    | [flaticon.com](https://www.flaticon.com/)     |
-| **Not-found-img**   | [kisspng.com](https://kisspng.com)            |
-| **other-images**    | [pexels.com](https://www.pexels.com/)         |
+| Image              | Attribution                                   |
+| ------------------ | --------------------------------------------- |
+| **home logos**     | [iconfinder.com](https://www.iconfinder.com/) |
+| **web icon logo**  | [flaticon.com](https://www.flaticon.com/)     |
+| **Not found page** | [kisspng.com](https://kisspng.com)            |
+| **other images**   | [pexels.com](https://www.pexels.com/)         |
 
 <br/>
 
