@@ -191,7 +191,9 @@ const Contact = () => {
 
       <FlexLayout>
         <MapOverlay onClick={runFunction}>
-          <MapHeader>Trouble with finding our facility? Use the map.</MapHeader>
+          <MapHeader>
+            Trouble finding our facility? Use the map below.
+          </MapHeader>
           <TheMap
             ishidden={wrapped}
             className="map"

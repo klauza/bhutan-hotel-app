@@ -191,14 +191,14 @@ const Main = () => {
         <h1>By travellers for travellers</h1>
 
         <p>
-          Once we were travellers too, just like you. Discovering new horizons,
+          We used to be travellers too, just like you. Discovering new horizons,
           <br />
           broadening knowledge, meeting new interesting people.
         </p>
 
         <p>
-          Now, we help you achieve even something bigger <br />
-          We help you with finding answers and provide a needed comfort.
+          Now our goal is to help you achieve even something bigger. <br />
+          We help you to find answers and provide a needed comfort.
         </p>
       </Description>
 
