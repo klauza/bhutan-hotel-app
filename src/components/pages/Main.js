@@ -10,6 +10,7 @@ const Sponsors = styled.div`
   width: 100%;
   height: auto;
   margin-top: 100px;
+  margin-bottom: 150px;
   /* background: #f2f5f7; */
   display: flex;
   flex-direction: column;
@@ -73,10 +74,23 @@ const SponsorsLogos = styled.div`
   }
 `;
 
+const AboutCountry = styled.div`
+  h1 {
+    margin-top: 20px;
+  }
+  p {
+    font-size: 1.1rem;
+    margin-top: 5px;
+    line-height: 150%;
+
+    text-align: justify;
+  }
+`;
+
 const Description = styled.div`
   border-top: 1px solid lightgrey;
   border-bottom: 1px solid lightgrey;
-  margin: 100px 0 150px;
+  margin: 50px 0 150px;
   text-align: center;
   width: 100%;
   padding: 4rem 2rem;
@@ -186,6 +200,81 @@ const Main = () => {
           {/* </div> */}
         </SponsorsLogos>
       </Sponsors>
+
+      <Wrapper>
+        <AboutCountry>
+          <h1>Land of Thunder Dragon</h1>
+          <p>
+            Druk is the “Thunder Dragon” in Bhutanese and Tibetan mythology. It
+            is also the Bhutanese national symbol. You can find the Druk
+            appearing on the flag of Bhutan, holding jewels to represent wealth.
+            Bhutan is called the land of the Thunder Dragon, a reference to its
+            wild thunderstorms striking the valleys from the peaks of the
+            Himalayas. The dazzling light of thunder was believed to be the fire
+            from a dragon.
+          </p>
+
+          <h1>Buddhism</h1>
+          <p>
+            The origins of Buddhism come from India: the prince Siddhartha
+            Gautama. After he was born, many knew he was more than just a
+            prince, but his parents did not want him to discover this, so he was
+            kept in isolation. A sage predicted that the prince would either
+            become a powerful king or great spiritual leader. After he finally
+            approached to the outside world, he decided to become an ascetic and
+            wandered the world in an attempt to find a way to end all suffering.
+            He finally reached enlightenment and became the Buddha while
+            meditating under a banyan tree. His dharma includes the Four Noble
+            Truths and the Eight-Fold Path to Enlightenment.
+          </p>
+
+          <h1>The Land of Happiness</h1>
+          <p>
+            Completely cut off for centuries, Bhutan still fiercely guards its
+            ancient traditions and Buddhist customs. Bhutan is a small Himalayan
+            kingdom known for its breathtaking landscapes, unique culture, happy
+            people, majestic monasteries and fluttering flags. National dress -
+            the knee-length wrap-around "gho" for men and the ankle-length dress
+            known as the "kira" for women, is compulsory. Bhutan is called ‘The
+            Land of Happiness’ and yes it is truly one of the happiest countries
+            in the world where Gross National Happiness is more important than
+            Gross National Product. Happiness is crutial in Bhutan so they even
+            established a Gross National Happiness (GNH) Commission. GNH
+            Commission, which ensures that everything the country does, should
+            contribute to the overall well-being and happiness of its people.
+            The pursuit of GNH is also enshrined in the country’s constitution.
+            The GNH index is based on four pillars – cultural preservation,
+            environment protection, good governance and sustainable
+            socio-economic development.
+          </p>
+
+          <h1>Tourism</h1>
+          <p>
+            Besides simply immersing yourself in daily life on the streets in
+            Paro and the markets of Thimphu, one of the highlights of travelling
+            to Bhutan is a visit to the Taktsang Monastery 'Tiger's Nest'
+            nestled on the cliff edge high above the Paro Valley. Said to have
+            been one of the divine resting places of the Guru Ringpoche, it is
+            worthwhile to ascend the walking trail to appreciate the monastery's
+            breathtaking location on a cliff edge about 800 metres above the
+            valley. As part of its proud Buddhist culture, Bhutan is home to a
+            large number of festivals held throughout the year that add even
+            more colour and vibrance to any journey here. World Expeditions runs
+            a number of special trips to get you to these festivals Tshechus are
+            Buddhist religious festivals held around the Dzong (fortress
+            monastery) and generally last several days. The Paro Tshecu, held in
+            April, is a bright, colourful affair with hundreds of people from
+            the city and surrounding countryside filling the courtyards and
+            temple grounds to watch and participate in the event. Masked dances
+            are performed by trained Buddhist monks. The Thimphu Tsechu is held
+            in the courtyard of the Tashichho Dzong around September, and the
+            Bhutanese come from all over the country, dressed in their finest
+            clothes to attend. It is believed that those who witness the
+            festival will be brought much luck and their wishes and dreams
+            realised.
+          </p>
+        </AboutCountry>
+      </Wrapper>
 
       <Description>
         <h1>By travellers for travellers</h1>
